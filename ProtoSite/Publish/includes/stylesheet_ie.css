@@ -1,0 +1,6 @@
+/* This stylesheet was originally designed and developed by Codify Design Studio (codifydesign.com) */
+@charset "UTF-8";
+
+/* Style overrides for Internet Explorer 7, 8 */
+
+.page .marquee_container .marquee_caption { background-color: none; background-image: url(../images/ie_caption_background.png); }

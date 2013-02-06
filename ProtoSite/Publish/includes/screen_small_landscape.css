@@ -1,0 +1,52 @@
+/* This stylesheet was originally designed and developed by Codify Design Studio (codifydesign.com) */
+@charset "UTF-8";
+
+/* Small Screen Landscape Rules */
+
+body { padding: 0px; background-image: none; background-color: #205576; }
+.page { margin: 0px; padding: 0px; font-size: 1.1em }
+.page header { height: 57px; position: fixed; }
+.page header a.logo {
+	top: 0px; left: 0px;
+}
+.page .page_content .page_content_container_left { width: inherit; float: none; margin: 0px; }
+.page .page_content .page_content_container_right { width: inherit; float: none; margin: 0px; }
+.page .page_content .content { margin: 10px 10px 20px 10px; }
+
+.page nav {
+	top: 0px; right:-13px; position: fixed;
+}
+.page nav a {
+	padding: 7px 0px 7px 11px;
+	margin: 0px 17px 4px 0px;
+	background: url(../images/icon_dots.png) no-repeat 0px 11px;
+}
+.page nav a:hover { color: #0e7db1; }
+
+h1 { font-size: 1.2em; color: #9e472a; margin: 0px 0px .7em 0px; font-weight: normal; }
+
+.studentHeader { margin-top: -97px; background-image:url('../images/userStripLarge.png'); background-repeat:no-repeat;
+background-size:90% 95%; }
+
+.studentImage { width: 100px; height: 100px; background-image:url('../images/studentImage.png'); background-repeat:no-repeat;
+background-size:100% 100%; }
+
+.studentDetails { padding-top: 22px; padding-left: 20px }
+
+.page .marquee_container { display: none; }
+.page .marquee_smallscreen { display: block; height: 150px; overflow: hidden; position: relative; width: 100%; }
+.page .marquee_smallscreen .smallscreen_panel_photo { position: absolute; top: 0px; left: 0px; }
+.page .marquee_smallscreen .smallscreen_panel_caption { position: absolute; bottom: 0px; left: 15px; width: 50%; background-color: rgba(41,17,0,.8); padding: 10px 10px 5px 10px; }
+.page .marquee_smallscreen .smallscreen_panel_caption h2 { font-family: Georgia; font-weight: normal; font-size: 1.1em; color: #fff;  margin: 0px 0px 5px 0px;}
+.page .marquee_smallscreen .smallscreen_panel_caption p { font-size: 1em; color: #fff; margin: 0px 0px 5px 0px; }
+.page .marquee_smallscreen .smallscreen_panel_caption a { color: #2fa4db; }
+
+
+.page .home_promo_container { margin: 0px; padding: 0px; }
+.page .home_promo_container .home_promo { margin: 0px 0px 25px 0px; padding: 15px 0px 0px 15px; width: auto; float: none; border-top: 1px solid #ebe1c8; }
+.page .home_promo_container .home_promo .home_promo_content { margin: 0px; padding: 0px 15px 0px 75px; background: no-repeat 0px 0px; }
+.page .home_promo_container .home_promo .home_promo_content h2 { font-size: 1.3em; margin-bottom: 5px; }
+.page .home_promo_container .home_promo .home_promo_content p:first-line { font-weight: bold; color: #444; }
+
+
+.page footer { font-size: .8em; }

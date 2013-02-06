@@ -1,0 +1,40 @@
+/* This stylesheet was originally designed and developed by Codify Design Studio (codifydesign.com) */
+@charset "UTF-8";
+
+/* Medium Screen Landscape Rules */
+
+body {  padding: 0px 20px 20px 20px; margin: 0px; }
+.page { margin: 0px; padding: 0px; font-size: 1.1em }
+.page header { height: 60px; }
+.page header a.logo {
+	top: 0px ;
+}
+
+h1 { font-size: 2em; color: #9e472a; margin: 0px 0px .5em 0px; font-weight: normal; }
+
+.page nav {
+	top: 37px; right: 0px;
+}
+.page nav a {
+	padding: 7px 0px 7px 11px;
+	margin: 0px 17px 4px 0px;
+	background: url(../images/icon_dots.png) no-repeat 0px 11px;
+}
+
+.studentHeader { margin-top: -145px; background-image:url('../images/userStripLarge.png'); background-repeat:no-repeat;
+background-size:87% 95%; }
+
+.studentImage { width: 150px; height: 150px; background-image:url('../images/studentImage.png'); background-repeat:no-repeat;
+background-size:100% 100%; }
+
+.studentDetails { padding-top: 22px; padding-left: 20px }
+
+.page header a.logo { width: 984px; }
+
+.page .marquee_container { margin: 0px 0px 50px 0px; }
+
+.page .home_promo_container { margin: 0px; padding: 20px 0px 20px 20px; border-top: 1px solid #ebe1c8; }
+.page .home_promo_container .home_promo { margin: 0px; padding: 0px; width: 33%; float: left; }
+.page .home_promo_container .home_promo .home_promo_content { margin: 0px; padding: 65px 40px 0px 0px; background: no-repeat 0px 0px; }
+.page .home_promo_container .home_promo .home_promo_content h2 { font-family: Georgia; font-weight: normal; font-size: 1.5em; }
+.page .home_promo_container .home_promo .home_promo_content p:first-line { font-weight: bold; color: #444; }

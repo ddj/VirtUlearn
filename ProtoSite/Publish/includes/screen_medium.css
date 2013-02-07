@@ -4,30 +4,31 @@
 /* Medium Screen Rules */
 
 body { padding: 0px; }
-.page { margin: 0px; padding: 0px; font-size: 1.1em }
+.page { margin: 0px; padding: 0px; font-size: 1.1em; border-color:#000000; border-width:0px; }
 .page header { height: 60px; position: fixed; }
 .page header a.logo {
 	top: 0px;
 }
 
-h1 { font-size: 2em; color: #9e472a; margin: 0px 0px .5em 0px; font-weight: normal; }
-
 .page nav {
-	top: 40px; right:-13px; position: fixed;
+	top: 27px; right:0px;
 }
 .page nav a {
-	padding: 7px 0px 7px 11px;
+	padding: 10px 0px 7px 11px;
 	margin: 0px 17px 4px 0px;
-	background: url(../images/icon_dots.png) no-repeat 0px 11px;
+	background: url(../images/icon_dots.png) no-repeat 0px 0px;
 }
 
-.studentHeader { margin-top: -145px; background-image:url('../images/userStripLarge.png'); background-repeat:no-repeat;
+.student_header_container { margin-bottom: 9px; }
+.studentDetailsTable { font-size: 2em; border-collapse:collapse; }
+
+.studentHeader { margin-top: -162px; background-image:url('../images/userStripLarge.png'); background-repeat:no-repeat;
 background-size:87% 95%; }
 
-.studentImage { width: 150px; height: 150px; background-image:url('../images/studentImage.png'); background-repeat:no-repeat;
+.studentImage { margin-right: 9px; width: 150px; height: 150px; background-image:url('../images/studentImage.png'); background-repeat:no-repeat;
 background-size:100% 100%; }
 
-.studentDetails { padding-top: 72px; padding-left: 20px }
+.studentDetails { padding-top: 71px; padding-left: 20px }
 
 .page .marquee_container { margin: 0px 0px 50px 0px; }
 

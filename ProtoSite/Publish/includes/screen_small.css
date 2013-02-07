@@ -4,7 +4,7 @@
 /* Small Screen Rules */
 
 body { padding: 0px; background-image: none; background-color: #205576; }
-.page { margin: 0px; padding: 0px; font-size: 1.1em }
+.page { margin: 0px; padding: 0px; font-size: 1.1em border-color:#000000; border-width: 0px; }
 .page header { 
 	position: fixed;
 	height: 57px;
@@ -35,15 +35,22 @@ body { padding: 0px; background-image: none; background-color: #205576; }
 }
 .page nav a:hover { color: #0e7db1; }
 
-h1 { font-size: 1.2em; color: #9e472a; margin: 0px 0px .6em 0px; font-weight: normal; }
+.student_header_container { margin-bottom: 7px; }
+.studentDetailsTable { display: none; }
+.studentDetailsList { display: block; }
 
-.studentHeader { margin-top: -96px; background-image:url('../images/userStripLarge.png'); background-repeat:no-repeat;
+h1 { font-size: 1.2em; margin: 0px 5px 0px 0px; }
+h2 { font-size: 1.2em; margin: 0px 0px 1em 0px; }
+
+.studentHeader { margin-top: -111px; background-image:url('../images/userStripLarge.png'); background-repeat:no-repeat;
 background-size:80% 95%; }
 
-.studentImage { width: 100px; height: 100px; background-image:url('../images/studentImage.png'); background-repeat:no-repeat;
+.studentImage { margin-right: 5px; width: 100px; height: 100px; background-image:url('../images/studentImage.png'); background-repeat:no-repeat;
 background-size:100% 100%; }
 
-.studentDetails { padding-top: 77px; padding-left: 20px }
+.studentDetails { padding-top: 75px; padding-left: 15px }
+
+
 
 .page .marquee_container { display: none; }
 .page .marquee_smallscreen { display: block; height: 150px; overflow: hidden; position: relative; width: 100%; }

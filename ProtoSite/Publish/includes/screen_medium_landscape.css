@@ -3,17 +3,18 @@
 
 /* Medium Screen Landscape Rules */
 
-body {  padding: 0px 20px 20px 20px; margin: 0px; }
-.page { margin: 0px; padding: 0px; font-size: 1.1em }
+body {  padding: 0px 0px 0px 0px; margin: 0px; }
+.page { margin: 0px; padding: 0px; font-size: 1.1em; border-color:#000000; border-width:0px;  }
 .page header { height: 60px; }
 .page header a.logo {
 	top: 0px ;
 }
 
-h1 { font-size: 2em; color: #9e472a; margin: 0px 0px .5em 0px; font-weight: normal; }
+h1 { float: left; font-size: 2em; color: #9e472a; margin: 0px 0px 0px 0px; font-weight: normal; }
+h2 { font-size: 2em; color: #9e472a; margin: 0px 0px 0px 0px; font-weight: normal; }
 
 .page nav {
-	top: 37px; right: 0px;
+	top: 32px; right: 0px; font-size: 17px;
 }
 .page nav a {
 	padding: 7px 0px 7px 11px;
@@ -21,15 +22,18 @@ h1 { font-size: 2em; color: #9e472a; margin: 0px 0px .5em 0px; font-weight: norm
 	background: url(../images/icon_dots.png) no-repeat 0px 11px;
 }
 
-.studentHeader { margin-top: -145px; background-image:url('../images/userStripLarge.png'); background-repeat:no-repeat;
+.student_header_container { margin-bottom: 20px; }
+.studentDetailsTable { font-size: 2em; border-collapse:collapse; }
+
+.studentHeader { margin-top: -162px; background-image:url('../images/userStripLarge.png'); background-repeat:no-repeat;
 background-size:87% 95%; }
 
-.studentImage { width: 150px; height: 150px; background-image:url('../images/studentImage.png'); background-repeat:no-repeat;
+.studentImage { margin-right: 20px; width: 150px; height: 150px; background-image:url('../images/studentImage.png'); background-repeat:no-repeat;
 background-size:100% 100%; }
 
 .studentDetails { padding-top: 22px; padding-left: 20px }
 
-.page header a.logo { width: 984px; }
+.page header a.logo { max-width: 2000px; }
 
 .page .marquee_container { margin: 0px 0px 50px 0px; }
 

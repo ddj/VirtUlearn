@@ -23,8 +23,13 @@ body {
 .clear_both { clear: both; line-height: 1px; }
 .debug { margin: 0px 0px 20px 10px; font-family: Courier; }
 
-h1 { font-size: 2em; color: #9e472a; margin: 0px 0px .7em 0px; font-weight: normal; }
-h2 { font-size: 1.6em; color: #525032; margin: 0px 0px .5em 0px; }
+.studentDetailsTable { font-size: 2em; color: #000; }
+.studentDetailsList { display: none; }
+
+h1 { float: left; font-size: 2em; color: #000; margin: 0px 10px 0px 0px; font-weight: bold; }
+h2 { font-size: 2em; color: #000; margin: 0px 0px .7em 0px; font-weight: normal; }
+/*h1 { font-size: 2em; color: #9e472a; margin: 0px 0px .7em 0px; font-weight: normal; }
+h2 { font-size: 1.6em; color: #525032; margin: 0px 0px .5em 0px; }*/
 h3 { font-size: 1.25em; color: #9e472a; margin: 0em 0px .25em 0px; }
 p { margin: 0px 0px 1em 0px; font-size: 1em; }
 li { margin: 0px 0px 10px 0px; }
@@ -51,7 +56,7 @@ a:hover { color: #0e7db1; text-decoration: underline; }
 	background: url(../images/VUTopBanner.png) no-repeat 0px 0px;
 }
 
-.studentHeader { margin-top: -153px; background-image:url('../images/userStripLarge.png'); background-repeat:no-repeat;
+.studentHeader { margin-top: -167px; background-image:url('../images/userStripLarge.png'); background-repeat:no-repeat;
 background-size:90% 95%; }
 
 .studentImage { margin-right: 20px; margin-top: 22px; width: 150px; height: 150px; background-image:url('../images/studentImage.png'); background-repeat:no-repeat;

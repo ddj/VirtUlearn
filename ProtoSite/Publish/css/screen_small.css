@@ -3,10 +3,9 @@
 
 /* Small Screen Rules */
 
-body { padding: 0px; background-image: none; background-color: #205576; }
+body { padding: 0px; background-image: none; background-color: #CCC; margin: 0px; }
 .page { margin: 0px; padding: 0px; font-size: 1.1em border-color:#000000; border-width: 0px; }
 .page header { 
-	position: fixed;
 	height: 57px;
 	 }
 .page header a.logo {
@@ -48,7 +47,7 @@ background-size:80% 95%; }
 .studentImage { margin-right: 5px; width: 100px; height: 100px; background-image:url('../images/studentImage.png'); background-repeat:no-repeat;
 background-size:100% 100%; }
 
-.studentDetails { padding-top: 75px; padding-left: 15px }
+.studentDetails { padding-top: 20px; padding-left: 15px }
 
 
 

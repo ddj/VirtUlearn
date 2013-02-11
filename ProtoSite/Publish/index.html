@@ -1,35 +1,39 @@
 <!DOCTYPE HTML>
-<html>
+<html> 
 	<head>
 		<meta charset="UTF-8">
 		<title>VirtUlearn - The UK's Leading Interactive Educator</title>
 		<meta id="view" name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content="This site was created from a template originally designed and developed by Codify Design Studio. Find more free templates at http://www.adobe.com/devnet/author_bios/chris_converse.html" />
 		<meta http-equiv="X-UA-Compatible" content="IE=9" />
-		<link rel="stylesheet" type="text/css" href="includes/stylesheet.css" />
-		<link rel="stylesheet" type="text/css" media="only screen and (min-width:50px) and (max-width:500px) and (min-height:350px)"  href="includes/screen_small.css">
-        <link rel="stylesheet" type="text/css" media="only screen and (min-width:400px) and (max-height:400px)"  href="includes/screen_small_landscape.css">
-        <link rel="stylesheet" type="text/css" media="only screen and (min-width:801px) and (max-height:800px) and (min-height:600px)"  href="includes/screen_medium_landscape.css">
-		<link rel="stylesheet" type="text/css" media="only screen and (min-width:501px) and (max-width:800px) and (min-height:401px)" href="includes/screen_medium.css">
+		<link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
+		<link rel="stylesheet" type="text/css" media="only screen and (min-width:50px) and (max-width:500px) and (min-height:350px)"  href="css/screen_small.css">
+        <link rel="stylesheet" type="text/css" media="only screen and (min-width:400px) and (max-height:400px)"  href="css/screen_small_landscape.css">
+        <link rel="stylesheet" type="text/css" media="only screen and (min-width:801px) and (max-height:800px) and (min-height:600px)"  href="css/screen_medium_landscape.css">
+		<link rel="stylesheet" type="text/css" media="only screen and (min-width:501px) and (max-width:800px) and (min-height:401px)" href="css/screen_medium.css">
 		<!--[if lt IE 9]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 			<link rel="stylesheet" type="text/css" href="includes/stylesheet_ie.css" />
 		<![endif]-->
-		<script type="text/javascript" src="includes/jquery-1.6.min.js"></script>
-		<script type="text/javascript" src="includes/farinspace/jquery.imgpreload.min.js"></script>
-		<script type="text/javascript" src="includes/template.js"></script>
-		<script type="text/javascript">
-			var timeToChange = 6;     //seconds
-			var transitionTime = 1.5; //seconds
-		</script>
+    
+        <link href="css/royalslider.css" rel="stylesheet">
+        <link href="css/homeSlider.css" rel="stylesheet">
+    <script  src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/jquery.royalslider.min.js?v=9.3.5"></script>
+    
 	</head>
 	<body>
 		<div class="page" >
 			<header><a class="logo"></a>
-            	<area shape="rect" coords="0,0,66,213" href="www.virtulearn.net16.net/Publish/index.html" alt="Sun">
+         	<!-- hyperlink here -->
             </header>
-			<div class="page_content">
-				<!-- begin - student header -->
+			<div class="page_content">        
+              <div id="homeSlider" class="royalSlider rsDefaultInv">
+          
+          <div class="rsContent" data-rsDelay="2500" style="background: #FFF; background-image: url(images/blueprint.jpg)">
+            <!--<img class="rsImg" src="./images/blueprint.jpg" alt="new royalslider" />-->
+            <i class="rsTmb">Account</i>
+            <!-- begin - student header -->
               <div class="student_header_container">
                 
                 <div class="studentDetails">
@@ -57,60 +61,133 @@
                 <div class="studentHeader" align="right">  
                 	<div class="studentImage"></div>
                 </div>
-			  </div>	
+			  </div>
                 <!-- END - student header -->
-                
-                <!-- begin - homepage promos -->
-					<div class="home_promo_container">
-						<div class="home_promo">
-							<div class="home_promo_content" style="background-image:url(images/homepage_promo_1.jpg);">
-								<h2>Botany Topic 1</h2>
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
-								<a class="button" href="#">Learn more &raquo;</a>
-							</div>
-						</div>
-						<div class="home_promo">
-							<div class="home_promo_content" style="background-image:url(images/homepage_promo_2.jpg);">
-								<h2>Botany Topic 2</h2>
-								<p>Dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor</p>
-								<a class="button" href="#">Learn more &raquo;</a>
-							</div>
-						</div>
-						<div class="home_promo">
-							<div class="home_promo_content" style="background-image:url(images/homepage_promo_3.jpg);">
-								<h2>Botany Topic 3</h2>
-								<p>Voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id pariatur.</p>
-								<a class="button" href="#">Learn more &raquo;</a>
-							</div>
-						</div>
-						<div class="clear_both"></div>
-						<!-- begin - homepage promos -->
-                				
-					<!-- begin - homepage promo -->
-					<div class="marquee_container">
-						<div class="marquee_photos"><br/><br/>loading...</div>
-						<div class="marquee_caption">
-							<div class="marquee_caption_content"></div>
-							
-						</div>
-						<div class="marquee_nav"></div>
-						<div class="marquee_panel_data"></div>
-					</div>
-					<div class="marquee_smallscreen"><br/><br/>loading...</div>
-					<!-- end - homepage promo -->
-					
-					
+            <!--<h1 class="rsABlock rsFirstSlideTitle rsSlideTitle">Professional Image Gallery</h1>
+            <h2 class="rsABlock rsSecondSlideTitle rsSlideTitle" data-delay="350">& Content Slider</h2>
+            <table
+            background="images/VULogo.png" height="100%" width="100%">
+            </table>-->
+          </div>
+          
+          <div class="rsContent">
+            <a class="rsImg" href="http://dimsemenov.com/plugins/royal-slider/img/previews/home/fullwidth.jpg">Full Width Slider</a>
+            <a id="fullScreenBtn" onclick ="fs();" class="example-link" href="/plugins/royal-slider/full-width/"><i class="rsTmb">Live Lectures</i>Full screen &#9656;</a>
+          </div>
+          
+          <div class="rsContent">
+            <a class="rsImg" href="http://dimsemenov.com/plugins/royal-slider/img/previews/home/lightbox.jpg">Slider in Lightbox</a>
+            <a class="example-link" href="/plugins/royal-slider/slider-in-lightbox/"><i class="rsTmb">Modules</i>View this example &#9656;</a>
+          </div>
+          
+          <div class="rsContent">
+            <a class="rsImg" href="http://dimsemenov.com/plugins/royal-slider/img/previews/home/simple-vertical.jpg">Vertical Slider</a>
+            <a class="example-link" href="/plugins/royal-slider/simple-vertical/"><i class="rsTmb">Personal Notes</i>View this example &#9656;</a>
+          </div>
+          
+          <div class="rsContent">
+            <a class="rsImg" href="http://dimsemenov.com/plugins/royal-slider/img/previews/home/gallery-fade.jpg">Vertical Gallery</a>
+            <a class="example-link" href="/plugins/royal-slider/gallery-vertical-fade/"><i class="rsTmb">Resources</i>View this example &#9656;</a>
+          </div>
+          
+          <div class="rsContent">
+            <a class="rsImg" href="http://dimsemenov.com/plugins/royal-slider/img/previews/home/slider-in-laptop.jpg">In laptop</a>
+            <a class="example-link" href="/plugins/royal-slider/slider-in-laptop/"><i class="rsTmb">Work To-Do</i>View this example &#9656;</a>
+          </div>
+          
+          <div class="rsContent">
+            <a class="rsImg" href="http://dimsemenov.com/plugins/royal-slider/img/previews/home/deeplinking.jpg">Deep linking</a>
+            <a class="example-link" href="/plugins/royal-slider/gallery-with-deeplinking/"><i class="rsTmb">Messages</i>View this example &#9656;</a>
+          </div>
+      </div>
+        
+        <nav>
+            <!--<a href="#">Who We Are</a>
+            <a href="#">What We Do</a>-->
+            <a href="#">J.Smith</a>
+            <a href="#">Logout</a>
+        </nav>
+        
+        <!--</footer style="margin-top:0px;">&copy; 2013 &bull; VirtUlearn Ltd</footer>-->
+</div>  
 
+<script>
+	function fs() {
+    var elem = document.getElementById("homeSlider");
+	var h = $(window).height();
+	var w = $(window).width();
+	//$('.royalSlider').css('height', h += 'px !important');
+ elem.style.position="absolute";
+ //elem.style.width="10%";
+ elem.style.height= '100% !important';
+ elem.style.top="0px";
+ //elem.style.bottom="0px";
+ elem.style.zIndex="999";
 
-				</div>
-				<nav>
-					<!--<a href="#">Who We Are</a>
-					<a href="#">What We Do</a>-->
-					<a href="#">J.Smith</a>
-                    <a href="#">Logout</a>
-				</nav>
-			</div>
-			<footer>&copy; 2013 &bull; VirtUlearn Ltd</footer>
-		</div>
+ document.body.style.overflow = "hidden";
+/* document.getElementById('#homeSlider .rsThumbsHor').style.display = "none";*/
+}
+		</script>
+        
+        <!-- ADJUST TO PAGE HEIGHT<script>
+	
+	var h = $(window).height();
+	var w = $(window).width();	  
+	slider = h - 57
+		$(document).ready( function(){
+		  
+$('.royalSlider').css('height', slider += 'px !important');
+});
+		</script>-->
+        
+  
+    <script>
+      jQuery(document).ready(function($) {
+  var opts = {
+    controlNavigation:'thumbnails',
+    imageScaleMode: 'fill',
+    arrowsNav: false,
+    arrowsNavHideOnTouch: true,
+    fullscreen: false,
+    loop: false,
+    thumbs: {
+      firstMargin: false,
+      paddingBottom: 0
+    },
+    autoPlay: {
+      enabled: false,
+      delay: 2000
+    },
+    numImagesToPreload: 3,
+    thumbsFirstMargin: false,
+    autoScaleSlider: true, 
+    autoScaleSliderWidth: 960,     
+    autoScaleSliderHeight: 600,
+    keyboardNavEnabled: true,
+    navigateByClick: true,
+    fadeinLoadedSlide: true
+  };
+  if(!$.browser.webkit) {
+    opts.imgWidth = 707;
+    opts.imgHeight = 397;
+  }
+  var sliderJQ = $('#homeSlider').royalSlider(opts);
+
+});
+    </script>
+  
+  <div style="display:none;"><script type="text/javascript">
+  (function(w, c) {
+      (w[c] = w[c] || []).push(function() {
+          try {
+              w.yaCounter11382601 = new Ya.Metrika({id:11382601, enableAll: true, trackHash:false, webvisor:true});
+          }
+          catch(e) { }
+      });
+  })(window, "yandex_metrika_callbacks");
+  </script></div>
+  <script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript" defer></script>
+  <noscript><div><img src="//mc.yandex.ru/watch/11382601" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        
 	</body>
 </html>

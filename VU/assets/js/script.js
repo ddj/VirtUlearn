@@ -56,44 +56,6 @@ $(function(){
 
 	var prev = {};
 	
-	document.addEventListener("touchstart", touchHandler, true);
-    document.addEventListener("touchmove", touchHandler, true);
-    document.addEventListener("touchend", touchHandler, true);
-    document.addEventListener("touchcancel", touchHandler, true);
-
-    function touchHandler(event)
-    {
-        var touches = event.changedTouches,
-            first = touches[0],
-            type = '';
-        switch(event.type)
-        {
-            case "touchstart":
-                type = "mousedown";
-                break;
-            case "touchmove":
-                type = "mousemove";
-                break;
-            case "touchend":
-                type = "mouseup";
-                break;
-            case "touchcancel":
-                type = "mouseup";
-                break;
-            default:
-                return;
-        }
-
-        var simulatedEvent = document.createEvent("MouseEvent");
-        simulatedEvent.initMouseEvent(type, true, true, window, 1,
-            first.screenX, first.screenY,
-            first.clientX, first.clientY, false,
-            false, false, false, 0/*left*/, null);
-
-        first.target.dispatchEvent(simulatedEvent);
-        event.preventDefault();
-    }
-	
 	canvas.on('mousedown',function(e){
 		e.preventDefault();
 		drawing = true;
@@ -103,6 +65,7 @@ $(function(){
 		// Hide the instructions
 		instructions.fadeOut();
 	});
+	
 	
 	doc.bind('mouseup mouseleave',function(){
 		drawing = false;
@@ -121,6 +84,7 @@ $(function(){
 			lastEmit = $.now();
 		}
 		
+		
 		// Draw a line for the current user's movement, as it is
 		// not received in the socket.on('moving') event above
 		
@@ -132,6 +96,8 @@ $(function(){
 			prev.y = e.pageY;
 		}
 	});
+	
+		var lastEmit = $.now();
 
 	// Remove inactive clients after 10 seconds of inactivity
 	setInterval(function(){
@@ -155,7 +121,51 @@ $(function(){
 		ctx.lineTo(tox, toy);
 		ctx.stroke();
 	}
+	
+	// create a drawer which tracks touch movements
+		var drawer = {
+			isDrawing: false,
+			touchstart: function(coors){
+				ctx.beginPath();
+				ctx.moveTo(coors.x, coors.y);
+				this.isDrawing = true;
+				// Hide the instructions
+				instructions.fadeOut();
 
+			},
+			touchmove: function(coors){
+				if (this.isDrawing) {
+			        ctx.lineTo(coors.x, coors.y);
+			        ctx.stroke();
+				}
+			},
+			touchend: function(coors){
+				if (this.isDrawing) {
+			        this.touchmove(coors);
+			        this.isDrawing = false;
+				}
+			}
+		};
+		// create a function to pass touch events and coordinates to drawer
+		function draw(event){
+			// get the touch coordinates
+			var coors = {
+				x: event.targetTouches[0].pageX,
+				y: event.targetTouches[0].pageY
+			};
+			// pass the coordinates to the appropriate handler
+			drawer[event.type](coors);
+		}
+		
+		// attach the touchstart, touchmove, touchend event listeners.
+	    document.addEventListener('touchstart',draw, false);
+	    document.addEventListener('touchmove',draw, false);
+	    document.addEventListener('touchend',draw, false);
+		
+		// prevent elastic scrolling
+		document.body.addEventListener('touchmove',function(event){
+			event.preventDefault();
+		},false);	// end body.onTouchMove
 });
 
 function openPDF(file)

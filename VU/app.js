@@ -33,11 +33,4 @@ io.sockets.on('connection', function (socket) {
 		// to everyone except the originating client.
 		socket.broadcast.emit('moving', data);
 	});
-		// Start listening for mouse move events
-	socket.on('pagechange', function (data) {
-		
-		// This line sends the event (broadcasts it)
-		// to everyone except the originating client.
-		socket.broadcast.emit('pagechange', data);
-	});
 });

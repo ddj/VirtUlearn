@@ -17,10 +17,6 @@
 	    	<!-- The mouse pointers will be created here -->
 		</div>
         
-        Page:<span id="pageNum"></span> of <span id="numPages"></span>
-        <a href="javascript:prevPage()">Previous</a> |
-        <a href="javascript:nextPage()">Next</a>
-        
         <div id="viewer">
 		<canvas id="paper" style="border:1px solid black;"/>
         </canvas>
@@ -34,6 +30,9 @@
 		
         <footer>
 	       <input type="file" name="datasize" size="30" value="Load Slides">
+           Page:<span id="pageNum"></span> of <span id="numPages"></span>
+        <a href="javascript:prevPage()">Previous</a> |
+        <a href="javascript:nextPage()">Next</a>
         </footer>
         
         <!-- JavaScript includes. Notice that socket.io.js is served by node.js -->

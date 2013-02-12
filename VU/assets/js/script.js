@@ -8,7 +8,7 @@ $(function(){
 
 	// The URL of your web server (the port is set in app.js)
     //the right url must be typed in here, for my computer it's 192.168.1.2
-	var url = 'http://10.111.8.86:8080';
+	var url = 'http://10.111.71.169:8080';
 
 	var doc = $(document),
 		win = $(window),
@@ -151,7 +151,6 @@ $(function(){
 	},10000);
 
 	function drawLine(fromx, fromy, tox, toy){
-	       ctx.strokeStyle("#FF0000");
 		ctx.moveTo(fromx, fromy);
 		ctx.lineTo(tox, toy);
 		ctx.stroke();

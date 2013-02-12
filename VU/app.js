@@ -34,10 +34,10 @@ io.sockets.on('connection', function (socket) {
 		socket.broadcast.emit('moving', data);
 	});
 		// Start listening for mouse move events
-	socket.on('touchmove', function (data) {
+	socket.on('pagechange', function (data) {
 		
 		// This line sends the event (broadcasts it)
 		// to everyone except the originating client.
-		socket.broadcast.emit('moving', data);
+		socket.broadcast.emit('pagechange', data);
 	});
 });

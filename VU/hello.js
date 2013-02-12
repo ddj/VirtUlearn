@@ -16,7 +16,7 @@ var pageNum, numPages;
 //
 PDFJS.getDocument('helloworld.pdf').then(function(pdf) {
   // Using promise to fetch the page
-  pdf.getPage(4).then(function(page) {
+  pdf.getPage(1).then(function(page) {
     var scale = 1.5;
     var viewport = page.getViewport(scale);
     pageNum = 1;

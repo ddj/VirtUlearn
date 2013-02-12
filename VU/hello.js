@@ -12,7 +12,7 @@
 //
 PDFJS.getDocument('helloworld.pdf').then(function(pdf) {
   // Using promise to fetch the page
-  pdf.getPage(1).then(function(page) {
+  pdf.getPage(2).then(function(page) {
     var scale = 1.5;
     var viewport = page.getViewport(scale);
 
@@ -21,8 +21,8 @@ PDFJS.getDocument('helloworld.pdf').then(function(pdf) {
     //
     var canvas = document.getElementById('paper');
     var context = canvas.getContext('2d');
-    canvas.height = viewport.height;
-    canvas.width = viewport.width;
+    //canvas.height = viewport.height;
+    //canvas.width = viewport.width;
 
     //
     // Render PDF page into canvas context

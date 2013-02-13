@@ -1,7 +1,7 @@
 
 #homeSlider {
   position: absolute;
-  background:#F00;
+  background: #FFF url(../images/stage_bg1.png) repeat-x top;
   font-weight: bold;
   height: 100% !important;
   width: 100%;
@@ -9,7 +9,7 @@
   overflow-y: visible;
 }
 #homeSlider .rsThumbsHor {
-  height: 44px;
+  height: 45px;
 }
 /*unselected tab*//*
 .rsDefaultInv,

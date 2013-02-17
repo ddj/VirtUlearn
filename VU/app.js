@@ -25,15 +25,7 @@ io.set('log level', 1);
 
 // Listen for incoming connections from clients
 io.sockets.on('connection', function (socket) {
-              socket.on( 'prevSlide', function() {
-                        console.log('in the server now for prev');
-                        io.sockets.emit('slidePrev');
-                        });
-              
-              socket.on( 'nextSlide', function() {
-                        console.log('in the server now for next');
-                        io.sockets.emit('slideNext');
-                        });
+
 	// Start listening for mouse move events
 	socket.on('mousemove', function (data) {
 		

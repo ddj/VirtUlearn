@@ -8,13 +8,11 @@ $(function(){
 
 	// The URL of your web server (the port is set in app.js)
     //the right url must be typed in here, for my computer it's 192.168.1.2
-	var url = 'http://192.168.1.2:8080';
+	var url = 'http://192.168.0.14:8080';
 
 	var doc = $(document),
 		win = $(window),
 		canvas = $('#paper'),
-  prevButton = $('#prev'),
-  nextButton = $('#next'),
 		ctx = canvas[0].getContext('2d'),
 		instructions = $('#instructions');
 	
@@ -56,14 +54,6 @@ $(function(){
 		clients[data.id].updated = $.now();
 	});
 
-  socket.on('slidePrev', function() {
-            prevPage();
-            });
-  
-  socket.on('slideNext', function() {
-            nextPage();
-            });
-  
 	var prev = {};
 	
 	canvas.on('mousedown',function(e){
@@ -76,14 +66,7 @@ $(function(){
 		instructions.fadeOut();
 	});
 	
-  prevButton.on('click',function(){
-                socket.emit('prevSlide');
-                });
-  
-  nextButton.on('click',function(){
-                socket.emit('nextSlide');
-                });
-  
+	
 	doc.bind('mouseup mouseleave',function(){
 		drawing = false;
 	});
@@ -188,44 +171,4 @@ $(function(){
 function openPDF(file)
 {
 windows.open(file, 'resizable,scrollbars');
-}
-
-var pageNum;
-var numPages;
-
-function displayPage(num){
-    document.getElementById("pageNum").innerHTML = num;
-    pageNum=num;
-    PDFJS.getDocument('helloworld.pdf').then(function(pdf) {
-                                             pdf.getPage(num).then(function(page) {
-                                                                   var scale = 1.5;
-                                                                   var viewport = page.getViewport(scale);
-                                                                   document.getElementById("pageNum").innerHTML = pageNum.toString();
-                                                                   var canvas = document.getElementById('paper');
-                                                                   var context = canvas.getContext('2d');
-                                                                   canvas.height = viewport.height;
-                                                                   canvas.width = viewport.width;
-                                                                   var renderContext = {
-                                                                   canvasContext: context,
-                                                                   viewport: viewport
-                                                                   };
-                                                                   page.render(renderContext);
-                                                                   });
-                                             numPages= pdf.numPages;
-                                             document.getElementById("numPages").innerHTML = numPages.toString();
-                                             });
-}
-
-function prevPage() {
-    pageNum = parseInt(document.getElementById("pageNum").innerHTML);
-    if(pageNum > 1) {
-        displayPage(pageNum - 1);
-    }
-}
-
-function nextPage() {
-    pageNum = parseInt(document.getElementById("pageNum").innerHTML);
-    if(pageNum < numPages) {
-        displayPage(pageNum + 1);
-    }
 }

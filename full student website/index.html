@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<script src="http://www.parsecdn.com/js/parse-1.2.1.min.js"></script>
+
+  <meta charset="UTF-8">
+
+  <title>VirtUlearn</title>
+
+  <link rel="stylesheet" href="css/normalize.css">
+
+  <style>
+@import url(http://fonts.googleapis.com/css?family=Libre+Baskerville|Roboto:300,100);
+
+* {margin:0;padding:0;font-size:100%;vertical-align:baseline;border:0;outline:0;background:transparent;font-weight:normal;outline:none;line-height:2em;-webkit-text-size-adjust:100%;}
+
+body { 
+  background: #a4d2dd;
+  margin-top:50px;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #000000;
+}
+
+h1 {
+  display:inline;
+  background: #a4d2dd;
+  position:absolute;
+  left:-100px;
+  top:60px;
+  animation: google 4.5s 0s ease; 
+  font: 72px/80px 'Libre Baskerville', serif;
+  z-index: 1;
+  color:#fff;
+}
+h2 {
+  display:inline;
+  position:absolute;
+  left:100px;
+  top:50px;
+  animation: google2 5.5s 0s ease; 
+  color:#fff;
+  font:100 70px/80px 'Roboto', sans-serif;, serif; 
+}
+h1 span {
+  font:300 30px/30px 'Roboto', sans-serif;, serif;
+  position:relative;
+  top:-20px;
+}
+
+.cont {
+  position:relative;
+  width:30em;
+  margin: auto;
+}
+
+.frame1 {
+  position: absolute;
+  width: 13em;
+  height: 0em;
+  background:#555;
+  animation: frame1 3.4s 0.5s ease; 
+  z-index: 2;
+}
+
+.frame2 {
+  position: absolute;
+  width: 0em; 
+  height: 16em;
+  margin-left: 1.5em;
+  margin-top: 1.5em;
+  background:#cdd5e0;
+  animation: frame2 4.6s 0.5s ease; 
+  z-index: 3;
+}
+
+.line1, .line2, .line3 {
+  position: absolute;
+  width: 7em;
+  height: 0em;
+  margin-left: 3em;
+  margin-top: 3em;
+  background:#fff;
+  z-index: 4;
+}
+
+.line4, .line5, .line6, .line7, .line8, .line9 {
+  position: absolute;
+  z-index: 1;
+}
+.line4 {
+  width: 0em;
+  height: 2em;
+  margin-left: 2em;
+  margin-top: 7em;
+  background:#AFCC17;
+  animation: left 2s 2.8s ease;
+}
+.line5 {
+  width: 4em;
+  height: 0em;
+  margin-left: 4em;
+  margin-top: 7em;
+  background:#F2CE3B;
+  animation: right 2s 2.8s ease;
+}
+.line6 {
+  width: 3em;
+  height: 0em;
+  margin-left: 2em;
+  margin-top: 12em;
+  background:#F06533;
+  animation: right 2s 3s ease;
+}
+.line7 {
+  width: 2em;
+  height: 0em;
+  margin-left: 4em;
+  margin-top: 7em;
+  background:#4491AB;
+  animation: right 2s 2.8s ease;
+}
+.line8 {
+  width: 0em;
+  height: 2em;
+  margin-left: 3em;
+  margin-top: 9em;
+  background:#AFCC17;
+  animation: left 2s 3s ease;
+}
+.line9 {
+  width: 3em;
+  height: 0em;
+  margin-left: 4em;
+  margin-top: 3em;
+  background:#F06533;
+  animation: right 2s 2.7s ease;
+}
+
+.line1 { animation: line 4.2s 0.9s ease; }
+.line2 { animation: line 4.1s 0.8s ease; margin-top: 7.5em;}
+.line3 { animation: line 4s 0.7s ease; margin-top:12em}
+
+@keyframes line {
+	0% { height: 4em; opacity: 0;}
+	10% { top: 0em; opacity: 1;} 
+	20% { top: 0em; } 
+  60% { top: 0em; left:0; opacity: 1; width: 7em;}
+  100% { left: 30em; opacity: 0; height:4em; width: 0.1em; } 
+}
+
+@keyframes left {
+	0% { height: auto; opacity: 0;}
+	10% { top: 0em; opacity: 1;} 
+	20% { top: 0em; } 
+  60% { top: 0em; left:0; opacity: 1; width: 7em;}
+  100% { left: -30em; opacity: 0; height:4em; width: 0.1em; } 
+}
+
+@keyframes right {
+	0% { width: 4em; height: auto; opacity: 0;}
+	10% { top: 0em; opacity: 1;} 
+	20% { top: 0em; } 
+  60% { top: 0em; left:0; opacity: 1; width: 7em;}
+  100% { left: 30em; opacity: 0; height:4em; width: 0.1em; } 
+}
+
+@keyframes frame1 {
+	0% { height: 0.1em; top:12em; left:0;}
+	10% { height: 22em; top: -1em; left:0;}  
+	20% { height: 20em; top: 0em; left:0;} 
+  70% { top: 0em; left:0; opacity: 1;}
+  95% { width: 13em; top:0em; left: -30em;  opacity: 0;}
+  100% { height:20em; width: 0.1em; opacity: 0;}  
+}
+
+@keyframes frame2 { 
+	0% { width: 10em; top:0; left:0; opacity: 0;}
+	10% { top: 0em; left:0; opacity: 1;} 
+	20% { top: 0em; left:0;} 
+  70% { width: 10em; top: 0em; left:0; opacity: 1;}
+  100% { left: -40em; opacity: 0; width:0.1em; }
+} 
+
+@keyframes google {
+	0% { opacity: 0;}
+	10% { } 
+	20% { } 
+  90% { opacity: 0;}
+  100% { opacity: 1; } 
+}
+@keyframes google2 {
+	0% { opacity: 0;} 
+	10% { } 
+	80% { left: -100px;} 
+  90% { opacity: 0;}
+  100% { opacity: 1; } 
+}
+#codepen-footer,#codepen-footer *{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}#codepen-footer{position:fixed;bottom:0;left:0;width:100%;padding:0 10px;height:30px;color:#eeeeee;background-color:#505050;background:-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #505050), color-stop(100%, #383838));background:-webkit-linear-gradient(#505050,#383838);background:-moz-linear-gradient(#505050,#383838);background:-o-linear-gradient(#505050,#383838);background:linear-gradient(#505050,#383838);border-top:1px solid black;border-bottom:1px solid black;box-shadow:inset 0 1px 0 #6e6e6e,0 2px 2px rgba(0,0,0,0.4);font:12px/30px "Lucida Grande","Lucida Sans Unicode",Tahoma,sans-serif;line-height:30px}#codepen-footer a{color:#a7a7a7;text-decoration:none}#codepen-footer a:hover{color:white}#footer-right{position:absolute;right:5px;top:0}#bs-button{padding:1px 6px 2px 19px;background:url(/images/browserstack.png),-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fff4d1), color-stop(100%, #c9b67b));background:url(/images/browserstack.png),-webkit-linear-gradient(#fff4d1,#c9b67b);background:url(/images/browserstack.png),-moz-linear-gradient(#fff4d1,#c9b67b);background:url(/images/browserstack.png),-o-linear-gradient(#fff4d1,#c9b67b);background:url(/images/browserstack.png),linear-gradient(#fff4d1,#c9b67b);background-position:4px center,center center;background-repeat:no-repeat;background-size:12px 12px,cover;border:0;font:11px "Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;border-radius:5px}#bs-button:hover{background:url(/images/browserstack.png),#fff4d1;background-position:4px center,center center;background-repeat:no-repeat;background-size:12px 12px,cover}
+
+     
+      #wrapper{
+          margin-top: 200px auto;
+          margin-left: 800px;
+          height: 90px;
+          width: 299px;
+          background:#4491AB;
+          inset 0px -25px 75px rgba(0,0,0,0.4),
+          0px 1px 0px #133f62,
+          0px 4px 5px rgba(0,0,0,0.5);
+          text-align: center;
+      }
+      
+      #text1{
+          position: relative;
+          top: 5px;
+          height: 15px;
+          width: 275px;
+          box-shadow: 0px 1px 0px rgba(255,255,255,0.3),
+          inset 0px 1px 3px rgba(0,0,0,0.5);
+          margin-bottom: 5px;
+          font-size: 15pt;
+          color:#000000;
+          padding: 10px 5px;
+      }
+      
+      #text1:focus{
+          outline: none;
+      }
+	  
+	  #text2{
+          position: relative;
+          top: 5px;
+          height: 15px;
+          width: 275px;
+          box-shadow: 0px 1px 0px rgba(255,255,255,0.3),
+          inset 0px 1px 3px rgba(0,0,0,0.5);
+          margin-bottom: 5px;
+          font-size: 15pt;
+          color:#000000;
+          padding: 10px 5px;
+      }
+      
+      #text2:focus{
+          outline: none;
+      }
+      
+      .pass{
+          float: left;
+          margin-left: 6px;
+          border-right: none !important;
+          width: 200px !important;
+          border-bottom-right-radius: 0px !important;
+          border-top-right-radius: 0px !important;
+      }
+      
+      #login{
+          position: relative;
+          top: 5px;
+          right: 6px;
+          /*padding: 10px 20px;*/
+          padding-top: 10px;
+          padding-bottom: 10px;
+          padding-left: 21px;
+          padding-right: 20px;
+          background: #AFCC17;
+          float: right;
+          text-decoration: none;
+          font-family: lucida grande;
+          font-size: 9pt;
+          box-shadow: inset 0px 1px 0px rgba(255,255,255,0.3),
+          0px 1px 0px rgba(255,255,255,0.3);
+          color: black;
+          text-shadow: 0px 1px 0px rgba(255,255,255,0.4);
+      }
+      
+      #login:active{
+          background: #F06533;
+          box-shadow: inset 0px 1px 3px rgba(0,0,0,0.2),
+          0px 1px 0px rgba(255,255,255,0.3);
+      }
+      
+      .animate {
+          -webkit-animation-duration: 8.5s;
+          -moz-animation-duration: 8.5s;
+          -ms-animation-duration: 8.5s;
+          -o-animation-duration: 8.5s;
+          animation-duration: 8.5s;
+          -webkit-animation-timing-function: ease-in-out;
+          -moz-animation-timing-function: ease-in-out;
+          -ms-animation-timing-function: ease-in-out;
+          -o-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+      }
+      
+      .dropIn {
+          -webkit-animation-name: dropIn;
+          -moz-animation-name: dropIn;
+          -ms-animation-name: dropIn;
+          -o-animation-name: dropIn;
+          animation-name: dropIn;
+      }
+      
+      @-webkit-keyframes dropIn {
+          0% {
+              -webkit-transform: translateY(-1000px);
+          }
+          25% {
+              -webkit-transform: translateY(-1000px);
+          }
+          50% {
+              -webkit-transform: translateY(-200px);
+          }
+          75% {
+              -webkit-transform: translateY(15px);
+          }
+          85% {
+              -webkit-transform: translateY(5px);
+          }
+          90% {
+              -webkit-transform: translateY(2px);
+          }
+          100% {
+              -webkit-transform: translateY(0);
+          }
+      }
+      @-moz-keyframes dropIn {
+          0% {
+              -moz-transform: translateY(-1000px);
+          }
+          25% {
+              -moz-transform: translateY(-1000px);
+          }
+          50% {
+              -moz-transform: translateY(-200px);
+          }
+          75% {
+              -moz-transform: translateY(15px);
+          }
+          85% {
+              -moz-transform: translateY(5px);
+          }
+          90% {
+              -moz-transform: translateY(2px);
+          }
+          100% {
+              -moz-transform: translateY(0);
+          }
+      }
+      @-ms-keyframes dropIn {
+          0% {
+              -ms-transform: translateY(-1000px);
+          }
+          25% {
+              -ms-transform: translateY(-1000px);
+          }
+          50% {
+              -ms-transform: translateY(-200px);
+          }
+          75% {
+              -ms-transform: translateY(15px);
+          }
+          85% {
+              -ms-transform: translateY(5px);
+          }
+          90% {
+              -ms-transform: translateY(2px);
+          }
+          100% {
+              -ms-transform: translateY(0);
+          }
+      }
+      @-o-keyframes dropIn {
+          0% {
+              -o-transform: translateY(-1000px);
+          }
+          25% {
+              -o-transform: translateY(-1000px);
+          }
+          50% {
+              -o-transform: translateY(-200px);
+          }
+          75% {
+              -o-transform: translateY(15px);
+          }
+          85% {
+              -o-transform: translateY(5px);
+          }
+          90% {
+              -o-transform: translateY(2px);
+          }
+          100% {
+              -o-transform: translateY(0);
+          }
+      }
+      @keyframes dropIn {
+          0% {
+              transform: translateY(-1000px);
+          }
+          25% {
+              transform: translateY(-1000px);
+          }
+          50% {
+              transform: translateY(-200px);
+          }
+          75% {
+              transform: translateY(15px);
+          }
+          85% {
+              transform: translateY(5px);
+          }
+          90% {
+              transform: translateY(2px);
+          }
+          100% {
+              transform: translateY(0);
+          }
+      }
+      #codepen-footer,#codepen-footer *{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}#codepen-footer{position:fixed;bottom:0;left:0;width:100%;padding:0 10px;height:30px;color:#eeeeee;background-color:#505050;background:-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #505050), color-stop(100%, #383838));background:-webkit-linear-gradient(#505050,#383838);background:-moz-linear-gradient(#505050,#383838);background:-o-linear-gradient(#505050,#383838);background:linear-gradient(#505050,#383838);border-top:1px solid black;border-bottom:1px solid black;box-shadow:inset 0 1px 0 #6e6e6e,0 2px 2px rgba(0,0,0,0.4);font:12px/30px "Lucida Grande","Lucida Sans Unicode",Tahoma,sans-serif;line-height:30px}#codepen-footer a{color:#a7a7a7;text-decoration:none}#codepen-footer a:hover{color:white}#footer-right{position:absolute;right:5px;top:0}#bs-button{padding:1px 6px 2px 19px;background:url(/images/browserstack.png),-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fff4d1), color-stop(100%, #c9b67b));background:url(/images/browserstack.png),-webkit-linear-gradient(#fff4d1,#c9b67b);background:url(/images/browserstack.png),-moz-linear-gradient(#fff4d1,#c9b67b);background:url(/images/browserstack.png),-o-linear-gradient(#fff4d1,#c9b67b);background:url(/images/browserstack.png),linear-gradient(#fff4d1,#c9b67b);background-position:4px center,center center;background-repeat:no-repeat;background-size:12px 12px,cover;border:0;font:11px "Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;border-radius:5px}#bs-button:hover{background:url(/images/browserstack.png),#fff4d1;background-position:4px center,center center;background-repeat:no-repeat;background-size:12px 12px,cover}
+      
+  </style>
+
+  <script src="js/prefixfree.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class="cont">
+
+  <div class="frame1"></div>
+  <div class="frame2"></div>
+
+  <div class="line1"></div>
+  <div class="line2"></div>
+  <div class="line3"></div>
+  <div class="line4"></div>
+  <div class="line5"></div>
+  <div class="line6"></div>
+  <div class="line7"></div>
+  <div class="line8"></div>
+  <div class="line9"></div>
+  <h1>VirtU<span></span><h2>learn</h2></h1>
+
+</div>
+    
+    <div class="animate dropIn">
+		<div id="wrapper">
+			<input type="text" id="text1" placeholder="User"/>
+			<input type="password" class="pass" id="text2" placeholder="Password" />
+			<a href="#" onClick="Login()" id="login">Login</a>
+		</div>
+        
+	</div>
+    
+
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="js/modernizr.js"></script>
+
+  <script>
+  Parse.initialize("gAWomM0rkBO0iTwhujztAIMN8Dwfo93rXxNBAcHR", "yvPZpTfRleqO3hXyv2kVm4ZX9RySDouUH0H2H3FW");
+
+function Login () {
+var text1 = document.getElementById("text1");
+var textstring1 = text1.value;
+
+var text2 = document.getElementById("text2");
+var textstring2 = text2.value;
+var Students = Parse.Object.extend("Students");
+
+var query = new Parse.Query(Students);
+
+query.equalTo("username", textstring1);
+query.first({
+
+  success: function(result) {
+
+		var password = result.get("password");
+
+    	if(password==textstring2) {
+
+			var user = result.get("username");
+			var type = result.get("type");
+
+		sessionStorage.setItem("key", user)
+		sessionStorage.setItem("type", type);
+
+		window.open("home.html",'_self');
+
+	} else {}
+
+  },
+
+  error: function(error) {
+
+    alert("Error: " + error.code + " " + error.message);
+
+  }
+
+});
+
+}
+  </script>
+
+</body>
+
+</html>

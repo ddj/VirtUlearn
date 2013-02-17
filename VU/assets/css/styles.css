@@ -15,7 +15,7 @@
 
 
 html{
-	background:url('../img/bg.png') repeat #e4e4e4;
+	/*background:url('../img/bg.png') repeat #e4e4e4;
 		
 	/* This will hide the extra canvas if the screen is small */
 	overflow:hidden;
@@ -37,6 +37,18 @@ a:hover{
 
 section, footer, header{
 	display: block;
+}
+
+.left {
+    background-color: Red;
+    float: left;
+    width: 50%;
+}
+
+.right {
+    background-color: Red;
+	height:100%;
+    margin-left: 50%;
 }
 
 

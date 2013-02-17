@@ -8,16 +8,42 @@ $(function(){
 
 	// The URL of your web server (the port is set in app.js)
     //the right url must be typed in here, for my computer it's 192.168.1.2
-	var url = 'http://192.168.0.14:8080';
+	var url = 'http://192.168.0.7:8080';
 
 	var doc = $(document),
-		win = $(window),
-		canvas = $('#paper'),
-		ctx = canvas[0].getContext('2d'),
+	win = $(window),
+	canvas = $('#paper'),
+  		prevButton = $('#prev'),
+  		nextButton = $('#next'),
+		ctx = canvas[0].getContext('2d'),		
 		instructions = $('#instructions');
+		
+	    //Generate a random color
+    var r = Math.floor(Math.random() * 255) + 70;
+    var g = Math.floor(Math.random() * 255) + 70;
+    var b = Math.floor(Math.random() * 255) + 70;
+    var color = 'rgb(' + r + ',' + g + ',' + b + ')';
 	
 	// Generate an unique ID
-	var id = Math.round($.now()*Math.random());
+	var id = sessionStorage.getItem("key");
+	var userType = sessionStorage.getItem("type");
+	//var id = Math.round($.now()*Math.random());
+	
+	
+		
+	if(userType.match("Teacher")){
+		prevButton.on('click',function(){
+                socket.emit('prevSlide');
+                });
+  
+  		nextButton.on('click',function(){
+                socket.emit('nextSlide');
+                });		
+	}
+	else{
+		$('#conversation').hide();
+	}
+
 	
 	// A flag for drawing activity
 	var drawing = false;
@@ -26,6 +52,45 @@ $(function(){
 	var cursors = {};
 
 	var socket = io.connect(url);
+	
+	// on connection to server, ask for user's name with an anonymous callback
+	socket.on('connect', function(){
+		// call the server-side function 'adduser' and send one parameter (value of prompt)
+		socket.emit('adduser', id);
+	});
+
+	// listener, whenever the server emits 'updatechat', this updates the chat body
+	socket.on('updatechat', function (username, data) {
+		$('#conversation').append('<b>'+username + ':</b> ' + data + '<br>');
+	});
+
+	socket.on('updaterooms', function(rooms, current_room) {
+		$('#rooms').empty();
+		/*$.each(rooms, function(key, value) {
+			if(value == current_room){
+				$('#rooms').append('<div>' + value + '</div>');
+			}
+			else {
+				$('#rooms').append('<div><a href="#" onclick="switchRoom(\''+value+'\')">' + value + '</a></div>');
+			}
+		});*/
+	});
+		// when the client clicks SEND
+		$('#datasend').click( function() {
+			var message = $('#data').val();
+			$('#data').val('');
+			// tell server to execute 'sendchat' and send along one parameter
+			socket.emit('sendchat', message);
+		});
+
+		// when the client hits ENTER on their keyboard
+		$('#data').keypress(function(e) {
+			if(e.which == 13) {
+				$(this).blur();
+				$('#datasend').focus().click();
+			}
+		});
+	
 	
 	socket.on('moving', function (data) {
 		
@@ -44,8 +109,9 @@ $(function(){
 		if(data.drawing && clients[data.id]){
 			
 			// Draw a line on the canvas. clients[data.id] holds
-			// the previous position of this user's mouse pointer
-			
+			// the previous position of this user's mouse pointer	
+			ctx.strokeStyle = data.color;
+
 			drawLine(clients[data.id].x, clients[data.id].y, data.x, data.y);
 		}
 		
@@ -53,8 +119,54 @@ $(function(){
 		clients[data.id] = data;
 		clients[data.id].updated = $.now();
 	});
-
+  
 	var prev = {};
+	
+	socket.on('slidePrev', function() {
+        prevPage();
+    });
+  
+  	socket.on('slideNext', function() {
+       nextPage();
+    });
+	
+	document.addEventListener("touchstart", touchHandler, true);
+    document.addEventListener("touchmove", touchHandler, true);
+    document.addEventListener("touchend", touchHandler, true);
+    document.addEventListener("touchcancel", touchHandler, true);
+
+    function touchHandler(event)
+    {
+        var touches = event.changedTouches,
+            first = touches[0],
+            type = '';
+        switch(event.type)
+        {
+            case "touchstart":
+                type = "mousedown";
+                break;
+            case "touchmove":
+                type = "mousemove";
+                break;
+            case "touchend":
+                type = "mouseup";
+                break;
+            case "touchcancel":
+                type = "mouseup";
+                break;
+            default:
+                return;
+        }
+
+        var simulatedEvent = document.createEvent("MouseEvent");
+        simulatedEvent.initMouseEvent(type, true, true, window, 1,
+            first.screenX, first.screenY,
+            first.clientX, first.clientY, false,
+            false, false, false, 0/*left*/, null);
+
+        first.target.dispatchEvent(simulatedEvent);
+        event.preventDefault();
+    }
 	
 	canvas.on('mousedown',function(e){
 		e.preventDefault();
@@ -65,8 +177,7 @@ $(function(){
 		// Hide the instructions
 		instructions.fadeOut();
 	});
-	
-	
+  
 	doc.bind('mouseup mouseleave',function(){
 		drawing = false;
 	});
@@ -74,14 +185,17 @@ $(function(){
 	var lastEmit = $.now();
 
 	doc.on('mousemove',function(e){
+		if(userType.match("Teacher")){
 		if($.now() - lastEmit > 30){
 			socket.emit('mousemove',{
 				'x': e.pageX,
 				'y': e.pageY,
+				'color': color,
 				'drawing': drawing,
 				'id': id
 			});
 			lastEmit = $.now();
+		}
 		}
 		
 		
@@ -89,7 +203,7 @@ $(function(){
 		// not received in the socket.on('moving') event above
 		
 		if(drawing){
-			
+			//ctx.strokeStyle = color;
 			drawLine(prev.x, prev.y, e.pageX, e.pageY);
 			
 			prev.x = e.pageX;
@@ -120,55 +234,51 @@ $(function(){
 		ctx.moveTo(fromx, fromy);
 		ctx.lineTo(tox, toy);
 		ctx.stroke();
-	}
-	
+	} 
 	// create a drawer which tracks touch movements
-		var drawer = {
-			isDrawing: false,
-			touchstart: function(coors){
-				ctx.beginPath();
-				ctx.moveTo(coors.x, coors.y);
-				this.isDrawing = true;
-				// Hide the instructions
-				instructions.fadeOut();
-
-			},
-			touchmove: function(coors){
-				if (this.isDrawing) {
-			        ctx.lineTo(coors.x, coors.y);
-			        ctx.stroke();
-				}
-			},
-			touchend: function(coors){
-				if (this.isDrawing) {
-			        this.touchmove(coors);
-			        this.isDrawing = false;
-				}
-			}
-		};
-		// create a function to pass touch events and coordinates to drawer
-		function draw(event){
-			// get the touch coordinates
-			var coors = {
-				x: event.targetTouches[0].pageX,
-				y: event.targetTouches[0].pageY
-			};
-			// pass the coordinates to the appropriate handler
-			drawer[event.type](coors);
-		}
-		
-		// attach the touchstart, touchmove, touchend event listeners.
-	    document.addEventListener('touchstart',draw, false);
-	    document.addEventListener('touchmove',draw, false);
-	    document.addEventListener('touchend',draw, false);
-		
-		// prevent elastic scrolling
-		document.body.addEventListener('touchmove',function(event){
-			event.preventDefault();
-		},false);	// end body.onTouchMove
 });
 
 function openPDF(file)
 {
 windows.open(file, 'resizable,scrollbars');
+}
+
+var pageNum;
+var numPages;
+
+function displayPage(num){
+    document.getElementById("pageNum").innerHTML = num;
+    pageNum=num;
+    PDFJS.getDocument('helloworld.pdf').then(function(pdf) {
+                                             pdf.getPage(num).then(function(page) {
+                                                                   var scale = 1.5;
+                                                                   var viewport = page.getViewport(scale);
+                                                                   document.getElementById("pageNum").innerHTML = pageNum.toString();
+                                                                   var canvas = document.getElementById('paper');
+                                                                   var context = canvas.getContext('2d');
+                                                                   canvas.height = viewport.height + 200;
+                                                                   canvas.width = viewport.height + 200;
+                                                                   var renderContext = {
+                                                                   canvasContext: context,
+                                                                   viewport: viewport
+                                                                   };
+                                                                   page.render(renderContext);
+                                                                   });
+                                             numPages= pdf.numPages;
+                                             document.getElementById("numPages").innerHTML = numPages.toString();
+                                             });
+}
+
+function prevPage() {
+    pageNum = parseInt(document.getElementById("pageNum").innerHTML);
+    if(pageNum > 1) {
+        displayPage(pageNum - 1);
+    }
+}
+
+function nextPage() {
+    pageNum = parseInt(document.getElementById("pageNum").innerHTML);
+    if(pageNum < numPages) {
+        displayPage(pageNum + 1);
+    }
 }

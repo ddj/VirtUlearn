@@ -8,21 +8,20 @@ $(function(){
 
 	// The URL of your web server (the port is set in app.js)
     //the right url must be typed in here, for my computer it's 192.168.1.2
-	var url = 'http://192.168.0.7:8080';
+	var url = 'http://10.111.71.169:8080';
 
 	var doc = $(document),
 	win = $(window),
 	canvas = $('#paper'),
   		prevButton = $('#prev'),
   		nextButton = $('#next'),
+		redBtn = $('#redButton'),
 		ctx = canvas[0].getContext('2d'),		
 		instructions = $('#instructions');
 		
 	    //Generate a random color
-    var r = Math.floor(Math.random() * 255) + 70;
-    var g = Math.floor(Math.random() * 255) + 70;
-    var b = Math.floor(Math.random() * 255) + 70;
-    var color = 'rgb(' + r + ',' + g + ',' + b + ')';
+	var Teachercolor = '#00ff00';
+    var color = '#0000ff';
 	
 	// Generate an unique ID
 	var id = sessionStorage.getItem("key");
@@ -43,6 +42,11 @@ $(function(){
 	else{
 		$('#conversation').hide();
 	}
+	
+	redBtn.on('click',function(){
+		color='#FF0000';
+		ctx.lineWidth   = 4;
+    });	
 
 	
 	// A flag for drawing activity
@@ -110,6 +114,7 @@ $(function(){
 			
 			// Draw a line on the canvas. clients[data.id] holds
 			// the previous position of this user's mouse pointer	
+			
 			ctx.strokeStyle = data.color;
 
 			drawLine(clients[data.id].x, clients[data.id].y, data.x, data.y);
@@ -178,9 +183,15 @@ $(function(){
 		instructions.fadeOut();
 	});
   
-	doc.bind('mouseup mouseleave',function(){
+	doc.bind('mouseleave',function(){
 		drawing = false;
 	});
+	
+	doc.bind('mouseup',function(){
+		drawing = false;
+		ctx.closePath();
+	});
+
 
 	var lastEmit = $.now();
 
@@ -203,7 +214,7 @@ $(function(){
 		// not received in the socket.on('moving') event above
 		
 		if(drawing){
-			//ctx.strokeStyle = color;
+			ctx.strokeStyle = color;
 			drawLine(prev.x, prev.y, e.pageX, e.pageY);
 			
 			prev.x = e.pageX;
@@ -231,6 +242,7 @@ $(function(){
 	},10000);
 
 	function drawLine(fromx, fromy, tox, toy){
+		ctx.beginPath();
 		ctx.moveTo(fromx, fromy);
 		ctx.lineTo(tox, toy);
 		ctx.stroke();

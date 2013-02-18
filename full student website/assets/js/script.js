@@ -8,7 +8,7 @@ $(function(){
 
 	// The URL of your web server (the port is set in app.js)
     //the right url must be typed in here, for my computer it's 192.168.1.2
-	var url = 'http://192.168.1.2:8080';
+	var url = 'http://10.111.71.169:8080';
 
 	var doc = $(document),
 	win = $(window),
@@ -27,13 +27,14 @@ $(function(){
 	// Generate an unique ID
 	var id = sessionStorage.getItem("key");
   alert(id);
-	var userType = sessionStorage.getItem("type");
+	var userType = "Teacher"; //sessionStorage.getItem("type");
   alert(userType);
 	//var id = Math.round($.now()*Math.random());
 	
 	
 		
 	if(userType.match("Teacher")){
+		alert('Teacher Logged in');
 		prevButton.on('click',function(){
                 socket.emit('prevSlide');
                 });
@@ -43,6 +44,7 @@ $(function(){
                 });		
 	}
 	else{
+		alert('Student Logged in');
 		$('#conversation').hide();
 	}
 

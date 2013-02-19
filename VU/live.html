@@ -6,29 +6,35 @@
         <title>VirtulearnLive</title>
         <!-- The stylesheets -->
         <link rel="stylesheet" href="assets/css/styles.css" />
-        
+        <style type="text/css">
+        body,td,th {
+	font-family: "Segoe UI", Arial, sans-serif;
+}
+        </style>
         <!--[if lt IE 9]>
           <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
     </head>
-    
-    <body onload="javascript:displayPage(1)">
-		<div id="cursors">
-	    	<!-- The mouse pointers will be created here -->
-		</div>
-        
-        <div class="left">
-		<canvas id="paper"/>
-        </canvas>
-        </div>
+    <div class="control">
+	<ul>
+  	<li><a id="redBtn"></a></li>
+  	<li><a id="yelBtn"></a></li>
+  	<li><a id="greenBtn"></a></li>
+  	<li><a id="blueBtn"></a></li>
+ 	 <li><a id="blackBtn"></a></li>
+     <li><a id="redBtn"></a></li>
+  	<li><a id="yelBtn"></a></li>
+  	<li><a id="greenBtn"></a></li>
+	</ul>
+    </div>
+    <div class="left">
+	  <div align="left">
+	    <canvas id="paper"/>                
+	    </canvas>
+      </div>
+    </div>
         
         <div class="right">
-        
-		<div style="float:left;width:100px;border-right:1px solid black;height:300px;padding:10px;overflow:scroll-y;">
-		<b>Chat</b>
-		<div id="rooms"></div>
-		</div>
-		<div style="float:left;width:300px;height:250px;overflow:scroll-y;padding:10px;">
 		<div id="conversation"></div>
 		<input id="data" style="width:200px;" />
 		<input type="button" id="datasend" value="send" />
@@ -44,14 +50,11 @@
 		</hgroup>
 		
         <footer>
-	       <input type="file" name="datasize" size="30" value="Load Slides">
+			 	       <input type="file" name="datasize" size="30" value="Load Slides">
            Page:<span id="pageNum"></span> of <span id="numPages"></span>
                <a id="prev">Previous</a> |
                <a id="next">Next</a>
-			<input type="button" id="redButton" value="Red" style="margin-left:200px;"/>
 
-
-           
         </footer>
         
         <!-- JavaScript includes. Notice that socket.io.js is served by node.js -->

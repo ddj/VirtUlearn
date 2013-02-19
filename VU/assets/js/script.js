@@ -15,9 +15,18 @@ $(function(){
 	canvas = $('#paper'),
   		prevButton = $('#prev'),
   		nextButton = $('#next'),
-		redBtn = $('#redButton'),
+		redBtn = $('#redBtn'),
+		yelBtn = $('#yelBtn'),
+		greenBtn = $('#greenBtn'),
+		blueBtn = $('#blueBtn'),
+		blackBtn = $('#blackBtn'),
 		ctx = canvas[0].getContext('2d'),		
 		instructions = $('#instructions');
+		
+	var canvasPosition = {
+    x: canvas.offset().left,
+    y: canvas.offset().top
+};
 		
 	    //Generate a random color
 	var Teachercolor = '#00ff00';
@@ -45,7 +54,18 @@ $(function(){
 	
 	redBtn.on('click',function(){
 		color='#FF0000';
-		ctx.lineWidth   = 4;
+    });	
+	yelBtn.on('click',function(){
+		color='#FFFF00';
+    });	
+	greenBtn.on('click',function(){
+		color='#00FF00';
+    });	
+	blueBtn.on('click',function(){
+		color='#0000FF';
+    });	
+	blackBtn.on('click',function(){
+		color='#000000';
     });	
 
 	
@@ -176,8 +196,8 @@ $(function(){
 	canvas.on('mousedown',function(e){
 		e.preventDefault();
 		drawing = true;
-		prev.x = e.pageX;
-		prev.y = e.pageY;
+		prev.x = e.pageX - canvasPosition.x;
+		prev.y = e.pageY - canvasPosition.y;
 		
 		// Hide the instructions
 		instructions.fadeOut();
@@ -199,8 +219,8 @@ $(function(){
 		if(userType.match("Teacher")){
 		if($.now() - lastEmit > 30){
 			socket.emit('mousemove',{
-				'x': e.pageX,
-				'y': e.pageY,
+				'x': e.pageX - canvasPosition.x,
+				'y': e.pageY - canvasPosition.y,
 				'color': color,
 				'drawing': drawing,
 				'id': id
@@ -215,10 +235,10 @@ $(function(){
 		
 		if(drawing){
 			ctx.strokeStyle = color;
-			drawLine(prev.x, prev.y, e.pageX, e.pageY);
+			drawLine(prev.x, prev.y, e.pageX - canvasPosition.x,e.pageY - canvasPosition.y);
 			
-			prev.x = e.pageX;
-			prev.y = e.pageY;
+			prev.x = e.pageX - canvasPosition.x;
+			prev.y = e.pageY - canvasPosition.y;
 		}
 	});
 	

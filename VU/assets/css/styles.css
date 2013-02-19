@@ -15,7 +15,11 @@
 
 
 html{
-	/*background:url('../img/bg.png') repeat #e4e4e4;
+	background: url('http://th00.deviantart.net/fs70/PRE/f/2010/282/e/c/anime_background___classroom_by_azuki_sato-d30e97m.jpg') no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 		
 	/* This will hide the extra canvas if the screen is small */
 	overflow:hidden;
@@ -24,6 +28,13 @@ html{
 body{
 	font:14px/1.3 'Segoe UI',Arial, sans-serif;
 	color:#444;
+}
+
+.control{
+	background:#FFFFFFFF;
+	float:left;
+	width:auto;
+	height:100%;
 }
 
 a, a:visited {
@@ -41,12 +52,12 @@ section, footer, header{
 
 .left {
     background-color: Red;
+	margin-left:100px;
     float: left;
     width: 50%;
 }
 
 .right {
-    background-color: Red;
 	height:100%;
     margin-left: 50%;
 }
@@ -153,3 +164,197 @@ footer a i b{
 	color:#c92020;
 	font-weight: normal;
 }
+
+/*
+***
+*/
+
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+
+* {
+   margin: 0;
+   padding: 0;
+   list-style: none;
+}
+
+ul {
+   position: absolute;
+}
+
+ ul li {
+   height: 50px;
+   background: green;
+   display: block;
+   font-family: "Oswald", sans-serif;
+   position: relative;
+   z-index: 100;
+   margin: 5px 0;
+   -webkit-animation: menu 2s;
+   -webkit-animation-fill-mode: forwards;
+   -moz-animation: menu 2s; 
+   -moz-animation-fill-mode: forwards; 
+   -ms-animation: menu 2s; 
+   -ms-animation-fill-mode: forwards; 
+   animation: menu 2s; /* Safari and Chrome */
+   animation-fill-mode: forwards; 
+   opacity: 0;
+}
+
+ul li:hover {
+   cursor: pointer;
+  }
+  
+  
+ul li:before {
+    display: block;
+    height: 50px;
+    width: 10px;
+    font-size: 2em;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-right: rgba(255,255,255,0.2) 1px solid;
+    text-align: center;
+    color: #fff;
+    text-shadow: rgba(0,0,0,0.2) 1px 1px 1px;
+    z-index: 200;
+    line-height: 1.3em;
+  }
+    
+  
+  li a {
+     color: #fff;
+     display: block;
+     height: 50px;
+     padding: 0 2em 0 70px;
+     z-index: 100;
+     text-decoration: none;
+     text-transform: uppercase;
+     font-size: 18px;
+     line-height: 2.8em;
+     position: absolute;
+     top: 0;
+     left: 0;
+     overflow: hidden;
+     -webkit-transition: all 0.1s ease-in-out;
+     -moz-transition: all 0.1s ease-in-out;
+     -ms-transition: all 0.1s ease-in-out;
+     transition: all 0.1s ease-in-out;
+     text-shadow: rgba(0,0,0,0.3) 1px 1px;
+}
+
+  ul li:nth-child(1) a {
+    background: #FF0000;
+	content: '0';
+  }
+
+  ul li:nth-child(2) a {
+    background: #FFFF00;
+  }
+
+  ul li:nth-child(3) a {
+    background: #00FF00;
+  }
+
+  ul li:nth-child(4) a {
+    background: #0000FF;
+  }
+
+  ul li:nth-child(5) a {
+    background: #000000;
+  }
+	  ul li:nth-child(6) a {
+    background: #666666;
+  }  ul li:nth-child(7) a {
+    background: #666666;
+  }  ul li:nth-child(8) a {
+    background: #666666;
+	
+  }
+ li a:hover {
+   opacity: 0.7;
+   padding-right: 1.0em;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -ms-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+ul li:nth-child(2) {
+   -webkit-animation-delay: 0.4s;
+   -moz-animation-delay: 0.4s;
+   -ms-animation-delay: 0.4s;
+   animation-delay: 0.4s;
+}
+
+ul li:nth-child(3) {
+   -webkit-animation-delay: 0.8s; 
+   -moz-animation-delay: 0.8s;
+   -ms-animation-delay: 0.8s;
+   animation-delay: 0.8s;
+}
+
+ul li:nth-child(4) {
+   -webkit-animation-delay: 1.2s;
+   -moz-animation-delay: 1.2s; 
+   -ms-animation-delay: 1.2s; 
+   animation-delay: 1.2s; 
+}
+
+ul li:nth-child(5) {
+   -webkit-animation-delay: 1.6s;
+   -moz-animation-delay: 1.6s;
+   -ms-animation-delay: 1.6s;
+   animation-delay: 1.6s;
+}
+
+ul li:nth-child(6) {
+   -webkit-animation-delay: 2.0s;
+   -moz-animation-delay: 2.0s;
+   -ms-animation-delay: 2.0s;
+   animation-delay: 2.0s;
+}
+
+ul li:nth-child(7) {
+   -webkit-animation-delay: 2.4s;
+   -moz-animation-delay: 2.4s;
+   -ms-animation-delay: 2.4s;
+   animation-delay: 2.4s;
+}
+
+ul li:nth-child(8) {
+   -webkit-animation-delay: 2.8s;
+   -moz-animation-delay: 2.8s;
+   -ms-animation-delay: 2.8s;
+   animation-delay: 2.8s;
+}
+
+@-webkit-keyframes menu {
+  0%   {opacity: 0;}
+  25%  {opacity: 0.7;}
+  50%  {opacity: 1;}
+  100% {opacity: 1;}
+}
+
+@-moz-keyframes menu {
+  0%   {opacity: 0;}
+  25%  {opacity: 0.7;}
+  50%  {opacity: 1;}
+  100% {opacity: 1;}
+}
+
+@-ms-keyframes menu {
+  0%   {opacity: 0;}
+  25%  {opacity: 0.7;}
+  50%  {opacity: 1;}
+  100% {opacity: 1;}
+}
+
+@keyframes menu {
+  0%   {opacity: 0;}
+  25%  {opacity: 0.7;}
+  50%  {opacity: 1;}
+  100% {opacity: 1;}
+}
+
+

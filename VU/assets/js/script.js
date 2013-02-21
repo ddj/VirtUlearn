@@ -8,7 +8,7 @@ $(function(){
 
 	// The URL of your web server (the port is set in app.js)
     //the right url must be typed in here, for my computer it's 192.168.1.2
-	var url = 'http://10.111.71.169:8080';
+	var url = 'http://192.168.43.102:8080';
 
 	var doc = $(document),
 	win = $(window),
@@ -20,6 +20,9 @@ $(function(){
 		greenBtn = $('#greenBtn'),
 		blueBtn = $('#blueBtn'),
 		blackBtn = $('#blackBtn'),
+		highlightBtn = $('#highlightBtn'),
+		dataTextInput = $('#submitField'),
+		dataTextButton = $('#datasend'),
 		ctx = canvas[0].getContext('2d'),		
 		instructions = $('#instructions');
 		
@@ -35,6 +38,7 @@ $(function(){
 	// Generate an unique ID
 	var id = sessionStorage.getItem("key");
 	var userType = sessionStorage.getItem("type");
+	alert("type"+userType);
 	//var id = Math.round($.now()*Math.random());
 	
 	
@@ -52,20 +56,29 @@ $(function(){
 		$('#conversation').hide();
 	}
 	
-	redBtn.on('click',function(){
+	redBtn.on('click touchstart',function(){
 		color='#FF0000';
+		ctx.lineWidth=1.0;
     });	
-	yelBtn.on('click',function(){
+	yelBtn.on('click touchstart',function(){
 		color='#FFFF00';
+		ctx.lineWidth=1.0;
     });	
-	greenBtn.on('click',function(){
+	greenBtn.on('click touchstart',function(){
 		color='#00FF00';
+		ctx.lineWidth=1.0;
     });	
-	blueBtn.on('click',function(){
+	blueBtn.on('click touchstart',function(){
 		color='#0000FF';
+		ctx.lineWidth=1.0;
     });	
-	blackBtn.on('click',function(){
+	blackBtn.on('click touchstart',function(){
 		color='#000000';
+		ctx.lineWidth=1.0;
+    });	
+	highlightBtn.on('click touchstart',function(){
+		ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
+		ctx.lineWidth=6.0;
     });	
 
 	
@@ -99,8 +112,10 @@ $(function(){
 			}
 		});*/
 	});
-		// when the client clicks SEND
-		$('#datasend').click( function() {
+	dataTextInput.on('click touchstart',function(){
+			dataTextInput.focus();
+    });	
+		dataTextButton.on('click touchstart',function(){
 			var message = $('#data').val();
 			$('#data').val('');
 			// tell server to execute 'sendchat' and send along one parameter

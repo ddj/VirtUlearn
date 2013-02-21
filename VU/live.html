@@ -15,8 +15,9 @@
           <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
     </head>
-    <div class="control">
-	<ul>
+    <body>
+    <div id="control">
+<ul>
   	<li><a id="redBtn"></a></li>
   	<li><a id="yelBtn"></a></li>
   	<li><a id="greenBtn"></a></li>
@@ -27,18 +28,27 @@
   	<li><a id="greenBtn"></a></li>
 	</ul>
     </div>
-    <div class="left">
+    <div id="left">
 	  <div align="left">
 	    <canvas id="paper"/>                
 	    </canvas>
+        <div id="conversation"></div>
+
       </div>
     </div>
         
-        <div class="right">
-		<div id="conversation"></div>
-		<input id="data" style="width:200px;" />
-		<input type="button" id="datasend" value="send" />
-		</div>
+        <div id="right">
+        <div class="mainContainer animated flipInX" id="mainFrame">
+	<div class="innerContainer">
+    	<form>
+        	<input id="submitField" type="text" class="inputBox" placeholder="Type your message here" autofocus /> 
+        	<input type="reset" value="" id="deleteButton"/>
+        </form>
+        <span class="submitButton" id="datasend"> Submit </span>
+    </div>
+</div>
+		
+	</div>
         
         </div>
         

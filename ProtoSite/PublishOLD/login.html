@@ -17,16 +17,13 @@
 		<![endif]-->   
     
     <script  src="js/jquery-1.8.3.min.js"></script>         
-		 <script type="text/javascript" charset="utf-8" src="virtulearnFIRSTHALF_edgePreload.js"></script>
+		 <script type="text/javascript" charset="utf-8" src="virtulearn_edgePreload.js"></script>
     <style>
         .edgeLoad-EDGE-1109673 { visibility: visible; width: 100% !important; height:100% !important; }
 		#homeSlider .rsThumbsHor {
 		  height: 45px;
 		}
-		#Stage{ width:auto!important; height:auto!important; z-index:100; }
-		#Loading{ padding-top: 23%;  }
-		#loginForm{ position:absolute; z-index:999; left:50%; margin-left: -20px; padding-top:22%; }
-	
+		#Stage{ width:auto!important;max-width:800px; height:auto!important; }
  
 @media screen and (min-width: 1px) and (max-width: 479px)
 {
@@ -62,24 +59,14 @@
         <!-- TODO hyperlink logo -->
         </header>
 		<div class="page_content">            
-            <div class="login_container">
-            	
-                <div id="Stage" class="symbol_stage EDGE-1109673" style="height:100% !important; width:100% !important;">
-                <div id="Loading"><center><img src="images/loading.gif"></center></div>
-                
+            <div  class="login_container">
+            	<div id="Stage" class="symbol_stage EDGE-1109673" style="height:100% !important; width:100% !important;">
     			</div>
-                <!--LOGIN FORM-->
-                <center><form id="loginForm" method="POST" action="http://YOUR_DOMAIN_HERE:81/login/login.php">
-                  Username: <input type="text" name="username" size="15" /><br />
-                  Password: <input type="password" name="passwort" size="15" /><br />
-                  <div align="center">
-                    <p><input type="submit" value="Login" /></p>
-                  </div>
-                </form></center>
             </div>  
             <div  class="nav_container">
  			<!-- TO-DO login nav -->
             </div>              
+        	
 		</div>
         <!-- so call me maybe footer </footer style="margin-top:0px;">&copy; 2013 &bull; VirtUlearn Ltd</footer>--> 
 	</div>
@@ -89,7 +76,7 @@
 	var h = document.documentElement.clientHeight;
 	var w = $(window).width();	  
 	slider = ((h-44)/h)*100;
-	<!-- TODO ADJUST HEIGHT FOR HEADER AND NAV BAR (ALSO TODO)-->
+
 	$('#Stage').css('height', slider += '% !important');
 
 	</script>

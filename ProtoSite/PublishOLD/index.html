@@ -76,7 +76,7 @@
           </div>
           
           <div class="rsContent">
-            <a class="rsImg" href="http://dimsemenov.com/plugins/royal-slider/img/previews/home/fullwidth.jpg">Slider in Lightbox</a>
+            <a class="rsImg" href="http://dimsemenov.com/plugins/royal-slider/img/previews/home/lightbox.jpg">Slider in Lightbox</a>
             <a class="example-link" href="/plugins/royal-slider/slider-in-lightbox/"><i class="rsTmb">Modules</i>View this example &#9656;</a>
           </div>
           
@@ -129,26 +129,28 @@
 }
 		</script>
         
-    <script>    
-    <!-- ADJUST TO PAGE HEIGHT<script>-->
-	var h = $(window).height();	
-	var w = $(window).width();
-	if (w > 500 && h > 500) { 	  
-	slider = ((h-58)/h)*100;
-	$('.royalSlider').css('height', slider += '% !important'); }
-	</script>
+        <!-- ADJUST TO PAGE HEIGHT<script>
+	
+	var h = $(window).height();
+	var w = $(window).width();	  
+	slider = h - 57
+		$(document).ready( function(){
+		  
+$('.royalSlider').css('height', slider += 'px !important');
+});
+		</script>-->
         
     <script>
       jQuery(document).ready(function($) {
   var opts = {
     controlNavigation:'thumbnails',
     imageScaleMode: 'fill',
-    arrowsNav: true,
+    arrowsNav: false,
     arrowsNavHideOnTouch: true,
-    fullscreen: true,
+    fullscreen: false,
     loop: false,
     thumbs: {
-      firstMargin: true,
+      firstMargin: false,
       paddingBottom: 0
     },
     autoPlay: {
@@ -161,7 +163,7 @@
     autoScaleSliderWidth: 960,     
     autoScaleSliderHeight: 600,
     keyboardNavEnabled: true,
-    navigateByClick: false,
+    navigateByClick: true,
     fadeinLoadedSlide: true
   };
   if(!$.browser.webkit) {

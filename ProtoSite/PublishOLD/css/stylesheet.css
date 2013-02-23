@@ -1,0 +1,59 @@
+/* This stylesheet was originally designed and developed by Codify Design Studio (codifydesign.com) */
+@charset "UTF-8";
+
+html, body {
+
+}
+
+/* Text Formatting */
+body {
+	font-family: Arial;
+	font-size: 12px; /* base font-size defined in pixels, all else proportional to this base */
+	margin: 0px;
+	padding: 0px 0px 0px 0px;
+	color: #555;
+	background: /*#205576*/ #FFF url(../images/blueprint.jpg) repeat-x 0px 0px;
+}
+
+/* Layout */
+.page { position: absolute; margin: 0px 0px 0px 0px; width: 100%; height: 100%; 	 }
+
+.page header {
+	display: block;
+	position: relative;
+	height: 57px;
+	z-index: 100;
+}
+.page header a.logo {
+	position: relative;
+	top: 0px;
+	left: 0px;
+	display: block;
+	width: 100%;
+	height: 67px;
+	background: url(../images/VUTopBanner.png) no-repeat 0px 0px;
+}
+
+.page footer {
+	display: block;
+	border-top: 1px solid #ddd;
+	padding: 15px 10px 15px 20px;
+	font-size: .9em;
+	color: #757575;
+	-webkit-border-bottom-left-radius: 7px;
+	-moz-border-radius-bottomleft: 7px;
+	border-bottom-left-radius: 7px;
+	-moz-border-radius-bottomright: 7px;
+	-webkit-border-bottom-right-radius: 7px;
+	border-bottom-right-radius: 7px;
+	
+	background: #fbfbf1; /* Old browsers */
+	background: -moz-linear-gradient(top,  #f9f2db 52%, #c5bfaa4 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(52%,#f9f2db), color-stop(100%,#c5bfaa)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #f9f2db 52%,#c5bfaa 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #f9f2db 52%,#c5bfaa4 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #f9f2db 52%,#c5bfaa 100%); /* IE10+ */
+	background: linear-gradient(top,  #f9f2db 52%,#c5bfaa 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f2db', endColorstr='#e9e0c4',GradientType=0 ); /* IE6-9 */
+
+}

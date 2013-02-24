@@ -40,13 +40,10 @@ io.sockets.on('connection', function (socket) {
                         console.log('in the server now for next');
                         io.sockets.emit('slideNext');
                         });
-<<<<<<< HEAD
-=======
               socket.on( 'loadSlide', function(data) {
                         console.log('in the server now for load'+data);
                         io.sockets.emit('slideLoad',data);
                         });
->>>>>>> Some designs for the live lectures fixed(not chat yet)
 	// Start listening for mouse move events
 	socket.on('mousemove', function (data) {
 		

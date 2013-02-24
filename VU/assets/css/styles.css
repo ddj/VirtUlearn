@@ -20,12 +20,8 @@ html{
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-<<<<<<< HEAD
-		
-=======
     width:100%;
     height:100%;
->>>>>>> Some designs for the live lectures fixed(not chat yet)
 	/* This will hide the extra canvas if the screen is small */
 	overflow:hidden;
 }
@@ -33,36 +29,23 @@ html{
 body{
 	font:14px/1.3 'Segoe UI',Arial, sans-serif;
 	color:#444;
-<<<<<<< HEAD
-=======
     width:100%;
     height:100%;
->>>>>>> Some designs for the live lectures fixed(not chat yet)
 }
 
 #control{
 	background:#FFFFFFFF;
 	position: fixed;
-<<<<<<< HEAD
-  	top: 10px;
-  	left: -40px;
-=======
   	top: 0%;
   	left: -4%;
->>>>>>> Some designs for the live lectures fixed(not chat yet)
   	-webkit-transition-duration: 0.3s;
   	-moz-transition-duration: 0.3s;
   	-o-transition-duration: 0.3s;
   	transition-duration: 0.3s;
 }
-<<<<<<< HEAD
-#control:hover {
-  left: -10px;
-=======
 
 #control:hover {
   left: -2%;
->>>>>>> Some designs for the live lectures fixed(not chat yet)
 }
   
 
@@ -81,16 +64,10 @@ section, footer, header{
 
 #left {
     background-color: Red;
-<<<<<<< HEAD
-	margin-left:100px;
-    float: left;
-    width: 40%;
-=======
 	margin-left:5%;
     float: left;
     width: 80%;
     height:95%;
->>>>>>> Some designs for the live lectures fixed(not chat yet)
 }
 
 #right {
@@ -166,11 +143,7 @@ footer{
 	background-color: #111111;
 	bottom: 0;
 	box-shadow: 0 -1px 2px rgba(0,0,0,0.4);
-<<<<<<< HEAD
-	height: 45px;
-=======
 	height: 5%;
->>>>>>> Some designs for the live lectures fixed(not chat yet)
 	left: 0;
 	position: fixed;
 	width: 100%;

@@ -1,3 +1,4 @@
+var fileNameP='';
 $(function(){
 
 	// This demo depends on the canvas element
@@ -8,13 +9,24 @@ $(function(){
 
 	// The URL of your web server (the port is set in app.js)
     //the right url must be typed in here, for my computer it's 192.168.1.2
+<<<<<<< HEAD
 	var url = 'http://192.168.43.102:8080';
+=======
+	var url = 'http://10.111.8.86:8080';
+>>>>>>> Some designs for the live lectures fixed(not chat yet)
 
 	var doc = $(document),
 	win = $(window),
 	canvas = $('#paper'),
+<<<<<<< HEAD
   		prevButton = $('#prev'),
   		nextButton = $('#next'),
+=======
+    left=$('#left'),
+  		prevButton = $('#prev'),
+  		nextButton = $('#next'),
+        inputFile = $('#inputFile'),
+>>>>>>> Some designs for the live lectures fixed(not chat yet)
 		redBtn = $('#redBtn'),
 		yelBtn = $('#yelBtn'),
 		greenBtn = $('#greenBtn'),
@@ -25,6 +37,10 @@ $(function(){
 		dataTextButton = $('#datasend'),
 		ctx = canvas[0].getContext('2d'),		
 		instructions = $('#instructions');
+<<<<<<< HEAD
+=======
+
+>>>>>>> Some designs for the live lectures fixed(not chat yet)
 		
 	var canvasPosition = {
     x: canvas.offset().left,
@@ -50,7 +66,17 @@ $(function(){
   
   		nextButton.on('click',function(){
                 socket.emit('nextSlide');
+<<<<<<< HEAD
                 });		
+=======
+                });
+        document.getElementById('inputFile').onchange = function () {
+                var split = (this.value).split('fakepath\\');
+                fileNameP = split[1];
+                ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height)
+                socket.emit('loadSlide', fileNameP);
+        };
+>>>>>>> Some designs for the live lectures fixed(not chat yet)
 	}
 	else{
 		$('#conversation').hide();
@@ -74,12 +100,21 @@ $(function(){
     });	
 	blackBtn.on('click touchstart',function(){
 		color='#000000';
+<<<<<<< HEAD
 		ctx.lineWidth=1.0;
     });	
 	highlightBtn.on('click touchstart',function(){
 		ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
 		ctx.lineWidth=6.0;
     });	
+=======
+        
+		ctx.lineWidth=1.0;
+    });	
+	highlightBtn.on('click touchstart',function(){
+        color='#00FFFF';
+    });
+>>>>>>> Some designs for the live lectures fixed(not chat yet)
 
 	
 	// A flag for drawing activity
@@ -162,6 +197,17 @@ $(function(){
   
 	var prev = {};
 	
+<<<<<<< HEAD
+=======
+  socket.on('slideLoad', function(file) {
+            fileNameP = file;
+            canvas.width = left.clientWidth;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.restore();
+            displayPage(1);
+            });
+  
+>>>>>>> Some designs for the live lectures fixed(not chat yet)
 	socket.on('slidePrev', function() {
         prevPage();
     });
@@ -285,17 +331,21 @@ $(function(){
 	// create a drawer which tracks touch movements
 });
 
+<<<<<<< HEAD
 function openPDF(file)
 {
 windows.open(file, 'resizable,scrollbars');
 }
 
+=======
+>>>>>>> Some designs for the live lectures fixed(not chat yet)
 var pageNum;
 var numPages;
 
 function displayPage(num){
     document.getElementById("pageNum").innerHTML = num;
     pageNum=num;
+<<<<<<< HEAD
     PDFJS.getDocument('helloworld.pdf').then(function(pdf) {
                                              pdf.getPage(num).then(function(page) {
                                                                    var scale = 1.5;
@@ -314,6 +364,25 @@ function displayPage(num){
                                              numPages= pdf.numPages;
                                              document.getElementById("numPages").innerHTML = numPages.toString();
                                              });
+=======
+    PDFJS.getDocument(fileNameP).then(function(pdf) {
+        pdf.getPage(num).then(function(page) {
+        var scale = 2.0;
+        var viewport = page.getViewport(scale);
+        
+        document.getElementById("pageNum").innerHTML = pageNum.toString();
+        var canvas = document.getElementById('paper');
+        var context = canvas.getContext('2d');
+        var renderContext = {
+                canvasContext: context,
+                viewport: viewport
+        };
+        page.render(renderContext);
+    });
+    numPages= pdf.numPages;
+    document.getElementById("numPages").innerHTML = numPages.toString();
+});
+>>>>>>> Some designs for the live lectures fixed(not chat yet)
 }
 
 function prevPage() {
@@ -329,3 +398,14 @@ function nextPage() {
         displayPage(pageNum + 1);
     }
 }
+<<<<<<< HEAD
+=======
+
+function yourMum(){
+    alert("nothing rude :)");
+    var left = document.getElementById('left');
+    var canvas = document.getElementById('paper');
+    canvas.width = left.clientWidth;
+    canvas.height = left.clientHeight;
+}
+>>>>>>> Some designs for the live lectures fixed(not chat yet)

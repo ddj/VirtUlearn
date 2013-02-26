@@ -9,7 +9,8 @@ $(function(){
 
 	// The URL of your web server (the port is set in app.js)
     //the right url must be typed in here, for my computer it's 192.168.1.2
-	var url = 'http://10.111.8.86:8080';
+	//Connected to nexus4 192.168.43.102
+	var url = 'http://10.111.2.168:8080';
 
 	var doc = $(document),
 	win = $(window),
@@ -23,7 +24,9 @@ $(function(){
 		greenBtn = $('#greenBtn'),
 		blueBtn = $('#blueBtn'),
 		blackBtn = $('#blackBtn'),
-		highlightBtn = $('#highlightBtn'),
+		widthoneBtn = $('#widthoneBtn'),
+		widthtwoBtn = $('#widthtwoBtn'),
+		widththreeBtn = $('#widththreeBtn'),
 		dataTextInput = $('#submitField'),
 		dataTextButton = $('#datasend'),
 		ctx = canvas[0].getContext('2d'),		
@@ -38,6 +41,7 @@ $(function(){
 	    //Generate a random color
 	var Teachercolor = '#00ff00';
     var color = '#0000ff';
+	var width = 1;
 	
 	// Generate an unique ID
 	var id = sessionStorage.getItem("key");
@@ -68,27 +72,27 @@ $(function(){
 	
 	redBtn.on('click touchstart',function(){
 		color='#FF0000';
-		ctx.lineWidth=1.0;
     });	
 	yelBtn.on('click touchstart',function(){
 		color='#FFFF00';
-		ctx.lineWidth=1.0;
     });	
 	greenBtn.on('click touchstart',function(){
 		color='#00FF00';
-		ctx.lineWidth=1.0;
     });	
 	blueBtn.on('click touchstart',function(){
 		color='#0000FF';
-		ctx.lineWidth=1.0;
     });	
 	blackBtn.on('click touchstart',function(){
 		color='#000000';
-        
-		ctx.lineWidth=1.0;
     });	
-	highlightBtn.on('click touchstart',function(){
-        color='#00FFFF';
+	widthoneBtn.on('click touchstart',function(){
+		width=1;
+    });
+	widthtwoBtn.on('click touchstart',function(){
+		width=3;
+    });
+	widththreeBtn.on('click touchstart',function(){
+		width=5;
     });
 
 	
@@ -105,10 +109,12 @@ $(function(){
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
 		socket.emit('adduser', id);
 	});
-
+	var count = 0;
 	// listener, whenever the server emits 'updatechat', this updates the chat body
 	socket.on('updatechat', function (username, data) {
 		$('#conversation').append('<b>'+username + ':</b> ' + data + '<br>');
+		count=count+1;
+		document.getElementById("chatcount").innerHTML=count;
 	});
 
 	socket.on('updaterooms', function(rooms, current_room) {
@@ -161,13 +167,15 @@ $(function(){
 			// the previous position of this user's mouse pointer	
 			
 			ctx.strokeStyle = data.color;
+			ctx.lineWidth = data.width;
 
 			drawLine(clients[data.id].x, clients[data.id].y, data.x, data.y);
 		}
 		
 		// Saving the current client state
 		clients[data.id] = data;
-		clients[data.id].updated = $.now();
+		clients[data.id].updated = $.now()
+		;
 	});
   
 	var prev = {};
@@ -254,6 +262,7 @@ $(function(){
 			socket.emit('mousemove',{
 				'x': e.pageX - canvasPosition.x,
 				'y': e.pageY - canvasPosition.y,
+				'width' : width,
 				'color': color,
 				'drawing': drawing,
 				'id': id
@@ -268,6 +277,7 @@ $(function(){
 		
 		if(drawing){
 			ctx.strokeStyle = color;
+			ctx.lineWidth = width;
 			drawLine(prev.x, prev.y, e.pageX - canvasPosition.x,e.pageY - canvasPosition.y);
 			
 			prev.x = e.pageX - canvasPosition.x;

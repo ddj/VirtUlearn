@@ -33,21 +33,34 @@ body{
     height:100%;
 }
 
+#panelC{
+	margin-left:-5%;
+	height:100%;
+	width:10%;
+	float:left;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	box-shadow: inset 0px 1px rgba(255,255,255,0.15),
+				inset 0px -1px rgba(0,0,0,0.1),
+				0px 3px 15px 3px rgba(75,50,25,0.3);
+	-webkit-box-shadow: inset 0px 1px rgba(255,255,255,0.15),
+						inset 0px -1px rgba(0,0,0,0.1),
+						0px 3px 15px 3px rgba(75,50,25,0.3);
+	;
+	-moz-box-shadow: inset 0px 1px rgba(255,255,255,0.15),
+					 inset 0px -1px rgba(0,0,0,0.1),
+					 0px 3px 15px 3px rgba(75,50,25,0.3);
+}
+
 #control{
-	background:#FFFFFFFF;
-	position: fixed;
+position: fixed;
   	top: 0%;
-  	left: -4%;
+  	left: -5%;	
   	-webkit-transition-duration: 0.3s;
   	-moz-transition-duration: 0.3s;
   	-o-transition-duration: 0.3s;
   	transition-duration: 0.3s;
-}
-
-#control:hover {
-  left: -2%;
-}
-  
+}  
 
 a, a:visited {
 	outline:none;
@@ -63,8 +76,15 @@ section, footer, header{
 }
 
 #left {
-    background-color: Red;
-	margin-left:5%;
+	background: -moz-linear-gradient(left,  rgba(255,255,255,1) 83%, rgba(255,255,255,1) 97%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(83%,rgba(255,255,255,1)), color-stop(97%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(left,  rgba(255,255,255,1) 83%,rgba(255,255,255,1) 97%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(left,  rgba(255,255,255,1) 83%,rgba(255,255,255,1) 97%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(left,  rgba(255,255,255,1) 83%,rgba(255,255,255,1) 97%,rgba(255,255,255,0) 100%); /* IE10+ */
+background: linear-gradient(to right,  rgba(255,255,255,1) 83%,rgba(255,255,255,1) 97%,rgba(255,255,255,0) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
+
+	margin-left:1%;
     float: left;
     width: 80%;
     height:95%;
@@ -229,7 +249,7 @@ ul li:hover {
 ul li:before {
     display: block;
     height: 50px;
-    width: 10px;
+    width: 5%;
     font-size: 2em;
     position: absolute;
     left: 0;
@@ -247,7 +267,6 @@ ul li:before {
      color: #fff;
      display: block;
      height: 50px;
-	 border-radius: 15px;
      padding: 0 2em 0 70px;
      z-index: 100;
 	 content: '0';
@@ -264,6 +283,18 @@ ul li:before {
      -ms-transition: all 0.1s ease-in-out;
      transition: all 0.1s ease-in-out;
      text-shadow: rgba(0,0,0,0.3) 1px 1px;
+	 	border-radius: 5px;
+	-moz-border-radius: 5px;
+	box-shadow: inset 0px 1px rgba(255,255,255,0.15),
+				inset 0px -1px rgba(0,0,0,0.1),
+				0px 3px 15px 3px rgba(75,50,25,0.3);
+	-webkit-box-shadow: inset 0px 1px rgba(255,255,255,0.15),
+						inset 0px -1px rgba(0,0,0,0.1),
+						0px 3px 15px 3px rgba(75,50,25,0.3);
+	;
+	-moz-box-shadow: inset 0px 1px rgba(255,255,255,0.15),
+					 inset 0px -1px rgba(0,0,0,0.1),
+					 0px 3px 15px 3px rgba(75,50,25,0.3);
 }
 
   ul li:nth-child(1) a {
@@ -294,7 +325,7 @@ ul li:before {
 
   }
  li a:hover {
-   padding-right: 1.0em;
+   padding-right: 3.0em;
   -webkit-transition: all 0.1s ease-in-out;
   -moz-transition: all 0.1s ease-in-out;
   -ms-transition: all 0.1s ease-in-out;
@@ -414,7 +445,9 @@ ul li:nth-child(8) {
 					 0px 3px 15px 3px rgba(75,50,25,0.3);
 					 
 }
- 
+ /*-------------------
+ 		Chat
+---------------------*/
 .innerContainer {
 	background-image: linear-gradient(bottom, #F0E9D7 23%, #F5F1E5 62%);
 	background-image: -o-linear-gradient(bottom, #F0E9D7 23%, #F5F1E5 62%);

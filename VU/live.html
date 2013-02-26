@@ -11,25 +11,28 @@
         <![endif]-->
     </head>
     <body onLoad="yourMum();">
+    <div id="panelC">
     <div id="control">
 <ul>
-  	<li><a id="redBtn"></a></li>
-  	<li><a id="yelBtn"></a></li>
-  	<li><a id="greenBtn"></a></li>
-  	<li><a id="blueBtn"></a></li>
- 	 <li><a id="blackBtn"></a></li>
-     <li><a id="highlightBtn"></a></li>
-  	<li><a id="yelBtn"></a></li>
-  	<li><a id="greenBtn"></a></li>
+  	<li><a id="redBtn"><span> </span></a></li>
+  	<li><a id="yelBtn"><span> </span></a></li>
+  	<li><a id="greenBtn"><span> </span></a></li>
+  	<li><a id="blueBtn"><span> </span></a></li>
+ 	 <li><a id="blackBtn"><span> </span></a></li>
+     <li><a id="widthoneBtn"><span><font size="3">•</font></span></a></li>
+  	<li><a id="widthtwoBtn"><span><font size="6">•</font></span></a></li>
+  	<li><a id="widththreeBtn"><span><font size="9">•</font></span></a></li>
 	</ul>
+    </div>
     </div>
     <div id="left">
 	    <canvas id="paper" >                
 	    </canvas>
-        <div id="conversation"></div>
     </div>
         
         <div id="right">
+        				<div id="conversation"></div>
+
         <div class="mainContainer animated flipInX" id="mainFrame">
 	<div class="innerContainer">
     	<form>
@@ -56,7 +59,7 @@
            Page:<span id="pageNum"></span> of <span id="numPages"></span>
                <a id="prev">Previous</a> |
                <a id="next">Next</a>
-
+               <span id="chatcount">0</span>
         </footer>
         
         <!-- JavaScript includes. Notice that socket.io.js is served by node.js -->

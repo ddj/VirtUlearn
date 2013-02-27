@@ -112,7 +112,7 @@ $(function(){
 	var count = 0;
 	// listener, whenever the server emits 'updatechat', this updates the chat body
 	socket.on('updatechat', function (username, data) {
-		$('#conversation').append('<b>'+username + ':</b> ' + data + '<br>');
+		$('#conversation').append('<h4 class="message">'+username + ': ' +'<small>'+ data +'</small>'+ '</br>'+'</h4>');
 		count=count+1;
 		document.getElementById("chatcount").innerHTML=count;
 	});
@@ -132,17 +132,17 @@ $(function(){
 			dataTextInput.focus();
     });	
 		dataTextButton.on('click touchstart',function(){
-			var message = $('#data').val();
-			$('#data').val('');
+			var message = dataTextInput.val();
+			dataTextInput.val('');
 			// tell server to execute 'sendchat' and send along one parameter
 			socket.emit('sendchat', message);
 		});
 
 		// when the client hits ENTER on their keyboard
-		$('#data').keypress(function(e) {
+		dataTextInput.keypress(function(e) {
 			if(e.which == 13) {
 				$(this).blur();
-				$('#datasend').focus().click();
+				dataTextButton.focus().click();
 			}
 		});
 	
@@ -358,4 +358,5 @@ function yourMum(){
     var canvas = document.getElementById('paper');
     canvas.width = left.clientWidth;
     canvas.height = left.clientHeight;
+	
 }

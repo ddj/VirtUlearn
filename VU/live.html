@@ -32,15 +32,6 @@
         
         <div id="right">
         				<div id="conversation"></div>
-
-        <div class="mainContainer animated flipInX" id="mainFrame">
-	<div class="innerContainer">
-    	<form>
-        	<input id="submitField" type="text" class="inputBox" placeholder="Type your message here" autofocus /> 
-        	<input type="reset" value="" id="deleteButton"/>
-        </form>
-        <span class="submitButton" id="datasend"> Submit </span>
-    </div>
 </div>
 		
 	</div>
@@ -59,7 +50,8 @@
            Page:<span id="pageNum"></span> of <span id="numPages"></span>
                <a id="prev">Previous</a> |
                <a id="next">Next</a>
-               <span id="chatcount">0</span>
+               <span><input id="submitField" type="text" class="inputBox" placeholder="Type your message here" autofocus /> 
+        	<input type="reset" value="Send" id="datasend"/></span>
         </footer>
         
         <!-- JavaScript includes. Notice that socket.io.js is served by node.js -->

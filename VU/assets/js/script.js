@@ -1,4 +1,5 @@
 var fileNameP='';
+var type='';
 $(function(){
 
 	// This demo depends on the canvas element
@@ -10,7 +11,7 @@ $(function(){
 	// The URL of your web server (the port is set in app.js)
     //the right url must be typed in here, for my computer it's 192.168.1.2
 	//Connected to nexus4 192.168.43.102
-	var url = 'http://10.111.2.168:8080';
+	var url = 'http://10.111.24.135:8080';
 
 	var doc = $(document),
 	win = $(window),
@@ -46,9 +47,16 @@ $(function(){
 	// Generate an unique ID
 	var id = sessionStorage.getItem("key");
 	var userType = sessionStorage.getItem("type");
+	type = userType;
 	alert("type"+userType);
 	//var id = Math.round($.now()*Math.random());
 	
+	if(userType.match("Teacher")){
+		$('#studentF').hide();
+	}
+	else{ 
+		$('#teacherF').hide();
+	}
 	
 		
 	if(userType.match("Teacher")){
@@ -317,19 +325,34 @@ var pageNum;
 var numPages;
 
 function displayPage(num){
+	var canvas = document.getElementById('paper');
+	var context = canvas.getContext('2d');
+	context.clearRect(0,0,context.canvas.width,context.canvas.height);
+	
     document.getElementById("pageNum").innerHTML = num;
     pageNum=num;
     PDFJS.getDocument(fileNameP).then(function(pdf) {
         pdf.getPage(num).then(function(page) {
-        var scale = 2.0;
+        var scale = 1;
         var viewport = page.getViewport(scale);
-        
+	    
+		var scaleX = (canvas.width*(0.7))/viewport.width;
+		var scaleY = canvas.height/viewport.height;
+		if(scaleX>scaleY){
+			scale=scaleY;
+		}
+		else
+		{
+			scale=scaleX;
+		}
+        viewport = page.getViewport(scale);	
+        alert(viewport.height);
         document.getElementById("pageNum").innerHTML = pageNum.toString();
-        var canvas = document.getElementById('paper');
-        var context = canvas.getContext('2d');
         var renderContext = {
                 canvasContext: context,
-                viewport: viewport
+                viewport: viewport,
+				scaleX:1,
+				scaleY:0.5
         };
         page.render(renderContext);
     });
@@ -353,10 +376,21 @@ function nextPage() {
 }
 
 function yourMum(){
-    alert("nothing rude :)");
     var left = document.getElementById('left');
     var canvas = document.getElementById('paper');
-    canvas.width = left.clientWidth;
+	canvas.width = left.clientWidth;
     canvas.height = left.clientHeight;
 	
+<<<<<<< HEAD
+=======
+	if(type.match('Student')){
+		canvas.width = (document.width*0.99);
+		var context = canvas.getContext("2d");
+   		context.moveTo(0.7*canvas.width, 0);
+   		context.lineTo(0.7*canvas.width, canvas.height);
+   		context.strokeStyle = "black";
+   		context.stroke();
+	}
+	
+>>>>>>> PDF loading fixed
 }

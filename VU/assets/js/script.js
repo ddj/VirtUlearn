@@ -381,8 +381,6 @@ function yourMum(){
 	canvas.width = left.clientWidth;
     canvas.height = left.clientHeight;
 	
-<<<<<<< HEAD
-=======
 	if(type.match('Student')){
 		canvas.width = (document.width*0.99);
 		var context = canvas.getContext("2d");
@@ -392,5 +390,4 @@ function yourMum(){
    		context.stroke();
 	}
 	
->>>>>>> PDF loading fixed
 }

@@ -1,8 +1,36 @@
 <!DOCTYPE HTML>
-<html>
-<head>
+<html><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>VirtUlearn</title>
+<!-- Start Modules Accordion -->
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+  <script src="js/student.js"></script>
+  
+<!-- End Modules Accordian  -->
+ 
+<!-- Start Aloha -->
+<link rel="stylesheet" href="css/aloha.css">
+    <script src="js/require.js"></script>    
+    <script>
+	  var Aloha = window.Aloha || ( window.Aloha = {} );
+	  Aloha.settings = {
+		  locale: 'en',
+		  plugins: {
+			  format: {
+				  config : [ 'b', 'i','u','del','sub','sup', 'h1', 'h2', 'h3', 'p'],
+			  }
+		  },
+		  sidebar: {
+			  disabled: true
+		  }
+	  };
+	</script>
+    
+<script src="js/aloha.js"
+      data-aloha-plugins="common/ui,common/format,common/align,common/list,common/highlighteditables,common/link,common/horizontalruler,extra/textcolor,common/characterpicker"></script>
+<!-- End Aloha -->
 
 <!-- Swiper CSS -->
 <link rel="stylesheet" href="css/idangerous.swiper.css">
@@ -11,6 +39,8 @@
 <!-- JS Min -->
 <script src="js/jquery-1.8.3.min.js"></script>
 
+<!-- Student Sections CSS -->
+<link rel="stylesheet" href="css/student.css">
 <script>
 $(document).ready(function(){ 
 	swiper = new Swiper('.studentSwiper', {
@@ -27,7 +57,29 @@ $(document).ready(function(){
 	//$('.swiper-container').css('left','-150%');
 	//$('.navContainer').css('margin-top','0%');
 	
+    $(function() {
+		var icons = {
+      header: "ui-icon-folder-open",
+      activeHeader: "ui-icon-folder-collapsed"
+    };
+    $( "#accordion" ).accordion({
+	  active: false,
+      collapsible: true,
+	  animate: "bounceslide",
+	  heightStyle: "fill",
+	  icons: icons	  
+    });
+	
+  });
+	 
+	
 });
+</script>
+
+<script type="text/javascript">
+  Aloha.ready( function() {
+	  Aloha.jQuery('#notesAloha').aloha();
+  });
 </script>
 
 <!-- SWIPE TO PAGE -->
@@ -50,6 +102,8 @@ function slideMenu() {
 	$('.navContainer').css('display','');
     showDashBoard();
 }
+
+
 </script>
 
 <style type="text/css">
@@ -348,74 +402,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fceabb', end
       border-radius:2px;
     }
 
-/*-------------------------
-	The notes
---------------------------*/
-
-.notes{
-	background:#DFD4C1;
-	margin:0;
-	}
-
-.notes .pad{
-	width: 748px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 0px;
-}
-
-.notes .saveNote{
-          text-decoration: none;
-          box-shadow: inset 0px 1px 0px rgba(255,255,255,0.3),
-          0px 1px 0px rgba(255,255,255,0.3);
-          color: #FFF;
-          text-shadow: 0px 1px 0px rgba(255,255,255,0.4);
-		  font-size:1em;
-  			position:absolute;
-  			top:3.25em;
-  			right:1.25em;
-  		cursor:pointer;
-  		text-align:center;
-      }
-      
-.notes .saveNote:active{
-          background: #385E82;
-          box-shadow: inset 0px 1px 3px rgba(0,0,0,0.2),
-          0px 1px 0px rgba(255,255,255,0.3);
-      }
-	  
-.notes .note{
-	font: normal 15px 'Courgette', cursive;
-	line-height: 17px;
-	color:#444;
-	background: url(images/notesMid.png) repeat-y;
-	border: none;
-	width: 374px;
-	min-height: 400px;
-	resize: none;
-	padding: 0 10px 0 35px;
-	outline: 0px;
-	overflow: hidden;
-	display: block;
-	margin:0;
-}
-
-.notes .pad h2{
-	background: url(images/notesHeader.png) ;
-	overflow: hidden;
-	height: 69px;
-	margin:0;
-}
-
-.notes .pad:after{
-	position:absolute;
-	content:'';
-	background: url(images/notesFooter.png) no-repeat;
-	width:100%;
-	height:40px;
-}
-
-#codepen-footer,#codepen-footer *{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}#codepen-footer{position:fixed;bottom:0;left:0;width:100%;padding:0 10px;height:30px;color:#eeeeee;background-color:#505050;background:-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #505050), color-stop(100%, #383838));background:-webkit-linear-gradient(#505050,#383838);background:-moz-linear-gradient(#505050,#383838);background:-o-linear-gradient(#505050,#383838);background:linear-gradient(#505050,#383838);border-top:1px solid black;border-bottom:1px solid black;box-shadow:inset 0 1px 0 #6e6e6e,0 2px 2px rgba(0,0,0,0.4);font:12px/30px "Lucida Grande","Lucida Sans Unicode",Tahoma,sans-serif;line-height:30px}#codepen-footer a{color:#a7a7a7;text-decoration:none}#codepen-footer a:hover{color:white}#footer-right{position:absolute;right:5px;top:0}#bs-button{padding:1px 6px 2px 19px;background:url(/images/browserstack.png),-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fff4d1), color-stop(100%, #c9b67b));background:url(/images/browserstack.png),-webkit-linear-gradient(#fff4d1,#c9b67b);background:url(/images/browserstack.png),-moz-linear-gradient(#fff4d1,#c9b67b);background:url(/images/browserstack.png),-o-linear-gradient(#fff4d1,#c9b67b);background:url(/images/browserstack.png),linear-gradient(#fff4d1,#c9b67b);background-position:4px center,center center;background-repeat:no-repeat;background-size:12px 12px,cover;border:0;font:11px "Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;border-radius:5px}#bs-button:hover{background:url(/images/browserstack.png),#fff4d1;background-position:4px center,center center;background-repeat:no-repeat;background-size:12px 12px,cover}
 
 /*styling the pages*/
 .page.random-page{
@@ -562,10 +548,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fceabb', end
 .todos-thumb p{
   margin-top:1.35em;
 }
+
 .todos-thumb-span{
   display:block;
   margin-top:3em;
 }
+
 .todos-thumb:hover p, .todos-thumb:active p{
   margin-top:-3em;
 }
@@ -724,7 +712,7 @@ height: 25.5%;
       <!--My Todos-->
       <div class="swiper-slide">
         <!-- Any HTML content of the first slide goes here --> 
-        <button onclick="slideMenu()" style="float: left">Back</button>
+        <button onclick="slideMenu()" style="float: left">Back</button>  
         <img src="images/pic1.jpg" width="100%">
         <button onclick="slideAway()" style="float: left">Slide</button>
         <p>MyTodos</p>
@@ -738,18 +726,89 @@ height: 25.5%;
       </div>
       
       <!--Messages-->
-      <div class="swiper-slide">
-        <!-- Any HTML content of the first slide goes here --> 
-        <img src="images/pic1.jpg" width="100%">
-        <button onclick="slideAway()" style="float: left">Slide</button>
+      <div class="swiper-slide" id="slideMessages">
+        <!-- TODO // ADD REPLY BUTTON -->
+        <!-- TODO // BORDER OF MESSAGE AND BORDERS BETWEEN SECTIONS -->
         <p>Messages</p>
+        <div class="cf" id="messages" style="width:100%; height:100% !important; overflow:hidden;">
+          <div id="messageHeader" style="background-color:#ddd; height:10%; overflow: hidden;">
+              <button class="messageHeaderButton" id="inbox">Inbox</button> <button class="messageHeaderButton" id="sent">Sent</button>
+          </div>
+          <div id="messageList" style="background-color:#ddd;height:90%;width:20%;float:left; overflow-y:scroll">
+              <ul>
+                  <li><a href="#"><h1>Mr. Smith</h1><h2>Compilers Topic 1</h2></a></li>
+                  <li><a href="#"><h1>Mr. Smith</h1><h2>Compilers Topic 1</h2></a></li>
+                  <li><a href="#"><h1>Mr. Smith</h1><h2>Compilers Topic 1</h2></a></li>
+                  <li><a href="#"><h1>Mr. Smith</h1><h2>Compilers Topic 1</h2></a></li>
+                  <li><a href="#"><h1>Mr. Smith</h1><h2>Compilers Topic 1</h2></a></li>
+              </ul>
+          </div>
+          <div id="messageContent" style="background-color:#EEEEEE;height:90%;width:80%;float:left; overflow-y:scroll">
+              <h1>Mr. Smith</h1><h3>Date</h3>
+              <h2>Compilers Topic 1</h2>
+              <div id="messageBorder"></div>
+              <div id="messageView">
+                  <p>Message content here blah blah blah chicken ciao mein. Message content here blah blah blah chicken ciao mein. Message content here blah blah blah chicken ciao mein. Message content here blah blah blah chicken ciao mein.Message content here blah blah blah chicken ciao mein. Message content here blah blah blah chicken ciao mein.Message content here blah blah blah chicken ciao mein. Message content here blah blah blah chicken ciao mein. Message content here blah blah blah chicken ciao mein. Message content here blah blah blah chicken ciao mein.
+                  </p>
+              </div>
+          </div>
+        </div>
+        <div class="send">
+          <form>
+              <input name="name" placeholder="What is your name?" class="name" required />
+              <input name="emailaddress" placeholder="What is your email?" class="email" type="email" required />
+              <textarea rows="4" cols="50" name="subject" placeholder="Please enter your message" class="message" required></textarea>
+              <input name="submit" class="btn" type="submit" value="Send" />
+          </form>
+        </div>
       </div>
       
       <!--Modules-->
-      <div class="swiper-slide">
-        <!-- Any HTML content of the third slide goes here -->
-        <img src="images/pic3.jpg" width="100%">
-        <p>Modules</p>
+      <div class="swiper-slide moduleSlide" style="height:100%;">
+      <div id="accordion">
+        <h3>MATH1015: Vectors</h3>
+        <div>
+          <p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
+        </div>
+        <h3>ENG2003: Prose</h3>
+        <div>
+          <p>Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In suscipit faucibus urna. </p>
+        </div>
+        <h3>MSCI3021: Botany</h3>
+        <div>
+          <p>Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis. Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui. </p>
+          <ul>
+            <li>List item one</li>
+            <li>List item two</li>
+            <li>List item three</li>
+          </ul>
+        </div>
+        <h3>COMP4002: Language Debugging</h3>
+        <div>
+          <p>Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia mauris vel est. </p><p>Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+        </div>
+        <h3>MISC8118: Cooking</h3>
+        <div>
+          <p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
+        </div>
+        <h3>LANG1002: Patois (Advanced)</h3>
+        <div>
+          <p>Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In suscipit faucibus urna. </p>
+        </div>
+        <h3>COMP4031: Compilers</h3>
+        <div>
+          <p>Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis. Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui. </p>
+          <ul>
+            <li>List item one</li>
+            <li>List item two</li>
+            <li>List item three</li>
+          </ul>
+        </div>
+        <h3>MSCI2092: Theoretical Physics</h3>
+        <div>
+          <p>Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia mauris vel est. </p><p>Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+        </div>
+      </div>
       </div>
       
       <!--ColumnTwo-->
@@ -777,17 +836,23 @@ height: 25.5%;
       <!--Notes-->
       <div class="swiper-slide">
         <!-- Any HTML content of the second slide goes here -->
-        <div class="notes">
-			<div class="pad">
+        <section class="notepad">
+    	<div class="notepad-heading">
+      		<h1>Notepad</h1>
+    	</div>
+        <div id="notesAloha"><p>Write your note here...</p></div>
+    	<!--<textarea class="note" >Write your note here...</textarea>-->
+  		</section>
+        <!-- old notes
+        <div contenteditable="true" class="notes">
+            <div class="pad">
 				<a href="#" class="saveNote"> Save Note </a>
 				<h2></h2>
 				<textarea class="note">
 				write your note here...
   				</textarea>
             </div>
-  			<div class="close-button">x</div>
-  		</div>
-        <p>Notes</p>
+  			<div class="close-button">x</div>-->
       </div>
       
       <!--Resources-->
@@ -914,6 +979,12 @@ function showDashBoard(){
 	$('.weather-thumb').click(function(){
 		swiper.swipeTo(8);
     });
+	
+	$('.organizer-thumb').click(function(){
+		showDashboard();
+    });
+	
+	
 
 	
   $('.big, .small').each(function(){

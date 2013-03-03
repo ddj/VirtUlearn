@@ -29,8 +29,12 @@
 	-o-backface-visibility:hidden;
 	backface-visibility:hidden;
 	/* Fix of Webkit flickering */
-	z-indez: 0;
-	left: -150%;
+	z-index: 0;
+	left: 0%;
+	-webkit-transition: margin-top 1300ms ease-in 0ms;
+        -moz-transition: margin-top 1300ms ease-in 0ms;
+        -o-transition: margin-top 1300ms ease-in 0ms;
+        transition: margin-top 1300ms ease-in 0ms;
 }
 .swiper-wrapper {
 	position:relative;

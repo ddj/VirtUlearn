@@ -18,6 +18,16 @@
 	margin-top: -150%;
 }*/
 
+/*HIDE HEADER AND SWIPER*/
+
+.startHide {
+	display: none;	
+}
+
+.headerContainer {
+	display: none;
+}
+
 /* Swiper Styles */
 .swiper-container {
 	margin:0 auto;
@@ -35,6 +45,7 @@
         -moz-transition: margin-top 1300ms ease-in 0ms;
         -o-transition: margin-top 1300ms ease-in 0ms;
         transition: margin-top 1300ms ease-in 0ms;
+		
 }
 .swiper-wrapper {
 	position:relative;

@@ -56,14 +56,11 @@ $(document).ready(function(){
 
 .icon-font{
 	/* TODO CHANGE WITH SCREEN SIZE*/
-  font-size:12em;
+  font-size:11em;
   line-height:0em !important;
   /*PORTRAIT SMALL / MEDIUM ICONS
   margin-top: 20%; */
 }
-
-
-
 
 img {
     height: 200px;
@@ -77,7 +74,7 @@ img {
 .scene3D {
     display: block;
     float: left;
-    margin: 10px;
+    margin: 12%;
     /*border-radius*/
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -131,9 +128,9 @@ img {
     -moz-border-radius: 5px;
     border-radius: 5px;
     /*box-shadow*/
-    -webkit-box-shadow: 0 0 15px rgba(0,0,0,0.3);
-    -moz-box-shadow: 0 0 15px rgba(0,0,0,0.3);
-    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 0 0 150px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0 0 150px rgba(0,0,0,0.5);
+    box-shadow: 0 0 150px rgba(0,0,0,0.5);
     /*transition*/
     -webkit-transition: all 1s ease;
     -moz-transition: all 1s ease;
@@ -147,18 +144,115 @@ img {
     transform-style: preserve-3d;
 }
 
-.scene3D:hover .flip {
+.scene3D:hover .flipBottomLeft {
     /*transform*/
 		-webkit-transform-origin: right center;
-		-webkit-transform: translateX( 0% ) rotateY( 180deg ) rotateZ(-180deg);
+		-webkit-transform: translateX( 0% ) rotateY( -180deg ) rotateZ(-180deg);
 		-moz-transform-origin: right center;
-		-moz-transform: translateX( 0% ) rotateY( 180deg ) rotateZ(-180deg);
+		-moz-transform: translateX( 0% ) rotateY( -180deg ) rotateZ(-180deg);
 		-ms-transform-origin: right center;
-		-ms-transform: translateX( 0% ) rotateY( 180deg ) rotateZ(-180deg);
+		-ms-transform: translateX( 0% ) rotateY( -180deg ) rotateZ(-180deg);
 		-o-transform-origin: right center;
-		-o-transform: translateX( 0% ) rotateY( 180deg ) rotateZ(-180deg);
+		-o-transform: translateX( 0% ) rotateY( -180deg ) rotateZ(-180deg);
 		transform-origin: right center;
+		transform: translateX( 0% ) rotateY( -180deg ) rotateZ(-180deg);
+}
+
+.scene3D:hover .flipTopLeft {
+    /*transform*/
+		-webkit-transform-origin: right center;
+		-webkit-transform: translateX( 0% ) rotateY( -180deg ) rotateZ(180deg);
+		-moz-transform-origin: right center;
+		-moz-transform: translateX( 0% ) rotateY( -180deg ) rotateZ(180deg);
+		-ms-transform-origin: right center;
+		-ms-transform: translateX( 0% ) rotateY( -180deg ) rotateZ(180deg);
+		-o-transform-origin: right center;
+		-o-transform: translateX( 0% ) rotateY( -180deg ) rotateZ(180deg);
+		transform-origin: right center;
+		transform: translateX( 0% ) rotateY( -180deg ) rotateZ(180deg);
+}
+
+.scene3D:hover .flipTopRight {
+    /*transform*/
+		-webkit-transform-origin: left center;
+		-webkit-transform: translateX( 0% ) rotateY( 180deg ) rotateZ(-180deg);
+		-moz-transform-origin: left center;
+		-moz-transform: translateX( 0% ) rotateY( 180deg ) rotateZ(-180deg);
+		-ms-transform-origin: left center;
+		-ms-transform: translateX( 0% ) rotateY( 180deg ) rotateZ(-180deg);
+		-o-transform-origin: left center;
+		-o-transform: translateX( 0% ) rotateY( 180deg ) rotateZ(-180deg);
+		transform-origin: left center;
 		transform: translateX( 0% ) rotateY( 180deg ) rotateZ(-180deg);
+}
+
+.scene3D:hover .flipBottomRight {
+    /*transform*/
+		-webkit-transform-origin: left center;
+		-webkit-transform: translateX( 0% ) rotateY( -180deg ) rotateZ(180deg);
+		-moz-transform-origin: left center;
+		-moz-transform: translateX( 0% ) rotateY( -180deg ) rotateZ(180deg);
+		-ms-transform-origin: left center;
+		-ms-transform: translateX( 0% ) rotateY( -180deg ) rotateZ(180deg);
+		-o-transform-origin: left center;
+		-o-transform: translateX( 0% ) rotateY( -180deg ) rotateZ(180deg);
+		transform-origin: left center;
+		transform: translateX( 0% ) rotateY( -180deg ) rotateZ(180deg);
+}
+
+.calendar-thumb, .profile-thumb {color:#8BBA30;}
+.calendar-thumb, .profile-thumb {background: rgb(191,210,85); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(191,210,85,1) 0%, rgba(142,185,42,1) 50%, rgba(114,170,0,1) 51%, rgba(158,203,45,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(191,210,85,1)), color-stop(50%,rgba(142,185,42,1)), color-stop(51%,rgba(114,170,0,1)), color-stop(100%,rgba(158,203,45,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(191,210,85,1) 0%,rgba(142,185,42,1) 50%,rgba(114,170,0,1) 51%,rgba(158,203,45,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(191,210,85,1) 0%,rgba(142,185,42,1) 50%,rgba(114,170,0,1) 51%,rgba(158,203,45,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(191,210,85,1) 0%,rgba(142,185,42,1) 50%,rgba(114,170,0,1) 51%,rgba(158,203,45,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(191,210,85,1) 0%,rgba(142,185,42,1) 50%,rgba(114,170,0,1) 51%,rgba(158,203,45,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bfd255', endColorstr='#9ecb2d',GradientType=0 ); /* IE6-9 */}
+
+.live-thumb, .settings-thumb {color:#EBB741;}
+.live-thumb, .settings-thumb {background: rgb(252,234,187); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(252,234,187,1) 0%, rgba(252,205,77,1) 50%, rgba(248,181,0,1) 51%, rgba(251,223,147,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,234,187,1)), color-stop(50%,rgba(252,205,77,1)), color-stop(51%,rgba(248,181,0,1)), color-stop(100%,rgba(251,223,147,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(252,234,187,1) 0%,rgba(252,205,77,1) 50%,rgba(248,181,0,1) 51%,rgba(251,223,147,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(252,234,187,1) 0%,rgba(252,205,77,1) 50%,rgba(248,181,0,1) 51%,rgba(251,223,147,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(252,234,187,1) 0%,rgba(252,205,77,1) 50%,rgba(248,181,0,1) 51%,rgba(251,223,147,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(252,234,187,1) 0%,rgba(252,205,77,1) 50%,rgba(248,181,0,1) 51%,rgba(251,223,147,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fceabb', endColorstr='#fbdf93',GradientType=0 ); /* IE6-9 */}
+
+.resources-thumb, .messages-thumb {color:#EF3A5B;}
+.resources-thumb, .messages-thumb {background: rgb(252,189,189); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(252,189,189,1) 0%, rgba(252,84,78,1) 50%, rgba(244,20,0,1) 51%, rgba(252,148,148,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,189,189,1)), color-stop(50%,rgba(252,84,78,1)), color-stop(51%,rgba(244,20,0,1)), color-stop(100%,rgba(252,148,148,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(252,189,189,1) 0%,rgba(252,84,78,1) 50%,rgba(244,20,0,1) 51%,rgba(252,148,148,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(252,189,189,1) 0%,rgba(252,84,78,1) 50%,rgba(244,20,0,1) 51%,rgba(252,148,148,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(252,189,189,1) 0%,rgba(252,84,78,1) 50%,rgba(244,20,0,1) 51%,rgba(252,148,148,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(252,189,189,1) 0%,rgba(252,84,78,1) 50%,rgba(244,20,0,1) 51%,rgba(252,148,148,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcbdbd', endColorstr='#fc9494',GradientType=0 ); /* IE6-9 */}
+
+.lock-thumb, .modules-thumb {color:#85A9C3;}
+.lock-thumb, .modules-thumb {background: rgb(183,222,237); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(183,222,237,1) 0%, rgba(113,206,239,1) 50%, rgba(33,180,226,1) 51%, rgba(183,222,237,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(183,222,237,1)), color-stop(50%,rgba(113,206,239,1)), color-stop(51%,rgba(33,180,226,1)), color-stop(100%,rgba(183,222,237,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(183,222,237,1) 0%,rgba(113,206,239,1) 50%,rgba(33,180,226,1) 51%,rgba(183,222,237,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(183,222,237,1) 0%,rgba(113,206,239,1) 50%,rgba(33,180,226,1) 51%,rgba(183,222,237,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(183,222,237,1) 0%,rgba(113,206,239,1) 50%,rgba(33,180,226,1) 51%,rgba(183,222,237,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(183,222,237,1) 0%,rgba(113,206,239,1) 50%,rgba(33,180,226,1) 51%,rgba(183,222,237,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b7deed', endColorstr='#b7deed',GradientType=0 ); /* IE6-9 */}
+
+.big {
+	color: white;
+	text-align:center;
+}
+
+.container {
+	margin:0;
+	padding:0;
+}
+
+.row {
+	/*border-left:  solid 10px;
+	border-right: solid 10px;*/
 }
 
 </style>
@@ -170,60 +264,60 @@ img {
   <div id="rowFlipOne" class="row">
     <div class="threecol">
       <div class="scene3D">
-		<div class="flip">
+		<div class="flip flipTopLeft">
 			<div>	
-				<p>
+				<p>	
 					Apple 1st Logo
 				</p>
 			</div>
-			<div class="big organizer-thumb" data-page="random-page">
+			<div class="big profile-thumb" data-page="random-page">
 				<span class="icon-font" aria-hidden="true" data-icon="&#xe015;"></span>
-            <p>David Johnson</p>
+            <p>Mr. Johnson</p>
 			</div>
 		</div>
 	  </div>
     </div>
     <div class="threecol">
       <div class="scene3D">
-		<div class="flip">
+		<div class="flip flipTopLeft">
 			<div>
 				<p>
 					Apple 2nd Logo
 				</p>
 			</div>
-			<div class="big organizer-thumb" data-page="random-page">
-				<span class="icon-font" aria-hidden="true" data-icon="&#xe015;"></span>
-            <p>David Johnson</p>
+			<div class="big resources-thumb" data-page="random-page">
+				<span class="icon-font" aria-hidden="true" data-icon="&#xe01A;"></span>
+            <p>Resources</p>
 			</div>
 		</div>
 	  </div>
     </div>
     <div class="threecol">
       <div class="scene3D">
-		<div class="flip">
+		<div class="flip flipTopRight">
 			<div>
 				<p>
 					Apple 3rd Logo
 				</p>
 			</div>
-			<div class="big organizer-thumb" data-page="random-page">
-				<span class="icon-font" aria-hidden="true" data-icon="&#xe015;"></span>
-            <p>David Johnson</p>
+			<div class="big settings-thumb" data-page="random-page">
+				<span class="icon-font" aria-hidden="true" data-icon="&#xe016;"></span>
+            <p>Settings</p>
 			</div>
 		</div>
 	  </div>
     </div>
     <div class="threecol last">
       <div class="scene3D">
-		<div class="flip">
+		<div class="flip flipTopRight">
 			<div>
 				<p>
 					Apple 4th Logo
 				</p>
 			</div>
-			<div class="big organizer-thumb" data-page="random-page">
-				<span class="icon-font" aria-hidden="true" data-icon="&#xe015;"></span>
-            <p>David Johnson</p>
+			<div class="big lock-thumb" data-page="random-page">
+				<span class="icon-font" aria-hidden="true" data-icon="&#xe00c;"></span>
+            <p>Log out</p>
 			</div>
 		</div>
 	  </div>
@@ -233,60 +327,60 @@ img {
   <div id="row2" class="row">
     <div class="threecol">
       <div class="scene3D">
-		<div class="flip">
+		<div class="flip flipBottomLeft">
 			<div>
 				<p>
 					Apple 5th Logo
 				</p>
 			</div>
-			<div class="big organizer-thumb" data-page="random-page">
-				<span class="icon-font" aria-hidden="true" data-icon="&#xe015;"></span>
-            <p>David Johnson</p>
+			<div class="big live-thumb" data-page="random-page">
+				<span class="icon-font" aria-hidden="true" data-icon="&#xe00f;"></span>
+            <p>Live Lectures</p>
 			</div>
 		</div>
 	  </div>
     </div>
     <div class="threecol">
       <div class="scene3D">
-		<div class="flip">
+		<div class="flip flipBottomLeft">
 			<div>
 				<p>
 					Real apple...
 				</p>
 			</div>
-			<div class="big organizer-thumb" data-page="random-page">
-				<span class="icon-font" aria-hidden="true" data-icon="&#xe015;"></span>
-            <p>David Johnson</p>
+			<div class="big modules-thumb" data-page="random-page">
+				<span class="icon-font" aria-hidden="true" data-icon="&#xe006;"></span>
+            <p>Modules</p>
 			</div>
 		</div>
 	  </div>
     </div>
     <div class="threecol">
       <div class="scene3D">
-		<div class="flip">
+		<div class="flip flipBottomRight">
 			<div>
 				<p>
 					Real apple...
 				</p>
 			</div>
-			<div class="big organizer-thumb" data-page="random-page">
-				<span class="icon-font" aria-hidden="true" data-icon="&#xe015;"></span>
-            <p>David Johnson</p>
+			<div class="big calendar-thumb" data-page="random-page">
+				<span class="icon-font" aria-hidden="true" data-icon="&#xe00a;"></span>
+            <p>Calendar</p>
 			</div>
 		</div>
 	  </div>
     </div>
     <div class="threecol last">
       <div class="scene3D">
-		<div class="flip">
+		<div class="flip flipBottomRight">
 			<div>
 				<p>
 					Real apple...
 				</p>
 			</div>
-			<div class="big organizer-thumb" data-page="random-page">
-				<span class="icon-font" aria-hidden="true" data-icon="&#xe015;"></span>
-            <p>David Johnson</p>
+			<div class="big messages-thumb" data-page="random-page">
+				<span class="icon-font" aria-hidden="true" data-icon="&#xe00b;"></span>
+            <p>Messages</p>
 			</div>
 		</div>
 	  </div>

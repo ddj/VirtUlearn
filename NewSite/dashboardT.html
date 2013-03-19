@@ -1,0 +1,376 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<!-- CSS Files -->
+<!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/1140.css">
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+<script>
+
+$(document).ready(function(){ 
+
+ //$('.threecol').css('display',($('.row').height()-$('.threecol').outerHeight())/2);	
+ 				   
+ $(window).resize(function(){
+  $('.row').css({
+	  height: $(window).height()/2
+  });
+  
+  var middle = ($('.row').height() - $('.threecol').outerHeight())/2
+  $('.threecol').css('margin-top',middle);
+ });
+ // To initially run the function:
+ $(window).resize();
+
+});
+
+</script>
+
+<title>VirtUlearn - Teacher</title>
+
+<style>
+
+@import url(http://fonts.googleapis.com/css?family=Lato:400,100,300);
+@font-face {
+  font-family: 'demo-icomoon';
+  src:url('http://sarasoueidan.com/blog//windows8-animations/SourceCode/fonts/demo-icomoon.eot');
+  src:url('http://sarasoueidan.com/blog//windows8-animations/SourceCode/fonts/demo-icomoon.eot?#iefix') format('embedded-opentype'),
+    url('http://sarasoueidan.com/blog//windows8-animations/SourceCode/fonts/demo-icomoon.woff') format('woff'),
+    url('http://sarasoueidan.com/blog//windows8-animations/SourceCode/fonts/demo-icomoon.ttf') format('truetype'),
+    url('http://sarasoueidan.com/blog//windows8-animations/SourceCode/fonts/demo-icomoon.svg#demo-icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[data-icon]:before {
+  font-family: 'demo-icomoon';
+  content: attr(data-icon);
+  speak: none;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+.icon-font{
+	/* TODO CHANGE WITH SCREEN SIZE*/
+  font-size:12em;
+  line-height:0em !important;
+  /*PORTRAIT SMALL / MEDIUM ICONS
+  margin-top: 20%; */
+}
+
+
+
+
+img {
+    height: 200px;
+    width: 200px;
+    /*border-radius*/
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.scene3D {
+    display: block;
+    float: left;
+    margin: 10px;
+    /*border-radius*/
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    /*perspective*/
+    -webkit-perspective: 500px;
+    -moz-perspective: 500px;
+    -ms-perspective: 500px;
+    -o-perspective: 500px;
+    perspective: 500px;
+}
+.flip div {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    /*border-radius*/
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    /*backface-visibility*/
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.flip div:first-child {
+    /*border-radius*/
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background: #333;
+    /*transform*/
+    -webkit-transform: rotateX(180deg);
+    -moz-transform: rotateX(180deg);
+    -ms-transform: rotateX(180deg);
+    -o-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+}
+.flip div:first-child p {
+    color: #FFF;
+    text-shadow: 0 0 1px .111;
+    padding-top: 50px;
+    text-align: center;
+}
+.flip {
+    width: 200px;
+    height: 200px;
+    /*border-radius*/
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    /*box-shadow*/
+    -webkit-box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    /*transition*/
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+    /*transform-style*/
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.scene3D:hover .flip {
+    /*transform*/
+		-webkit-transform-origin: right center;
+		-webkit-transform: translateX( 0% ) rotateY( 180deg ) rotateZ(-180deg);
+		-moz-transform-origin: right center;
+		-moz-transform: translateX( 0% ) rotateY( 180deg ) rotateZ(-180deg);
+		-ms-transform-origin: right center;
+		-ms-transform: translateX( 0% ) rotateY( 180deg ) rotateZ(-180deg);
+		-o-transform-origin: right center;
+		-o-transform: translateX( 0% ) rotateY( 180deg ) rotateZ(-180deg);
+		transform-origin: right center;
+		transform: translateX( 0% ) rotateY( 180deg ) rotateZ(-180deg);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div id="rowFlipOne" class="row">
+    <div class="threecol">
+      <div class="scene3D">
+		<div class="flip">
+			<div>	
+				<p>
+					Apple 1st Logo
+				</p>
+			</div>
+			<div class="big organizer-thumb" data-page="random-page">
+				<span class="icon-font" aria-hidden="true" data-icon="&#xe015;"></span>
+            <p>David Johnson</p>
+			</div>
+		</div>
+	  </div>
+    </div>
+    <div class="threecol">
+      <div class="scene3D">
+		<div class="flip">
+			<div>
+				<p>
+					Apple 2nd Logo
+				</p>
+			</div>
+			<div class="big organizer-thumb" data-page="random-page">
+				<span class="icon-font" aria-hidden="true" data-icon="&#xe015;"></span>
+            <p>David Johnson</p>
+			</div>
+		</div>
+	  </div>
+    </div>
+    <div class="threecol">
+      <div class="scene3D">
+		<div class="flip">
+			<div>
+				<p>
+					Apple 3rd Logo
+				</p>
+			</div>
+			<div class="big organizer-thumb" data-page="random-page">
+				<span class="icon-font" aria-hidden="true" data-icon="&#xe015;"></span>
+            <p>David Johnson</p>
+			</div>
+		</div>
+	  </div>
+    </div>
+    <div class="threecol last">
+      <div class="scene3D">
+		<div class="flip">
+			<div>
+				<p>
+					Apple 4th Logo
+				</p>
+			</div>
+			<div class="big organizer-thumb" data-page="random-page">
+				<span class="icon-font" aria-hidden="true" data-icon="&#xe015;"></span>
+            <p>David Johnson</p>
+			</div>
+		</div>
+	  </div>
+    </div>
+  </div>
+  
+  <div id="row2" class="row">
+    <div class="threecol">
+      <div class="scene3D">
+		<div class="flip">
+			<div>
+				<p>
+					Apple 5th Logo
+				</p>
+			</div>
+			<div class="big organizer-thumb" data-page="random-page">
+				<span class="icon-font" aria-hidden="true" data-icon="&#xe015;"></span>
+            <p>David Johnson</p>
+			</div>
+		</div>
+	  </div>
+    </div>
+    <div class="threecol">
+      <div class="scene3D">
+		<div class="flip">
+			<div>
+				<p>
+					Real apple...
+				</p>
+			</div>
+			<div class="big organizer-thumb" data-page="random-page">
+				<span class="icon-font" aria-hidden="true" data-icon="&#xe015;"></span>
+            <p>David Johnson</p>
+			</div>
+		</div>
+	  </div>
+    </div>
+    <div class="threecol">
+      <div class="scene3D">
+		<div class="flip">
+			<div>
+				<p>
+					Real apple...
+				</p>
+			</div>
+			<div class="big organizer-thumb" data-page="random-page">
+				<span class="icon-font" aria-hidden="true" data-icon="&#xe015;"></span>
+            <p>David Johnson</p>
+			</div>
+		</div>
+	  </div>
+    </div>
+    <div class="threecol last">
+      <div class="scene3D">
+		<div class="flip">
+			<div>
+				<p>
+					Real apple...
+				</p>
+			</div>
+			<div class="big organizer-thumb" data-page="random-page">
+				<span class="icon-font" aria-hidden="true" data-icon="&#xe015;"></span>
+            <p>David Johnson</p>
+			</div>
+		</div>
+	  </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+
+
+<!--<script>
+$(document).ready(function(){ 
+	swiper = new Swiper('.studentSwiper', {
+		loop:true,
+		keyboardControl:true,
+		preventLinks:false,
+		simulateTouch:false,
+		onSlideChangeStart: function() {
+			var swipeNumber = swiper.activeSlide;
+			var x;
+			switch(swipeNumber) {
+			  case 0:
+				x="Profile";
+				break;
+			  case 1:
+				x="My Todos";
+				break;
+			  case 2:
+				x="Calendar";
+				break;
+			  case 3:
+				x="Messages";
+				break;
+			  case 4:
+				x="Modules";
+				break;
+			  case 5:
+				x="Settings";
+				break;
+			  case 6:
+				x="Live Lectures";
+				break;
+			  case 7:
+				x="Notes";
+				break;
+			  case 8:
+				x="Resources";
+				break;
+			}
+			$( "#sectionText" ).hide( "fade", {direction: "left"}, 800, callback );
+			function callback() {
+			  $('a#sectionText').text(x);
+			  setTimeout(function() {
+				$( "#sectionText" ).show( "fade", {direction: "left"}, 800);
+			  }, 0 );
+			};
+			
+		}
+	});
+	$('.swiper-container').css('display','none');
+	var h = $(window).height();	
+	var slidernormal = h-37;	  
+	/*var sliderpercent = ((h-37)/h)*100;*/
+	document.getElementById('studentSwiper').style.height = slidernormal += "px";
+	$('.headerContainer').css('display','none');
+	//$('.swiper-container').css('left','-150%');
+	//$('.navContainer').css('margin-top','0%');
+	
+    $(function() {
+		var icons = {
+      header: "ui-icon-folder-open",
+      activeHeader: "ui-icon-folder-collapsed"
+    };
+	  $( ".accordionStyle" ).accordion({
+		active: false,
+		collapsible: true,
+		animate: "bounceslide",
+		heightStyle: "fill",
+		icons: icons	  
+	  });
+	});
+	 
+	
+});
+</script>-->
+</html>

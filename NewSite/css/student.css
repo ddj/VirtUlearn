@@ -747,3 +747,131 @@ margin: 0 auto;
   border-color: #071c2c;
   border-color: rgba(0, 0, 0, 0.5);
 }
+
+
+/* Todos CSS
+------------------------------------------*/
+
+/* variables */
+
+nav.archive-links {
+  background-color: #ffffff;
+  box-sizing: content-box;
+  padding: 0;
+  margin: 2% auto;
+  max-width: 95%;
+  /* Ordered list with custom counter */
+
+  /* Style the title, date & comments of each entry */
+
+}
+nav.archive-links ol {
+  counter-reset: li;
+  overflow: hidden;
+  border: 1px solid #d9d9d9;
+  margin: 0;
+  padding: 0px;
+}
+nav.archive-links ol li {
+  float: left;
+  clear: left;
+  width: 100%;
+  margin: 0;
+  list-style: none;
+}
+nav.archive-links ol, nav.archive-links ol li, nav.archive-links ol li a {
+  display: block;
+}
+nav.archive-links ol li a {
+  font-size: 11px;
+  height: 59px;
+  position: relative;
+  text-decoration: none;
+}
+nav.archive-links ol li .main-image:after, nav.archive-links ol li .no-main-image:after {
+  color: #b7b7b7;
+  content: counter(li, decimal-leading-zero);
+  counter-increment: li;
+  font-size: 30px;
+  font-weight: bolder !important;
+  line-height: 59px;
+  height: 59px;
+  width: 60px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: center;
+  font-weight: 100;
+  letter-spacing: 1px;
+}
+nav.archive-links li .main-image, nav.archive-links li .no-main-image {
+  float: left;
+  margin-right: 1.5em;
+  width: 60px;
+  height: 60px;
+  background: #e6e6e6;
+}
+nav.archive-links li .main-image {
+  background-image: url('http://placekitten.com/g/200/200');
+
+  background-size: cover;
+  background-position: center center;
+}
+ol li:nth-child(odd){
+	background: rgba(0,0,50,.1);
+}
+
+nav.archive-links a:link,
+nav.archive-links a:visited,
+nav.archive-links a:hover,
+nav.archive-links a:active {
+  color: #000000;
+}
+nav.archive-links ol li a:hover .main-image:after, nav.archive-links ol li a:hover .no-main-image:after {
+  color: #2690d8;
+}
+nav.archive-links ol li a:active .main-image:after, nav.archive-links ol li a:active .no-main-image:after {
+  color: #000;
+}
+nav.archive-links ol li a:active .main-image:after,
+nav.archive-links ol li a:active .no-main-image:after,
+nav.archive-links ol li.active a .main-image:after,
+nav.archive-links ol li.active a .no-main-image:after {
+  color: #777777;
+}
+nav.archive-links li + li {
+  border-top: 1px solid #d9d9d9;
+}
+nav.archive-links li span {
+  display: block;
+  line-height: 1.5em;
+}
+
+/* Style the title, date & comments of each entry */
+  nav.archive-links span.link-title {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding-top: 19px;
+    font-size: 1.5em;
+    float:left;
+  }
+
+  nav.archive-links span.link-excerpt{ 
+    font-size: 15px;
+    color: lighten(@textcolor, 30%);
+    padding-top: 8px;
+    float: right;
+    margin-right: 60px; 
+  }
+  
+  nav.archive-links span.link-comment {
+    font-size: 15px;
+    clear: right;
+    color: lighten(@textcolor, 30%);
+    padding-top: 0px;
+    float: right;
+    margin-right: 60px;
+  }
+
+
+}

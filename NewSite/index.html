@@ -16,7 +16,7 @@
     <script src="js/require.js"></script>    
     <script>
 	  var Aloha = window.Aloha || ( window.Aloha = {} );
-	  Aloha.settings = {
+	  Aloha.settings = {	
 		  locale: 'en',
 		  plugins: {
 			  format: {
@@ -686,9 +686,50 @@ height: 25.5%;
             
       <!--My Todos-->
       <div class="swiper-slide startHide">  
-        <img src="images/pic1.jpg" width="100%">
-        <button onclick="slideAway()" style="float: left">Slide</button>
-        <p>MyTodos</p>
+        <nav class="archive-links">
+            <ol>
+				<li>
+                  <a >
+                    <div class="main-image"></div>
+                    <span class="link-title">Herman Miller - Why Design</span>
+                    <span class="link-excerpt"><time class="date" datetime="November 01 2012">Nov 01, 2012</time> </span>
+                    <span class="link-comment">Mr. Hanassi</span>
+                  </a>
+                </li>
+                <li>
+                  <a >
+                    <div class="main-image"></div>
+                    <span class="link-title">Herman Miller - Why Design</span>
+                    <span class="link-excerpt"><time class="date" datetime="November 01 2012">Nov 01, 2012</time> </span>
+                    <span class="link-comment">Mr. Hanassi</span>
+                  </a>
+                </li>
+                <li>
+                  <a >
+                    <div class="main-image"></div>
+                    <span class="link-title">Herman Miller - Why Design</span>
+                    <span class="link-excerpt"><time class="date" datetime="November 01 2012">Nov 01, 2012</time> </span>
+                    <span class="link-comment">Mr. Hanassi</span>
+                  </a>
+                </li>
+                <li>
+                  <a >
+                    <div class="main-image"></div>
+                    <span class="link-title">Herman Miller - Why Design</span>
+                    <span class="link-excerpt"><time class="date" datetime="November 01 2012">Nov 01, 2012</time> </span>
+                    <span class="link-comment">Mr. Hanassi</span>
+                  </a>
+                </li>
+                <li>
+                  <a >
+                    <div class="main-image"></div>
+                    <span class="link-title">Herman Miller - Why Design</span>
+                    <span class="link-excerpt"><time class="date" datetime="November 01 2012">Nov 01, 2012</time> </span>
+                    <span class="link-comment">Mr. Hanassi</span>
+                  </a>
+                </li>  
+            </ol>
+        </nav>
       </div>
       
       <!--Calendar-->
@@ -805,7 +846,7 @@ height: 25.5%;
     	<div class="notepad-heading">
       		<h1>Notepad</h1>
     	</div>
-        <div id="notesAloha"><p>Write your note here...</p></div>
+        <div id="notesAloha"><p contenteditable="true">Write your note here...</p></div>
     	<!--<textarea class="note" >Write your note here...</textarea>-->
   		</section>
         <!-- old notes

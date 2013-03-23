@@ -255,6 +255,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b7deed', end
 	border-right: solid 10px;*/
 }
 
+/* Pulsating Back Border */
+.back {
+	border: ridge thick;
+}
+
 </style>
 </head>
 
@@ -265,7 +270,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b7deed', end
     <div class="threecol">
       <div class="scene3D">
 		<div class="flip flipTopLeft">
-			<div>	
+			<div class="back">	
 				<p>	
 					Apple 1st Logo
 				</p>
@@ -280,7 +285,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b7deed', end
     <div class="threecol">
       <div class="scene3D">
 		<div class="flip flipTopLeft">
-			<div>
+			<div class="back">
 				<p>
 					Apple 2nd Logo
 				</p>
@@ -295,7 +300,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b7deed', end
     <div class="threecol">
       <div class="scene3D">
 		<div class="flip flipTopRight">
-			<div>
+			<div class="back">
 				<p>
 					Apple 3rd Logo
 				</p>
@@ -310,7 +315,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b7deed', end
     <div class="threecol last">
       <div class="scene3D">
 		<div class="flip flipTopRight">
-			<div>
+			<div class="back">
 				<p>
 					Apple 4th Logo
 				</p>
@@ -328,7 +333,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b7deed', end
     <div class="threecol">
       <div class="scene3D">
 		<div class="flip flipBottomLeft">
-			<div>
+			<div class="back">
 				<p>
 					Apple 5th Logo
 				</p>
@@ -343,7 +348,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b7deed', end
     <div class="threecol">
       <div class="scene3D">
 		<div class="flip flipBottomLeft">
-			<div>
+			<div class="back">
 				<p>
 					Real apple...
 				</p>
@@ -358,7 +363,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b7deed', end
     <div class="threecol">
       <div class="scene3D">
 		<div class="flip flipBottomRight">
-			<div>
+			<div class="back">
 				<p>
 					Real apple...
 				</p>
@@ -373,7 +378,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b7deed', end
     <div class="threecol last">
       <div class="scene3D">
 		<div class="flip flipBottomRight">
-			<div>
+			<div class="back">
 				<p>
 					Real apple...
 				</p>
@@ -388,83 +393,63 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b7deed', end
   </div>
 </div>
 
+<script>
+
+var anim = (function() {
+    var i = 0;
+    var step = 10;
+    var up = true;
+    var timer = null;
+
+    var next = function() {
+        if (up) {
+            i += step;
+        }
+        else {
+            i -= step;
+        }
+        if(i<0){i=0; up=true;}
+        if(i>255){i=255; up=false;}
+        update(i);
+    };
+
+    var update = function(i) {
+        $(".back").css("border-color", 'rgb(' + i + ',' + i + ',' + 255 + ')');
+    };
+
+    var go = function() {
+        next();
+        timer = window.setTimeout(anim.go, 30);
+    };
+
+    var stop = function() {
+        if (timer) {
+            window.clearTimeout(timer);
+            timer = null;
+        }
+    };
+
+    var addClickHandler = function() {
+        $("div").click(function() {
+            window.clearTimeout(timer);
+            update(0);
+
+        });
+    };
+
+
+
+    return {
+        go: go,
+        stop: stop,
+        addClickHandler: addClickHandler 
+    };
+}());
+
+anim.addClickHandler();
+anim.go();
+
+</script>
 </body>
 
-
-
-<!--<script>
-$(document).ready(function(){ 
-	swiper = new Swiper('.studentSwiper', {
-		loop:true,
-		keyboardControl:true,
-		preventLinks:false,
-		simulateTouch:false,
-		onSlideChangeStart: function() {
-			var swipeNumber = swiper.activeSlide;
-			var x;
-			switch(swipeNumber) {
-			  case 0:
-				x="Profile";
-				break;
-			  case 1:
-				x="My Todos";
-				break;
-			  case 2:
-				x="Calendar";
-				break;
-			  case 3:
-				x="Messages";
-				break;
-			  case 4:
-				x="Modules";
-				break;
-			  case 5:
-				x="Settings";
-				break;
-			  case 6:
-				x="Live Lectures";
-				break;
-			  case 7:
-				x="Notes";
-				break;
-			  case 8:
-				x="Resources";
-				break;
-			}
-			$( "#sectionText" ).hide( "fade", {direction: "left"}, 800, callback );
-			function callback() {
-			  $('a#sectionText').text(x);
-			  setTimeout(function() {
-				$( "#sectionText" ).show( "fade", {direction: "left"}, 800);
-			  }, 0 );
-			};
-			
-		}
-	});
-	$('.swiper-container').css('display','none');
-	var h = $(window).height();	
-	var slidernormal = h-37;	  
-	/*var sliderpercent = ((h-37)/h)*100;*/
-	document.getElementById('studentSwiper').style.height = slidernormal += "px";
-	$('.headerContainer').css('display','none');
-	//$('.swiper-container').css('left','-150%');
-	//$('.navContainer').css('margin-top','0%');
-	
-    $(function() {
-		var icons = {
-      header: "ui-icon-folder-open",
-      activeHeader: "ui-icon-folder-collapsed"
-    };
-	  $( ".accordionStyle" ).accordion({
-		active: false,
-		collapsible: true,
-		animate: "bounceslide",
-		heightStyle: "fill",
-		icons: icons	  
-	  });
-	});
-	 
-	
-});
-</script>-->
 </html>

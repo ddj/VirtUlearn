@@ -184,6 +184,26 @@ BEST VIEWED IN WEBKIT BROWSERS, and in the pen's FULL VIEW MODE
 (The lock thumbnail opens a different page than the rest of the thumbs)
 */
 
+#bg {
+  position:fixed; 
+  top:-50%; 
+  left:-50%; 
+  width:200%; 
+  height:200%;
+  z-index: -1;
+}
+
+#bg img {
+  position:absolute; 
+  top:0; 
+  left:0; 
+  right:0; 
+  bottom:0; 
+  margin:auto; 
+  min-width:50%;
+  min-height:50%;
+}
+
 @import url(http://fonts.googleapis.com/css?family=Lato:400,100,300);
 @font-face {
   font-family: 'demo-icomoon';
@@ -657,6 +677,7 @@ height: 25.5%;
 
 </head>
 <body>
+	<div id="bg"><img src="images/bg.png" alt=""></div>
 
 <div class="headerContainer">
       <nav class="nav1">
@@ -685,6 +706,7 @@ height: 25.5%;
       </div>
             
       <!--My Todos-->
+      <!-- ADD A PERSONAL TODO... EDIT A TODO -->
       <div class="swiper-slide startHide">  
         <nav class="archive-links">
             <ol>
@@ -998,28 +1020,22 @@ function runHideEffect() {
       }, 0 );
     };
 	
-/*function showDashBoard(){
+	/* Go to live lectures */
+	function open_win() 
+	{
+	if(typeof(Storage)!=="undefined")
+	  {
+		var message = "Student";
+		sessionStorage.setItem("key", message)
+		sessionStorage.setItem("type", message);
 	
-      for(var i = 1; i <= 2; i++) {
-        $('.col'+i).each(function(){
-            $(this).addClass('fadeInForward-'+i).removeClass('fadeOutback-'+i);
-        });
-      }
-    }
-
-    function fadeDashBoard(){
-      for(var i = 1; i <= 2; i++) {
-		$('.col'+i).each(function(){
-            $(this).addClass('fadeOutback-'+i).removeClass('fadeInForward-1'+i);
-        });  
-        //$('.col'+i).addClass('fadeOutback').removeClass('fadeInForward-'+i);
-      }
-    }*/
-	
-	/*function displayNoneNav(){
-		window.alert('Hello!');
-		$('.navContainer').css('display','none');
-	}*/
+		window.open("live.html",'_self');
+	  }
+	else
+	  {
+	  alert('storage not support');
+	  }
+	}
 	
 	$('.organizer-thumb').click(function(){
 		$('a#sectionText').text('Profile')
@@ -1055,9 +1071,11 @@ function runHideEffect() {
 	  swiper.swipeTo(5);
 	});
 	
+	// FIX TRANSITION... TEMP FIX WITH 900TH OF A SECOND TIMING
 	$(".live-thumb").click(function(){
 		$('a#sectionText').text('Live Lectures')
-	  swiper.swipeTo(6);
+		setTimeout(function() {open_win();}, 900)
+	  //swiper.swipeTo(6);
 	});
 	
 	$('.notes-thumb').click(function(){
@@ -1072,24 +1090,8 @@ function runHideEffect() {
 	
 	
   $('.big, .small').click(function(){
-	
 	$('.startHide').css('display','inline');
-	runHideEffect();
-		/*
-		for(var i = 1; i <= 1000; i++) {
-	  if (i < 2) {
-		fadeDashBoard();
-		$('.swiper-container').css('display','');
-		$('.swiper-container').addClass('slidePageInFromLeft').removeClass('slidePageBackLeft');
-	    }
-	  }
-	  $('.navContainer').css('display','none');
-		*/
-
-	  /*$('.page.'+page).addClass('openpage');*/
-      //fadeDashBoard();
-	  //$('.navContainer').css('margin-top','');
-    
+	runHideEffect();    
   });
 
   $('.close-button').click(function(){

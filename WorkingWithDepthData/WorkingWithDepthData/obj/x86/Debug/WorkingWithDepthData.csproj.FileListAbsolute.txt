@@ -1,0 +1,52 @@
+C:\Users\danielfe\Desktop\Kinect\Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\danielfe\Desktop\Kinect\Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\obj\x86\Debug\MainWindow.baml
+C:\Users\danielfe\Desktop\Kinect\Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\obj\x86\Debug\MainWindow.g.cs
+C:\Users\danielfe\Desktop\Kinect\Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\obj\x86\Debug\App.g.cs
+C:\Users\danielfe\Desktop\Kinect\Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\obj\x86\Debug\WorkingWithDepthData_MarkupCompile.cache
+C:\Users\danielfe\Desktop\Kinect\Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\obj\x86\Debug\WorkingWithDepthData.g.resources
+C:\Users\danielfe\Desktop\Kinect\Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\obj\x86\Debug\WorkingWithDepthData.Properties.Resources.resources
+C:\Users\danielfe\Desktop\Kinect\Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\danielfe\Desktop\Kinect\Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\danielfe\Desktop\Kinect\Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\bin\Debug\WorkingWithDepthData.exe
+C:\Users\danielfe\Desktop\Kinect\Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\bin\Debug\WorkingWithDepthData.pdb
+C:\Users\danielfe\Desktop\Kinect\Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\bin\Debug\Coding4Fun.Kinect.Wpf.dll
+C:\Users\danielfe\Desktop\Kinect\Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\bin\Debug\Microsoft.Samples.Kinect.WpfViewers.dll
+C:\Users\danielfe\Desktop\Kinect\Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\bin\Debug\Microsoft.Expression.Drawing.dll
+C:\Users\danielfe\Desktop\Kinect\Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\bin\Debug\Microsoft.Samples.Kinect.WpfViewers.pdb
+C:\Users\danielfe\Desktop\Kinect\Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\bin\Debug\Coding4Fun.Kinect.Wpf.pdb
+C:\Users\danielfe\Desktop\Kinect\Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\obj\x86\Debug\WorkingWithDepthData.exe
+C:\Users\danielfe\Desktop\Kinect\Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\obj\x86\Debug\WorkingWithDepthData.pdb
+C:\Users\danielfe\Desktop\Work Files\Projects\KinectSDK\v1Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\obj\x86\Debug\WorkingWithDepthData.exe
+C:\Users\danielfe\Desktop\Work Files\Projects\KinectSDK\v1Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\obj\x86\Debug\WorkingWithDepthData.pdb
+C:\Users\danielfe\Desktop\Work Files\Projects\KinectSDK\v1Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\bin\Debug\WorkingWithDepthData.exe
+C:\Users\danielfe\Desktop\Work Files\Projects\KinectSDK\v1Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\bin\Debug\WorkingWithDepthData.pdb
+C:\Users\danielfe\Desktop\Work Files\Projects\KinectSDK\v1Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\bin\Debug\Coding4Fun.Kinect.Wpf.dll
+C:\Users\danielfe\Desktop\Work Files\Projects\KinectSDK\v1Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\bin\Debug\Microsoft.Samples.Kinect.WpfViewers.dll
+C:\Users\danielfe\Desktop\Work Files\Projects\KinectSDK\v1Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\bin\Debug\Microsoft.Expression.Drawing.dll
+C:\Users\danielfe\Desktop\Work Files\Projects\KinectSDK\v1Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\bin\Debug\Microsoft.Samples.Kinect.WpfViewers.pdb
+C:\Users\danielfe\Desktop\Work Files\Projects\KinectSDK\v1Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\bin\Debug\Coding4Fun.Kinect.Wpf.pdb
+C:\Users\danielfe\Desktop\Work Files\Projects\KinectSDK\v1Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\danielfe\Desktop\Work Files\Projects\KinectSDK\v1Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\obj\x86\Debug\MainWindow.baml
+C:\Users\danielfe\Desktop\Work Files\Projects\KinectSDK\v1Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\obj\x86\Debug\MainWindow.g.cs
+C:\Users\danielfe\Desktop\Work Files\Projects\KinectSDK\v1Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\obj\x86\Debug\App.g.cs
+C:\Users\danielfe\Desktop\Work Files\Projects\KinectSDK\v1Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\obj\x86\Debug\WorkingWithDepthData_MarkupCompile.cache
+C:\Users\danielfe\Desktop\Work Files\Projects\KinectSDK\v1Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\obj\x86\Debug\WorkingWithDepthData.g.resources
+C:\Users\danielfe\Desktop\Work Files\Projects\KinectSDK\v1Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\obj\x86\Debug\WorkingWithDepthData.Properties.Resources.resources
+C:\Users\danielfe\Desktop\Work Files\Projects\KinectSDK\v1Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\danielfe\Desktop\Work Files\Projects\KinectSDK\v1Quickstarts\KinectforWindowsSDKV1\4.Working With Depth Data\WorkingWithDepthData\WorkingWithDepthData\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Rasheed\Downloads\WorkingWithDepthData\WorkingWithDepthData\obj\x86\Debug\WorkingWithDepthData.exe
+C:\Users\Rasheed\Downloads\WorkingWithDepthData\WorkingWithDepthData\obj\x86\Debug\WorkingWithDepthData.pdb
+C:\Users\Rasheed\Downloads\WorkingWithDepthData\WorkingWithDepthData\obj\x86\Debug\WorkingWithDepthData.csprojResolveAssemblyReference.cache
+C:\Users\Rasheed\Downloads\WorkingWithDepthData\WorkingWithDepthData\obj\x86\Debug\App.g.cs
+C:\Users\Rasheed\Downloads\WorkingWithDepthData\WorkingWithDepthData\obj\x86\Debug\WorkingWithDepthData_MarkupCompile.cache
+C:\Users\Rasheed\Downloads\WorkingWithDepthData\WorkingWithDepthData\bin\Debug\WorkingWithDepthData.exe
+C:\Users\Rasheed\Downloads\WorkingWithDepthData\WorkingWithDepthData\bin\Debug\WorkingWithDepthData.pdb
+C:\Users\Rasheed\Downloads\WorkingWithDepthData\WorkingWithDepthData\bin\Debug\Microsoft.Samples.Kinect.WpfViewers.dll
+C:\Users\Rasheed\Downloads\WorkingWithDepthData\WorkingWithDepthData\bin\Debug\Microsoft.Expression.Drawing.dll
+C:\Users\Rasheed\Downloads\WorkingWithDepthData\WorkingWithDepthData\bin\Debug\Coding4Fun.Kinect.Wpf.pdb
+C:\Users\Rasheed\Downloads\WorkingWithDepthData\WorkingWithDepthData\bin\Debug\Microsoft.Samples.Kinect.WpfViewers.pdb
+C:\Users\Rasheed\Downloads\WorkingWithDepthData\WorkingWithDepthData\obj\x86\Debug\MainWindow.baml
+C:\Users\Rasheed\Downloads\WorkingWithDepthData\WorkingWithDepthData\obj\x86\Debug\MainWindow.g.cs
+C:\Users\Rasheed\Downloads\WorkingWithDepthData\WorkingWithDepthData\obj\x86\Debug\WorkingWithDepthData.g.resources
+C:\Users\Rasheed\Downloads\WorkingWithDepthData\WorkingWithDepthData\obj\x86\Debug\WorkingWithDepthData.Properties.Resources.resources
+C:\Users\Rasheed\Downloads\WorkingWithDepthData\WorkingWithDepthData\obj\x86\Debug\WorkingWithDepthData.csproj.GenerateResource.Cache

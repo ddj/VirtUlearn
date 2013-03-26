@@ -7,11 +7,13 @@ $(function(){
 		alert('Sorry, it looks like your browser does not support canvas!');
 		return false;
 	}
+	
+	Parse.initialize("gAWomM0rkBO0iTwhujztAIMN8Dwfo93rXxNBAcHR", "yvPZpTfRleqO3hXyv2kVm4ZX9RySDouUH0H2H3FW");
 
 	// The URL of your web server (the port is set in app.js)
     //the right url must be typed in here, for my computer it's 192.168.1.2
 	//Connected to nexus4 192.168.43.102
-	var url = 'http://10.111.24.135:8080';
+	var url = 'http://10.111.2.168:8080';
 
 	var doc = $(document),
 	win = $(window),
@@ -346,7 +348,6 @@ function displayPage(num){
 			scale=scaleX;
 		}
         viewport = page.getViewport(scale);	
-        alert(viewport.height);
         document.getElementById("pageNum").innerHTML = pageNum.toString();
         var renderContext = {
                 canvasContext: context,
@@ -375,7 +376,7 @@ function nextPage() {
     }
 }
 
-function yourMum(){
+function onLoadF(){
     var left = document.getElementById('left');
     var canvas = document.getElementById('paper');
 	canvas.width = left.clientWidth;
@@ -389,5 +390,16 @@ function yourMum(){
    		context.strokeStyle = "black";
    		context.stroke();
 	}
-	
+$('#saveButton').click(saveDrawing);
+function saveDrawing() {
+ var canvas = document.getElementById("paper");
+ 	var SavedNotes = Parse.Object.extend("SavedNotes");
+	var Note = new SavedNotes();
+	Note.save({image: canvas.toDataURL("image/png")}, {
+  	success: function(object) {
+    alert("yay! it worked");
+  	}
+	});
+ window.open(canvas.toDataURL("image/png"));
+}	
 }

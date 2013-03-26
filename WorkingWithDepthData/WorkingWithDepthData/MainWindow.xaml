@@ -1,0 +1,17 @@
+﻿<Window x:Class="WorkingWithDepthData.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="1029.851" Width="935.821" Loaded="Window_Loaded"  Closing="Window_Closing"
+        xmlns:my="clr-namespace:Microsoft.Samples.Kinect.WpfViewers;assembly=Microsoft.Samples.Kinect.WpfViewers">
+    
+    <Grid>
+        <Canvas Height="611" Name="canvas1" VerticalAlignment="Top" Background="Black" Margin="10,286,0,0" HorizontalAlignment="Left" Width="908" />
+
+        <Image Height="240" HorizontalAlignment="Left" Margin="62,0,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="320" />
+        <my:KinectSensorChooser HorizontalAlignment="Left" Margin="62,298,0,0" Name="kinectSensorChooser1" VerticalAlignment="Top" Width="328" />
+        <my:KinectDepthViewer HorizontalAlignment="Left" Margin="415,0,0,0" Name="kinectDepthViewer1" VerticalAlignment="Top" Height="240" Width="320" Kinect="{Binding ElementName=kinectSensorChooser1, Path=Kinect}" />
+        <Label Name="hitLabel" Content="{Binding Text}" HorizontalAlignment="Left" Height="37" Margin="24,227,0,0" VerticalAlignment="Top" Width="639"/>
+        <Label Name="hitLabel2" Content="{Binding Text}" HorizontalAlignment="Left" Height="37" Margin="595,240,-306,0" VerticalAlignment="Top" Width="639"/>
+
+    </Grid>
+</Window>

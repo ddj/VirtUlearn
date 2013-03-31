@@ -1,0 +1,694 @@
+<!DOCTYPE HTML>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>VirtUlearn</title>
+
+<!-- Main Stylesheet -->
+<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+<!-- End Main Stylesheet -->
+<!-- Touch Stylesheets -->
+<link id="touchCSS" rel="stylesheet" type="text/css" href="css/foo.css">
+<!-- End Touch Stylesheets -->
+
+<!-- Start Modules Accordion -->
+<!-- Default theme
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />-->
+  <link rel="stylesheet" href="css/accordion-theme/jquery-ui-1.10.2.custom.min.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+<!-- End Modules Accordian  -->
+ 
+<!-- Start Aloha -->
+<link rel="stylesheet" href="css/aloha.css">
+    <script src="js/require.js"></script>    
+    <script>
+	  var Aloha = window.Aloha || ( window.Aloha = {} );
+	  Aloha.settings = {	
+		  locale: 'en',
+		  plugins: {
+			  format: {
+				  config : [ 'b', 'i','u','del','sub','sup', 'h1', 'h2', 'h3', 'p'],
+			  }
+		  },
+		  sidebar: {
+			  disabled: true
+		  }
+	  };
+	</script>
+    
+<script src="js/aloha.js"
+      data-aloha-plugins="common/ui,common/format,common/align,common/list,common/highlighteditables,common/link,common/horizontalruler,extra/textcolor,common/characterpicker"></script>
+<!-- End Aloha -->
+
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="css/idangerous.swiper.css">
+<!-- Swipper JS -->
+<script src="js/idangerous.swiper-1.8.min.js"></script>
+<!-- JS Min -->
+<script src="js/jquery-1.8.3.min.js"></script>
+
+<!-- Student Sections CSS -->
+<link rel="stylesheet" href="css/student.css">
+<script>
+$(document).ready(function(){ 
+	swiper = new Swiper('.studentSwiper', {
+		loop:true,
+		keyboardControl:true,
+		preventLinks:false,
+		simulateTouch:false,
+		onSlideChangeStart: function() {
+			var swipeNumber = swiper.activeSlide;
+			var x;
+			switch(swipeNumber) {
+			  case 0:
+				x="Profile";
+				break;
+			  case 1:
+				x="My Todos";
+				break;
+			  case 2:
+				x="Calendar";
+				break;
+			  case 3:
+				x="Messages";
+				break;
+			  case 4:
+				x="Modules";
+				break;
+			  case 5:
+				x="Settings";
+				break;
+			  case 6:
+				x="Live Lectures";
+				break;
+			  case 7:
+				x="Notes";
+				break;
+			  case 8:
+				x="Resources";
+				break;
+			}
+			$( "#sectionText" ).hide( "fade", {direction: "left"}, 800, callback );
+			function callback() {
+				if (x == "Live Lectures") {
+					// DIALOG BOX ASKING TO GO TO LIVE LECTURES
+				}
+			  $('a#sectionText').text(x);
+			  setTimeout(function() {
+				$( "#sectionText" ).show( "fade", {direction: "left"}, 800);
+			  }, 0 );
+			};
+			
+		}
+	});
+	$('.swiper-container').css('display','none');
+	var h = $(window).height();	
+	var slidernormal = h-37;	  
+	/*var sliderpercent = ((h-37)/h)*100;*/
+	document.getElementById('studentSwiper').style.height = slidernormal += "px";
+	$('.headerContainer').css('display','none');
+	//$('.swiper-container').css('left','-150%');
+	//$('.navContainer').css('margin-top','0%');
+	
+	$(window).resize(function(){
+		var rowHeight = $(".big").height();
+		var minusRowHeight = rowHeight * -1;
+		var textHeight = $(".textWrapper").innerHeight();
+		var middleT = ((rowHeight - textHeight)/2)
+		$('.textWrapper').css('margin-top',middleT);
+		$('.specialWrapper').css('margin-top',middleT);
+		
+		
+		$('.live-thumb-span').css('margin-top',rowHeight);
+		$('.todos-thumb-span').css('margin-top',rowHeight);
+		$(".specialHover").mouseover(function(){
+			$('.specialWrapper').css('margin-top',minusRowHeight);
+		});
+		$(".specialHover").mouseout(function(){
+			$('.specialWrapper').css('margin-top',rowHeight/3);
+		});
+		
+		var rowHeight = $(".big").height();
+		var iconHeight = $(".iconWrapper").innerHeight();
+		var middleI = ((rowHeight - iconHeight)/2)
+		$('.iconWrapper').css('margin-top',middleI);
+	});
+	
+    $(function() {
+		$(window).resize();	
+		/* Accordion creation details ~~~~~~~~~~~~~~~~~~~~~*/
+		var icons = {
+      header: "ui-icon-folder-open",
+      activeHeader: "ui-icon-folder-collapsed"
+    };
+	$( ".accordionStyle" ).accordion({
+	  active: false,
+	  collapsible: true,
+	  animate: "bounceslide",
+	  clearStyle: true,
+	  icons: icons	  
+	});
+	/* Accordion create END */
+	  
+	/* Get Device Size and Type  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/  
+	function isSmall() {
+		if ( (window.screen.width > 650) || (window.screen.height > 650) ) {
+			return false;
+		}
+		else {
+		return true;
+		}
+	}
+	
+	function touchDeviceTest() {
+	var el = document.createElement('div');
+	var detectedDevice;
+	el.setAttribute('ongesturestart', 'return;');
+	if(typeof el.ongesturestart == "function"){
+		document.getElementById('touchCSS').setAttribute('href', 'css/touch.css');	
+		if (isSmall()) {
+			detectedDevice = 'Mobile';
+			alert(detectedDevice + " mode");
+		}
+		else {
+			detectedDevice = 'Tablet';
+			alert(detectedDevice + " mode");
+		}
+		return true;
+		}
+		else {
+			detectedDevice = 'Desktop';
+			alert(detectedDevice + " mode");
+			return false;
+		}
+	} 
+	
+	touchDeviceTest();
+	/* Get Device type and size END */
+	
+	});
+	 
+	
+
+});
+</script>
+
+<script type="text/javascript">
+// TODO : WHILE ON NOTES SLIDE.. OTHERWISE TURN OFF
+  Aloha.ready( function() {
+	  Aloha.jQuery('#notesAloha').aloha();
+  });
+</script>
+
+<!-- SWIPE TO PAGE -->
+<script>
+function slideAway() {
+	swiper.swipeTo(2);
+}
+
+function slideMenu() {
+      // get effect type from
+      var selectedEffect = $( "#effectTypes" ).val();
+ 
+      // most effect types need no options passed by default
+      var options = {};
+      // some effects have required parameters
+      if ( selectedEffect === "scale" ) {
+        options = { percent: 0 };
+      } else if ( selectedEffect === "size" ) {
+        options = { to: { width: 200, height: 60 } };
+      }
+      // run the effect
+	  $( ".swiper-container" ).hide( "fold", {horizFirst: false, size: "26%"}, 1500, callback);
+	  $( ".headerContainer" ).hide( "blind", {direction: "vertical"}, 1200 );
+	  
+	  function callback() {
+      setTimeout(function() {
+		$('.navContainer').css('display','');
+		$('.col1').css('display','none'); 
+		$('.col2').css('display','none');  
+        for(var i = 1; i <= 2; i++) {
+        $('.col'+i).each(function(){
+            $(this).show( "fold", {horizFirst: false, size: "26%"}, 1500 );
+        });
+      	}
+      	}, 0);
+    };
+    };
+</script>
+
+<script src="js/prefixfree.min.js"></script>
+
+</head>
+
+<body>
+	<div id="bg"><img id="bgImg" src="images/bg.png" alt=""></div>
+
+<div class="headerContainer">
+      <nav class="nav1">
+        <ul>
+          <li onClick="slideMenu()"><a class="icon tasks">Dashboard</a></li>
+        </ul>
+      </nav>
+      <h1><a id="sectionText">Resources</a></h1>
+      <nav class="nav2">
+        <ul>
+          <li><a href="index.html" class="icon messages">David Johnson <span>17</span></a></li>
+          <li><a href="index.html" class="icon settings">Logout</a></li>
+        </ul>
+      </nav>        
+    </div>
+
+<div class="swiper-container studentSwiper" id="studentSwiper">
+  <div class="swiper-wrapper">
+      <!--ColumnOne-->
+      
+      <!--Profile Page-->
+      <div class="swiper-slide startHide">
+        <!-- Any HTML content of the third slide goes here -->
+        <img src="images/pic3.jpg" width="100%">
+        <p>Profile</p>
+      </div>
+            
+      <!--My Todos-->
+      <!-- ADD A PERSONAL TODO... EDIT A TODO -->
+      <div class="swiper-slide startHide">  
+        <nav class="archive-links">
+            <ol>
+				<li>
+                  <a >
+                    <div class="main-image"></div>
+                    <span class="link-title">Herman Miller - Why Design</span>
+                    <span class="link-excerpt"><time class="date" datetime="November 01 2012">Nov 01, 2012</time> </span>
+                    <span class="link-comment">Mr. Hanassi</span>
+                  </a>
+                </li>
+                <li>
+                  <a >
+                    <div class="main-image"></div>
+                    <span class="link-title">Herman Miller - Why Design</span>
+                    <span class="link-excerpt"><time class="date" datetime="November 01 2012">Nov 01, 2012</time> </span>
+                    <span class="link-comment">Mr. Hanassi</span>
+                  </a>
+                </li>
+                <li>
+                  <a >
+                    <div class="main-image"></div>
+                    <span class="link-title">Herman Miller - Why Design</span>
+                    <span class="link-excerpt"><time class="date" datetime="November 01 2012">Nov 01, 2012</time> </span>
+                    <span class="link-comment">Mr. Hanassi</span>
+                  </a>
+                </li>
+                <li>
+                  <a >
+                    <div class="main-image"></div>
+                    <span class="link-title">Herman Miller - Why Design</span>
+                    <span class="link-excerpt"><time class="date" datetime="November 01 2012">Nov 01, 2012</time> </span>
+                    <span class="link-comment">Mr. Hanassi</span>
+                  </a>
+                </li>
+                <li>
+                  <a >
+                    <div class="main-image"></div>
+                    <span class="link-title">Herman Miller - Why Design</span>
+                    <span class="link-excerpt"><time class="date" datetime="November 01 2012">Nov 01, 2012</time> </span>
+                    <span class="link-comment">Mr. Hanassi</span>
+                  </a>
+                </li>  
+            </ol>
+        </nav>
+      </div>
+      
+      <!--Calendar-->
+      <div class="swiper-slide startHide">
+        <!-- Any HTML content of the third slide goes here -->
+        <img src="images/pic3.jpg" width="100%">
+        <p>Calendar</p>
+      </div>
+      
+      <!--Messages-->
+      <div class="swiper-slide startHide" id="slideMessages">
+        <!-- TODO // ADD REPLY BUTTON -->
+        <!-- TODO // BORDER OF MESSAGE AND BORDERS BETWEEN SECTIONS -->
+        <div class="cf" id="messages" style="width:100%; height:100% !important; overflow:hidden;">
+          <div id="messageHeader" style="background-color:#ddd; height:10%; overflow: hidden;">
+              <button class="messageHeaderButton" id="inbox">Inbox</button> <button class="messageHeaderButton" id="sent">Sent</button>
+          </div>
+          <div id="messageList" style="background-color:#ddd;height:90%;width:20%;float:left; overflow-y:scroll">
+              <ul>
+                  <li><a href="#"><h1>Mr. Smith</h1><h2>Compilers Topic 1</h2></a></li>
+                  <li><a href="#"><h1>Mr. Anderson</h1><h2>Compilers Topic 1</h2></a></li>
+                  <li><a href="#"><h1>Mr. Smith</h1><h2>Compilers Topic 1</h2></a></li>
+                  <li><a href="#"><h1>Mr. Smith</h1><h2>Compilers Topic 1</h2></a></li>
+                  <li><a href="#"><h1>Mr. Smith</h1><h2>Compilers Topic 1</h2></a></li>
+              </ul>
+          </div>
+          <div id="messageContent" style="background-color:#EEEEEE;height:90%;width:80%;float:left; overflow-y:scroll">
+              <h1>Mr. Smith</h1><h3>Date</h3>
+              <h2>Compilers Topic 1</h2>
+              <div id="messageBorder"></div>
+              <div id="messageView">
+                  <p>Message content here blah blah blah chicken ciao mein. Message content here blah blah blah chicken ciao mein. Message content here blah blah blah chicken ciao mein. Message content here blah blah blah chicken ciao mein.Message content here blah blah blah chicken ciao mein. Message content here blah blah blah chicken ciao mein.Message content here blah blah blah chicken ciao mein. Message content here blah blah blah chicken ciao mein. Message content here blah blah blah chicken ciao mein. Message content here blah blah blah chicken ciao mein.
+                  </p>
+              </div>
+          </div>
+        </div>
+        <div class="send">
+          <form>
+              <input name="name" placeholder="What is your name?" class="name" required />
+              <input name="emailaddress" placeholder="What is your email?" class="email" type="email" required />
+              <textarea rows="4" cols="50" name="subject" placeholder="Please enter your message" class="message" required></textarea>
+              <input name="submit" class="btn" type="submit" value="Send" />
+          </form>
+        </div>
+      </div>
+      
+      <!--Modules-->
+      <div class="swiper-slide startHide" style="height:100%; overflow:scroll">
+      <div id="modulesAccordion" class="accordionStyle">
+        <h3>MATH1015: Vectors</h3>
+        <div>
+          <p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
+        </div>
+        <h3>ENG2003: Prose</h3>
+        <div>
+          <p>Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In suscipit faucibus urna. </p>
+        </div>
+        <h3>MSCI3021: Botany</h3>
+        <div>
+          <p>Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis. Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui. </p>
+          <ul>
+            <li>List item one</li>
+            <li>List item two</li>
+            <li>List item three</li>
+          </ul>
+        </div>
+        <h3>COMP4002: Language Debugging</h3>
+        <div>
+          <p>Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia mauris vel est. </p><p>Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+        </div>
+        <h3>MISC8118: Cooking</h3>
+        <div>
+          <p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
+        </div>
+        <h3>LANG1002: Patois (Advanced)</h3>
+        <div>
+          <p>Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In suscipit faucibus urna. </p>
+        </div>
+        <h3>COMP4031: Compilers</h3>
+        <div>
+          <p>Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis. Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui. </p>
+          <ul>
+            <li>List item one</li>
+            <li>List item two</li>
+            <li>List item three</li>
+          </ul>
+        </div>
+        <h3>MSCI2092: Theoretical Physics</h3>
+        <div>
+          <p>Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia mauris vel est. </p><p>Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+        </div>
+      </div>
+      </div>
+      
+      <!--ColumnTwo-->      
+      <!--Settings-->
+      <div class="swiper-slide startHide">
+        <!-- Any HTML content of the third slide goes here -->
+        <img src="images/pic3.jpg" width="100%">
+        <p>Settings</p>
+      </div>
+      
+      <!--Live Lectures-->
+      <div class="swiper-slide startHide">
+        <!-- Any HTML content of the second slide goes here -->
+        <img src="images/pic2.jpg" width="100%">
+        LiveLectures
+      </div>
+      
+      <!--Notes-->
+      <div class="swiper-slide startHide">
+        <!-- Any HTML content of the second slide goes here -->
+        <section class="notepad">
+    	<div class="notepad-heading">
+      		<h1>Notepad</h1>
+    	</div>
+        <div id="notesAloha"><p contenteditable="true">Write your note here...</p></div>
+    	<!--<textarea class="note" >Write your note here...</textarea>-->
+  		</section>
+        <!-- old notes
+        <div contenteditable="true" class="notes">
+            <div class="pad">
+				<a href="#" class="saveNote"> Save Note </a>
+				<h2></h2>
+				<textarea class="note">
+				write your note here...
+  				</textarea>
+            </div>
+  			<div class="close-button">x</div>-->
+      </div>
+      
+      <!--Resources-->
+      <div class="swiper-slide startHide" style="overflow:scroll;">
+          <div id="resourcesAccordion" class="accordionStyle">
+          <h3>Staff Contacts</h3>
+          <div>
+            <p>Mauris.</p>
+          </div>
+          <h3>Past Exam Papers</h3>
+          <div>
+            <p>Sed non urna.</p>
+          </div>
+          <h3>Departmental Timetables</h3>
+          <div>
+            <p>Nam enim risus, molestie et, porta ac, aliquam ac, risus.</p>
+            <ul>
+              <li>List item one</li>
+              <li>List item two</li>
+              <li>List item three</li>
+            </ul>
+          </div>
+          <h3>Useful Links</h3>
+          <div>
+            <p>Cras dictum.</p>
+          </div>
+          <h3>Forum?</h3>
+          <div>
+            <p>Nam enim risus, molestie et, porta ac, aliquam ac, risus.</p>
+            <ul>
+              <li>List item one</li>
+              <li>List item two</li>
+              <li>List item three</li>
+            </ul>
+          </div>
+          <h3>News?</h3>
+          <div>
+            <p>Cras dictum.</p>
+          </div>
+        </div>
+    </div>
+      
+  </div>
+</div>
+
+<!-- Nav Container -->
+<div class="navContainer clearfix" style="height:100%; padding-bottom:2%;">
+	<!-- Column One -->
+	<div class="col1 clearfix" style="width: 49.6%; margin-left: 0px; height: 100%;">
+    	<div class="big bigFirst organizer-thumb" data-page="random-page">
+            	<span class="icon-font iconWrapper" aria-hidden="true" data-icon="&#xe015;"></span>
+            	<p class="textWrapper">David Johnson</p>
+        </div>        
+        <div class="big specialHover todos-thumb" data-page="todos">
+          <p class="specialWrapper" data-icon="&#xe018;">My Todos
+            <span class="todos-thumb-span">You have 5 more tasks to do!</span>
+          </p>
+        </div>
+		<div class="small calendar-thumb" data-page="random-page">
+        	<div class="iconWrapper">
+            	<span class="icon-font" aria-hidden="true" data-icon="&#xe00a;"></span>
+            </div>
+        </div>
+        <div class="small last paint-thumb" data-page="random-page">
+        	<div class="iconWrapper">
+        		<span class="icon-font iconWrapper" aria-hidden="true" data-icon="&#xe00b;"></span>
+            </div>
+        </div>        
+        <div class="big bigLast calculator-thumb" data-page="random-page">
+            	<span class="icon-font iconWrapper" aria-hidden="true" data-icon="&#xe006;"></span>
+            	<p class="textWrapper">Modules</p>
+        </div>
+    </div>
+    <!-- Column Two -->    
+	<div class="col2 clearfix" style="width: 49.6%; margin-right: 0px; float:right; height: 100%">
+    	<div id="logout" class="small bigFirst lock-thumb">
+          <div class="iconWrapper">
+          	<span class="icon-font center iconWrapper" aria-hidden="true" data-icon="&#xe00c;"></span>
+          </div>
+        </div>
+        <div class="small last bigFirst cpanel-thumb" data-page="random-page">
+          <div class="iconWrapper">
+          	<span class="icon-font iconWrapper" aria-hidden="true" data-icon="&#xe016;"></span>
+          </div>
+        </div>
+        <div class="big specialHover live-thumb">
+        	<p class="specialWrapper" data-icon="&#xe00f;">Live Lectures
+        	<span class="live-thumb-span" aria-hidden="true">Join a live lecture now!</span>
+            </p>
+        </div>
+        <div class="big notes-thumb" data-page="notes">
+            	<span class="icon-font iconWrapper" aria-hidden="true" data-icon="&#xe000;"></span>
+        		<p class="textWrapper">Notes</p>
+        </div>
+        <div class="big bigLast weather-thumb" data-page="random-page">
+              	<span class="icon-font iconWrapper" aria-hidden="true" data-icon="&#xe01A;"></span>
+              	<p class="textWrapper">Resources</p>
+        </div>
+     </div>
+</div>
+
+<script>
+(function() {
+
+function runHideEffect() {
+      // get effect type from
+      var selectedEffect = $( "#effectTypes" ).val();
+ 
+      // most effect types need no options passed by default
+      var options = {};
+      // some effects have required parameters
+      if ( selectedEffect === "scale" ) {
+        options = { percent: 0 };
+      } else if ( selectedEffect === "size" ) {
+        options = { to: { width: 200, height: 60 } };
+      }
+      // run the effect
+
+		//$('.navContainer').css('display','');
+		//$('.col1').css('display','none'); 
+		//$('.col2').css('display','none');  
+        for(var i = 1; i <= 2; i++) {
+        $('.col'+i).each(function(){
+            $(this).hide( "fold", {horizFirst: false, size: "26%"}, 900, callback );
+        });
+      	}
+      	
+      //$( ".navContainer" ).hide( "fold", {horizFirst: false, size: "25%"}, 1000, callback );
+    };
+	
+	function callback() {
+      setTimeout(function() {
+		/*$(".swiper-container").show( "fold", {horizFirst: false, size: "25%"}, 2200, callback );*/
+        $( ".swiper-container" ).show( "blind", {direction: "down"}, 1200, callback2 );
+      }, 0 );
+    };
+	
+	function callback2() {
+      setTimeout(function() {
+		/*$(".swiper-container").show( "fold", {horizFirst: false, size: "25%"}, 2200, callback );*/
+        $( ".headerContainer" ).show( "blind", {direction: "vertical"}, 1000 );
+		//function callback3() {
+			$('.swiper-container').css('margin-top','37px');	
+		//}
+      }, 0 );
+    };
+	
+	/* Go to live lectures */
+	function open_win() {
+		if(typeof(Storage)!=="undefined") {
+			var message = "Student";
+			sessionStorage.setItem("key", message)
+			sessionStorage.setItem("type", message);
+			window.open("live.html",'_self');
+	  	}
+		else
+	  	{
+	  	alert('storage not support');
+	  	}
+	}
+	
+	function logout() { 	
+			
+		for(var i = 1; i <= 2; i++) {
+        	$('.col'+i).each(function(){
+            	$(this).hide("clip", { direction: "vertical" }, 800, callback );
+        	});
+		$('body').css('background','black');
+		document.getElementById("bgImg").src="images/bgFade.png";	
+      	}
+		function callback() {
+      		setTimeout(function() { window.location.href = "index.html"; }, 500 );
+    	};			
+	}
+	
+	$('.organizer-thumb').click(function(){
+		$('a#sectionText').text('Profile')
+	  swiper.swipeTo(0);
+    });
+	
+	$(".todos-thumb").click(function(){
+	  $('a#sectionText').text('My Work')
+	  swiper.swipeTo(1);
+	});
+
+	$(".calendar-thumb").click(function(){
+		$('a#sectionText').text('Calendar')
+	  swiper.swipeTo(2);
+	});
+	
+	$(".paint-thumb").click(function(){
+		$('a#sectionText').text('Messages')
+	  swiper.swipeTo(3);
+	});
+	
+	$(".calculator-thumb").click(function(){
+		$('a#sectionText').text('Modules')
+	  swiper.swipeTo(4);
+	});
+	
+    $(".lock-thumb").click(function(){
+      //nothing  
+    });
+
+	$(".cpanel-thumb").click(function(){
+		$('a#sectionText').text('Settings')
+	  swiper.swipeTo(5);
+	});
+	
+	// FIX TRANSITION... TEMP FIX WITH 900TH OF A SECOND TIMING
+	$(".live-thumb").click(function(){
+		$('a#sectionText').text('Live Lectures')
+		setTimeout(function() {open_win();}, 930)
+	  //swiper.swipeTo(6);
+	});
+	
+	$('.notes-thumb').click(function(){
+		$('a#sectionText').text('Notes')
+		swiper.swipeTo(7);
+    });
+	
+	$('.weather-thumb').click(function(){
+		$('a#sectionText').text('Resources')
+		swiper.swipeTo(8);
+    });
+	
+	
+  $('.big, .small').click(function(){	
+	var checkID = this.id;
+	if (checkID == "logout") {
+		logout();
+	}
+	else {  
+		$('.startHide').css('display','inline');
+		runHideEffect();
+	}
+  });
+
+})();
+  </script>
+
+</body>
+
+
+
+</html>

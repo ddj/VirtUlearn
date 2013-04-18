@@ -1,0 +1,550 @@
+/*-------------------------
+	Simple reset
+--------------------------*/
+
+*{
+	margin:0;
+	padding:0;
+}
+
+
+/*-------------------------
+	General Styles
+--------------------------*/
+
+
+html{
+
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+    width:100%;
+    height:100%;
+	/* This will hide the extra canvas if the screen is small */
+	overflow:hidden;
+	
+}
+
+body{
+	font:14px/1.3 'Segoe UI',Arial, sans-serif;
+	color:#444;
+    width:100%;
+    height:100%;
+}
+
+/* CCM Background Start */
+#bg {
+  position:fixed; 
+  top:-50%; 
+  left:-50%; 
+  width:200%; 
+  height:200%;
+  z-index: -1;
+}
+
+#bg img {
+  position:absolute; 
+  top:0; 
+  left:0; 
+  right:0; 
+  bottom:0; 
+  margin:auto; 
+  min-width:50%;
+  min-height:50%;
+}
+/* CCM Background End */
+
+#panelC{
+	margin-left:-5%;
+	height:100%;
+	width:10%;
+	float:left;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	box-shadow: inset 0px 1px rgba(255,255,255,0.15),
+				inset 0px -1px rgba(0,0,0,0.1),
+				0px 3px 15px 3px rgba(75,50,25,0.3);
+	-webkit-box-shadow: inset 0px 1px rgba(255,255,255,0.15),
+						inset 0px -1px rgba(0,0,0,0.1),
+						0px 3px 15px 3px rgba(75,50,25,0.3);
+	;
+	-moz-box-shadow: inset 0px 1px rgba(255,255,255,0.15),
+					 inset 0px -1px rgba(0,0,0,0.1),
+					 0px 3px 15px 3px rgba(75,50,25,0.3);
+}
+
+#control{
+position: fixed;
+  	top: 48px;
+  	left: -4em;	
+  	-webkit-transition-duration: 0.3s;
+  	-moz-transition-duration: 0.3s;
+  	-o-transition-duration: 0.3s;
+  	transition-duration: 0.3s;
+}  
+
+a, a:visited {
+	outline:none;
+	color:#43819b;
+}
+
+a:hover{
+	text-decoration:none;
+}
+
+section, footer, header{
+	display: block;
+}
+
+#left {
+	background-color:#FFF;
+	margin-left:1%;
+    float: left;
+    width: 94%;
+    height:95%;
+	-webkit-box-shadow: 0px 0px 30px rgba(49, 50, 50, 0.99);
+-moz-box-shadow:    0px 0px 30px rgba(49, 50, 50, 0.99);
+box-shadow:         0px 0px 30px rgba(49, 50, 50, 0.99);
+	
+}
+
+#right {
+  position: fixed;
+  right: -250px;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  
+}
+#right:hover {
+  right: 0%;
+}
+/*-------------------------
+	Button Styles
+--------------------------*/
+
+#saveButton{
+	top:0%;
+	float:right;
+	display:block;
+    width:48px;
+    height:48px;
+	zoom:0.75;
+    background:url('/images/white_with_circle/Save.png') 0 0 no-repeat;
+}
+
+#submitField{
+	top:0%;
+	outline-color:#FFF;
+	font-size:24px;
+	float:left;
+	display:block;
+    width:400px;
+    height:48px;
+	zoom:0.75;
+}
+#datasend{
+	top:0%;
+	float:left;
+	display:block;
+    width:48px;
+    height:48px;
+	zoom:0.75;
+    background:url('/images/white_with_circle/Send-message.png') 0 0 no-repeat;
+}
+
+#backButton{
+	float:right;
+	display:block;
+    width:60px;
+    height:60px;
+    background:url('/images/white_with_circle/Back-button.png') 0 0 no-repeat;
+}
+
+#prev{
+	float:left;
+	display:block;
+    width:48px;
+    height:48px;
+	zoom:0.75;
+    background:url('/images/white_with_circle/Backward.png') 0 0 no-repeat;
+}
+#next{
+	float:left;
+	display:block;
+    width:48px;
+    height:48px;
+	zoom:0.75;
+    background:url('/images/white_with_circle/Forward.png') 0 0 no-repeat;
+}
+#inputFile{
+	float:right;
+}
+
+
+
+@media screen and (min-width:801px) and (max-height:800px) and (min-height:600px) {
+   #saveButton{
+	zoom:0.65;
+}
+#backButton{
+    width:48px;
+    height:48px;
+}
+#datasend{
+	zoom:0.65;
+}
+}
+
+
+/*-------------------------
+	Main Area
+--------------------------*/
+
+hgroup{
+	position: fixed;
+	background-color: rgba(255, 255, 255, 0.7);
+	width: 400px;
+	height: 78px;
+	top: 50%;
+	left: 50%;
+	margin: -120px 0 0 -225px;
+	text-align: center;
+	padding: 25px;
+	border-radius: 10px;
+	box-shadow: 0 0 3px rgba(100, 100, 100, 0.1), 0 3px 1px #D4D4D4;
+	color: #555;
+}
+
+h1{
+	font-size: 22px;
+	padding-bottom: 8px;
+}
+
+h2{
+	font-size: 13px;
+	font-weight: normal;
+	padding-bottom: 8px;
+}
+
+h3{
+	font-size: 12px;
+	font-weight: normal;
+	font-style: italic;
+	color: #999;
+}
+
+#cursors{
+	position:relative;
+}
+
+#cursors .cursor{
+	position:absolute;
+	width:15px;
+	height:22px;
+	background:url('../img/pointer.png') no-repeat -4px 0;
+}
+
+
+
+/*----------------------------
+	The Footer
+-----------------------------*/
+
+
+footer{
+	background-color:rgba(0,0,0,0.5);
+	bottom: 0;
+	box-shadow: 0 -1px 2px rgba(0,0,0,0.4);
+	height: 5%;
+	left: 0;
+	position: fixed;
+	width: 100%;
+	z-index: 100000;
+}
+
+footer h2{
+	color: #EEEEEE;
+	font-size: 14px;
+	font-weight: normal;
+	left: 50%;
+	margin-left: -400px;
+	padding: 13px 0 0;
+	position: absolute;
+	width: 540px;
+}
+
+footer h2 i{
+	font-style:normal;
+	color:#888;
+}
+
+footer a.tzine,a.tzine:visited{
+	color: #999999;
+	font-size: 12px;
+	left: 50%;
+	margin: 16px 0 0 110px;
+	position: absolute;
+	text-decoration: none;
+	top: 0;
+}
+
+footer a i{
+	color:#ccc;
+	font-style: normal;
+}
+
+footer a i b{
+	color:#c92020;
+	font-weight: normal;
+}
+
+/*
+***
+*/
+
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+
+* {
+   margin: 0;
+   padding: 0;
+   list-style: none;
+}
+
+ul {
+   position: absolute;
+}
+
+ ul li {
+   height: 50px;
+   background: green;
+   display: block;
+   font-family: "Oswald", sans-serif;
+   position: relative;
+   z-index: 100;
+   margin: 5px 0;
+   -webkit-animation: menu 2s;
+   -webkit-animation-fill-mode: forwards;
+   -moz-animation: menu 2s; 
+   -moz-animation-fill-mode: forwards; 
+   -ms-animation: menu 2s; 
+   -ms-animation-fill-mode: forwards; 
+   animation: menu 2s; /* Safari and Chrome */
+   animation-fill-mode: forwards; 
+   opacity: 0;
+}
+
+ul li:hover {
+   cursor: pointer;
+  }
+  
+  
+ul li:before {
+    display: block;
+    height: 50px;
+    width: 5%;
+    font-size: 2em;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-right: rgba(255,255,255,0.2) 1px solid;
+    text-align: center;
+    color: #fff;
+    text-shadow: rgba(0,0,0,0.2) 1px 1px 1px;
+    z-index: 200;
+    line-height: 1.3em;
+  }
+    
+  
+  li a {
+     color: #fff;
+     display: block;
+     height: 50px;
+     padding: 0 2em 0 70px;
+     z-index: 100;
+	 content: '0';
+     text-decoration: none;
+     text-transform: uppercase;
+     font-size: 18px;
+     line-height: 2.8em;
+     position: absolute;
+     top: 0;
+     left: 0;
+     overflow: hidden;
+     -webkit-transition: all 0.1s ease-in-out;
+     -moz-transition: all 0.1s ease-in-out;
+     -ms-transition: all 0.1s ease-in-out;
+     transition: all 0.1s ease-in-out;
+     text-shadow: rgba(0,0,0,0.3) 1px 1px;
+	 	border-radius: 5px;
+	-moz-border-radius: 5px;
+	box-shadow: inset 0px 1px rgba(255,255,255,0.15),
+				inset 0px -1px rgba(0,0,0,0.1),
+				0px 3px 15px 3px rgba(75,50,25,0.3);
+	-webkit-box-shadow: inset 0px 1px rgba(255,255,255,0.15),
+						inset 0px -1px rgba(0,0,0,0.1),
+						0px 3px 15px 3px rgba(75,50,25,0.3);
+	;
+	-moz-box-shadow: inset 0px 1px rgba(255,255,255,0.15),
+					 inset 0px -1px rgba(0,0,0,0.1),
+					 0px 3px 15px 3px rgba(75,50,25,0.3);
+}
+
+  ul li:nth-child(1) a {
+    background: #FF0000;
+  }
+
+  ul li:nth-child(2) a {
+    background: #FFFF00;
+  }
+
+  ul li:nth-child(3) a {
+    background: #00FF00;
+  }
+
+  ul li:nth-child(4) a {
+    background: #0000FF;
+  }
+
+  ul li:nth-child(5) a {
+    background: #000000;
+  }
+	  ul li:nth-child(6) a {
+    background: #666666;
+  }  ul li:nth-child(7) a {
+    background: #666666;
+  }  ul li:nth-child(8) a {
+    background: #666666;
+
+  }
+ li a:hover {
+   padding-right: 3.0em;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -ms-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+ul li:nth-child(2) {
+   -webkit-animation-delay: 0.4s;
+   -moz-animation-delay: 0.4s;
+   -ms-animation-delay: 0.4s;
+   animation-delay: 0.4s;
+}
+
+ul li:nth-child(3) {
+   -webkit-animation-delay: 0.8s; 
+   -moz-animation-delay: 0.8s;
+   -ms-animation-delay: 0.8s;
+   animation-delay: 0.8s;
+}
+
+ul li:nth-child(4) {
+   -webkit-animation-delay: 1.2s;
+   -moz-animation-delay: 1.2s; 
+   -ms-animation-delay: 1.2s; 
+   animation-delay: 1.2s; 
+}
+
+ul li:nth-child(5) {
+   -webkit-animation-delay: 1.6s;
+   -moz-animation-delay: 1.6s;
+   -ms-animation-delay: 1.6s;
+   animation-delay: 1.6s;
+}
+
+ul li:nth-child(6) {
+   -webkit-animation-delay: 2.0s;
+   -moz-animation-delay: 2.0s;
+   -ms-animation-delay: 2.0s;
+   animation-delay: 2.0s;
+}
+
+ul li:nth-child(7) {
+   -webkit-animation-delay: 2.4s;
+   -moz-animation-delay: 2.4s;
+   -ms-animation-delay: 2.4s;
+   animation-delay: 2.4s;
+}
+
+ul li:nth-child(8) {
+   -webkit-animation-delay: 2.8s;
+   -moz-animation-delay: 2.8s;
+   -ms-animation-delay: 2.8s;
+   animation-delay: 2.8s;
+}
+
+@-webkit-keyframes menu {
+  0%   {opacity: 0;}
+  25%  {opacity: 0.7;}
+  50%  {opacity: 1;}
+  100% {opacity: 1;}
+}
+
+@-moz-keyframes menu {
+  0%   {opacity: 0;}
+  25%  {opacity: 0.7;}
+  50%  {opacity: 1;}
+  100% {opacity: 1;}
+}
+
+@-ms-keyframes menu {
+  0%   {opacity: 0;}
+  25%  {opacity: 0.7;}
+  50%  {opacity: 1;}
+  100% {opacity: 1;}
+}
+
+@keyframes menu {
+  0%   {opacity: 0;}
+  25%  {opacity: 0.7;}
+  50%  {opacity: 1;}
+  100% {opacity: 1;}
+}
+
+
+/*
+**
+**
+**
+*/
+h4{
+ width:250px;
+ background-color: rgba(255, 255, 255, 0.7);
+ padding:10px 20px 10px 10px;
+ border:1px solid #B6C4C9;
+ position:relative;
+	-webkit-box-shadow: 0 4
+	px 6px -6px black;
+	   -moz-box-shadow: 0 8px 6px -6px black;
+	        box-shadow: 0 8px 6px -6px black;
+}
+h4.message:before{
+  position:absolute;
+  content:"";
+  width:5px;
+  height:0px;
+  border-width:10px 10px ;
+  border-color:transparent rgb(220,20,60) transparent transparent;
+  border-style:solid;
+  left:-25px;
+  top:24%;
+}
+h4.message:after{
+  content:"";
+  width:100px;
+  -webkit-transform:rotate(5deg);
+  position:absolute;
+  top:40%;
+  left:60%;
+  z-index:-1;
+  overflow:auto;
+}
+#conversation {
+  font-family: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin:10px auto;
+  width:250px;
+  font-size: 13px;
+}

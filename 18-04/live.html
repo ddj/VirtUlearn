@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <meta charset="utf-8" />
+        <title>VirtulearnLive</title>
+        <!-- The stylesheets -->
+        <link rel="stylesheet" href="assets/css/styles.css" />
+        <!--[if lt IE 9]>
+          <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+    <body onLoad="onLoadF();">
+    
+    <!-- CCM Background Start -->
+    <div id="bg"><img src="images/bg.png" alt=""></div>
+    <!-- CCM Background End -->
+      
+    <div id="panelC">
+    <a name="backButton" id="backButton" value=""></a></br>
+    <div id="control">
+	<ul>
+  	<li><a id="redBtn"><span> </span></a></li>
+  	<li><a id="yelBtn"><span> </span></a></li>
+  	<li><a id="greenBtn"><span> </span></a></li>
+  	<li><a id="blueBtn"><span> </span></a></li>
+ 	 <li><a id="blackBtn"><span> </span></a></li>
+     <li><a id="widthoneBtn"><span><font size="3">•</font></span></a></li>
+  	<li><a id="widthtwoBtn"><span><font size="6">•</font></span></a></li>
+  	<li><a id="widththreeBtn"><span><font size="9">•</font></span></a></li>
+	</ul>
+    </div>
+    </div>
+    <div id="left">
+	    <canvas id="paper" >                
+	    </canvas>
+    </div>
+        
+        <div id="right">
+        				<div id="conversation"></div>
+</div>
+		
+	</div>
+        
+        </div>
+        
+		    	
+		<hgroup id="instructions">		
+			<h1>Virtulearn Live</h1>
+			<h2>Welcome to your class</h2>
+			<h3>Tip: if the stage gets dirty, simply reload the page</h3>
+		</hgroup>
+		
+        <footer>
+        	<div id="teacherF">
+			<input type="file" id="inputFile" name="datasize" size="30" value="Load Slides">
+           	Page:<span id="pageNum"></span> of <span id="numPages"></span>
+            <a id="prev"></a>
+            <a id="next"></a>
+            </div>
+            
+            <div id="studentF">
+            <input type = "text" id = "submitField" placeholder = "Enter your message" />
+            <a id="datasend"></a>
+            <a name="saveButton" id="saveButton" value=""></a>
+            </div>
+        </footer>
+        
+        <!-- JavaScript includes. Notice that socket.io.js is served by node.js -->
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+        <script type="application/javascript" src="http://jsonip.appspot.com/?callback=getip"> </script>
+         <!-- In production, only one script (pdf.js) is necessary -->
+        <!-- In production, change the content of PDFJS.workerSrc below -->
+        <script type="text/javascript" src="../../src/core.js"></script>
+        <script type="text/javascript" src="../../src/util.js"></script>
+        <script type="text/javascript" src="../../src/api.js"></script>
+        <script type="text/javascript" src="../../src/canvas.js"></script>
+        <script type="text/javascript" src="../../src/obj.js"></script>
+        <script type="text/javascript" src="../../src/function.js"></script>
+        <script type="text/javascript" src="../../src/charsets.js"></script>
+        <script type="text/javascript" src="../../src/cidmaps.js"></script>
+        <script type="text/javascript" src="../../src/colorspace.js"></script>
+        <script type="text/javascript" src="../../src/crypto.js"></script>
+        <script type="text/javascript" src="../../src/evaluator.js"></script>
+        <script type="text/javascript" src="../../src/fonts.js"></script>
+        <script type="text/javascript" src="../../src/glyphlist.js"></script>
+        <script type="text/javascript" src="../../src/image.js"></script>
+        <script type="text/javascript" src="../../src/metrics.js"></script>
+        <script type="text/javascript" src="../../src/parser.js"></script>
+        <script type="text/javascript" src="../../src/pattern.js"></script>
+        <script type="text/javascript" src="../../src/stream.js"></script>
+        <script type="text/javascript" src="../../src/worker.js"></script>
+        <script type="text/javascript" src="../../external/jpgjs/jpg.js"></script>
+        <script type="text/javascript" src="../../src/jpx.js"></script>
+        <script type="text/javascript" src="../../src/jbig2.js"></script>
+        
+        <script type="text/javascript">
+         // Specify the main script used to create a new PDF.JS web worker.
+         // In production, change this to point to the combined `pdf.js` file.
+         PDFJS.workerSrc = '../../src/worker_loader.js';
+        </script>
+        <script type="text/javascript" src="hello.js"></script>
+        <script type="text/javascript" src="assets/js/script.js"></script>
+        <script src="http://www.parsecdn.com/js/parse-1.2.1.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<link href="assets/css/resourcescss.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div>
+
+</div>
+
+</body>
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>        
+// DOM Ready
+$(function() {
+	// Initialization
+ var url = 'http://10.111.44.178:8080';
+ var socket = io.connect(url);
+
+ var id = sessionStorage.getItem("user");
+ var containerName= id.replace(/\./g,'');
+        
+ alert(containerName);		
+ alert('woo');
+ socket.emit('load', containerName, function (data) {
+ for(var index in data){
+	
+	getPic(data[index].name,index);
+ }
+});     
+	
+function getPic(name,index)
+{
+socket.emit('getPic', containerName, name, function(data)
+{
+  //alert(data);
+  //$("#makeMeScrollable").append('<img src="'+data+'" />');
+
+});	     			 
+}
+  $("#makeMeScrollable").smoothDivScroll({});
+
+});
+ </script>
+
+
+</html>

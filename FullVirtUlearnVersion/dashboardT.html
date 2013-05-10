@@ -1,0 +1,239 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro">
+<link rel='stylesheet' href='assets/css/animate.css'>
+<link rel="stylesheet" href="assets/css/1140.css">
+<link rel="stylesheet" href="assets/css/teacher.css">
+<link rel="stylesheet" href="assets/css/idangerous.swiper.css">
+<script src="assets/js/idangerous.swiper-1.8.min.js"></script>
+<script src="assets/js/jquery-1.8.3.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+<script src="assets/js/teacher1.js"></script>
+<title>VirtUlearn - Teacher</title>
+<link rel="stylesheet" href="assets/css/teacher1.css">
+</head>
+
+<body>
+
+<div id="bg" class="bgWrap">
+<img src="assets/images/bg.png" alt="">
+
+  <div class="container">
+    <div id="rowFlipOne" class="row">
+      <div class="threecol">
+        <div id="1" class="scene3D">
+          <div class="flip flipTopLeft">
+              <div id="1b" class="back">	
+                  <p class="backOne">
+                  <span class="icon-font" aria-hidden="true" data-icon="&#xe015;"></span>	
+                  <p2 id="teacherName"></p2>
+                  </p>
+              </div>
+              <div class="big profile-thumb" data-page="random-page">
+                  <span class="icon-font" aria-hidden="true" data-icon="&#xe015;"></span>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="threecol">
+        <div id="2" class="scene3D">
+          <div class="flip flipTopLeft">
+              <div id="2b" class="back resources-thumb thumb">
+                  <p class="backTwo">
+                  <span class="icon-font" aria-hidden="true" data-icon="&#xe01A;"></span>
+                  <p2>Resources</p2>
+                  </p>
+              </div>
+              <div class="big resources-thumb" data-page="random-page">
+                  <span class="icon-font" aria-hidden="true" data-icon="&#xe01A;"></span>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="threecol">
+        <div id="3" class="scene3D">
+          <div class="flip flipTopRight">
+              <div id="3b" class="back">
+                  <p class="backThree">
+                  <span style="font-size:70px" id="calenDate"></span>
+                  </p>
+              </div>
+              <div class="big calendar-thumb" data-page="random-page">
+                  <span  id="calendar" class="icon-font" aria-hidden="true" data-icon="&#xe00a;"></span>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="threecol last">
+        <div id="4" class="scene3D">
+          <div class="flip flipTopRight">
+              <div id="4b" class="back logout-thumb thumb">
+                  <p>
+                  <span id="lock" class="icon-font" aria-hidden="true" data-icon="&#xe00c;"></span>
+                  <p2>Log Out</p2>
+                  </p>
+              </div>
+              <div class="big lock-thumb" data-page="random-page">
+                  <span id="lock" class="icon-font" aria-hidden="true" data-icon="&#xe00c;"></span>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="rowFlipTwo" class="row">
+      <div class="threecol">
+        <div id="5" class="scene3D">
+          <div class="flip flipBottomLeft">
+              <div id="5b" class="back">
+                  <p onClick="open_win()" class="backFive">
+                  <span class="icon-font" aria-hidden="true" data-icon="&#xe00f;"></span>
+                  <p2>Live Lectures</p2>
+                  </p>
+              </div>
+              <div class="big live-thumb" data-page="random-page">
+                  <span class="icon-font" aria-hidden="true" data-icon="&#xe00f;"></span>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="threecol">
+        <div id="6" class="scene3D">
+          <div class="flip flipBottomLeft">
+              <div id="6b" class="back modules-thumb thumb">
+                  <p class="backSix">
+                  <span class="icon-font" aria-hidden="true" data-icon="&#xe006;"></span>
+                  <p2>Modules</p2>
+                  </p>
+              </div>
+              <div class="big modules-thumb" data-page="random-page">
+                  <span class="icon-font" aria-hidden="true" data-icon="&#xe006;"></span>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="threecol">
+        <div id="7" class="scene3D">
+          <div class="flip flipBottomRight">
+          	<div id="7b" class="back messages-thumb thumb">
+                  <p class="backTwo">
+                  <span class="icon-font" aria-hidden="true" data-icon="&#xe00b;"></span>
+                  <p2>Messages</p2>
+                  </p>
+              </div>
+              <div class="big messages-thumb" data-page="random-page">
+                  <span class="icon-font" aria-hidden="true" data-icon="&#xe00b;"></span>
+              </div>    
+          </div>
+        </div>
+      </div>
+      <div class="threecol last">
+        <div id="8" class="scene3D">
+          <div class="flip flipBottomRight">
+          	<div id="8b" class="back settings-thumb thumb">
+                <p>
+                <span class="icon-font" aria-hidden="true" data-icon="&#xe016;"></span>
+                <p2>Settings</p2>
+                </p>
+            </div>
+            <div class="big settings-thumb" data-page="random-page">
+                <span class="icon-font" aria-hidden="true" data-icon="&#xe016;"></span>
+            </div>    
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="swiper-container teacherSwiper" id="teacherSwiper">
+<div class="swiper-wrapper">
+
+<!--Resources-->
+<div class="swiper-slide startHide">
+<img src="images/pic1.jpg" width="100%">
+<p>Resources</p>
+</div>
+
+<!--Modules-->
+<div class="swiper-slide startHide" style="height:100%; overflow:scroll">
+<div id="modulesAccordion" class="accordionStyle">
+<h3 id="ModuleName1"></h3>
+<p id="ModuleDesc1"></p>
+
+<h3 id="ModuleName2"></h3>
+<p id="ModuleDesc2"></p>
+
+<h3 id="ModuleName3"></h3>
+<p id="ModuleDesc3"></p>
+
+<h3 id="ModuleName4"></h3>
+<p id="ModuleDesc4"></p>
+</div>
+</div>
+
+<!--Messsages-->
+<div class="swiper-slide startHide">
+<div class="cf" id="messages" style="width:100%; height:100% !important; overflow:hidden;">
+          <div id="messageHeader" style="background-color:#ddd; height:10%; overflow: hidden;">
+              <button class="messageHeaderButton" id="inbox">Inbox</button> 
+              <button class="messageHeaderButton" id="sent">Sent</button>
+              <button class="messageHeaderButton" id="compose">Compose</button>
+              <button class="messageHeaderButton" id="delete">Delete</button>
+          </div>
+          <div id="messageList" style="background-color:#ddd;height:90%;width:20%;float:left; overflow-y:scroll">
+              <ul id="messageList">
+              </ul>
+          </div>
+          <div id="messageContent" style="background-color:#EEEEEE;height:90%;width:80%;float:left; overflow-y:scroll">
+              <h1 id="messageSender"></h1><h3 id="messageDate"></h3>
+              <h2 id="messageTitle"></h2>
+              <div id="messageBorder"></div>
+              <div id="messageView">
+                  <p id="messageText">
+                  </p>
+              </div>
+          </div>
+        </div>
+</div>
+
+<!--Settings-->
+<div class="swiper-slide startHide">
+<div id="setting1">
+        <form id="form1">
+        <h2>Student Profile</h2>
+        <input id="nameP" type="text" name="name" />
+        <input id="surname" type="text" name="surname" />
+        <input id="dob" type="text" name="dob" />
+        <input id="contactno" type="text" name="contactno" />
+        <textarea id="comments" name="comments">Additional Comments</textarea>
+  
+        <input type="submit" name='Send Message' onClick='Javascript:alert("Your changes have been submitted and will be considered.");'/>
+        </form>
+      </div>
+        <div id="setting2">
+        <form id="form2">
+
+        <h2>Modules Enrolled</h2>
+        <input id="module1" type="text" name="module1" />
+        <input id="module2" type="text" name="module2" />
+        <input id="module3" type="text" name="module3" />
+        <input id="module4" type="text" name="module4" />
+        <textarea name="comments">Additional Comments</textarea>
+  
+        <input type="submit" name='Send Message' onClick='Javascript:alert("Your changes have been submitted and will be considered.");'/>
+        </form>
+      </div>
+</div>
+
+</div>
+</div>
+
+
+</div>
+<script src="assets/js/teacher2.js"></script>
+</body>
+
+</html>

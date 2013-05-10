@@ -1,0 +1,323 @@
+<!DOCTYPE HTML>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>VirtUlearn</title>
+
+<link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css">
+<link id="touchCSS" rel="stylesheet" type="text/css" href="assets/css/foo.css">
+<link rel="stylesheet" href="assets/css/accordion-theme/jquery-ui-1.10.2.custom.min.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="assets/css/aloha.css">
+<script src="assets/js/require.js"></script>    
+<script src="assets/js/student1.js"></script> 
+<script src="assets/js/aloha.js"
+      data-aloha-plugins="common/ui,common/format,common/align,common/list,common/highlighteditables,common/link,common/horizontalruler,extra/textcolor,common/characterpicker"></script>
+<link rel="stylesheet" href="assets/css/idangerous.swiper.css">
+<script src="assets/js/idangerous.swiper-1.8.min.js"></script>
+<script src="assets/js/jquery-1.8.3.min.js"></script>
+<script src="assets/js/jquery.slidePanel.min.js"></script>
+<link rel="stylesheet" href="assets/css/student.css">
+<script src="assets/js/student2.js"></script>   
+<script src="assets/js/student3.js"></script>
+<script src="assets/js/student4.js"></script>
+<script src="assets/js/prefixfree.min.js"></script>
+</head>
+
+<body>
+	<div id="bg"><img id="bgImg" src="assets/images/bg.png" alt=""></div>
+
+<div class="headerContainer">
+      <nav class="nav1">
+        <ul>
+          <li onClick="slideMenu()"><a class="icon tasks">Dashboard</a></li>
+        </ul>
+      </nav>
+      <h1><a id="sectionText">Resources</a></h1>
+      <nav class="nav2">
+        <ul>
+          <li><a><span id="todoNo">0</span><span id="messageNo">0</span><p id="user"></p></a></li>
+          <li><a href="index.html" class="icon settings">Logout</a></li>
+        </ul>
+      </nav>        
+    </div>
+
+<div class="swiper-container studentSwiper" id="studentSwiper">
+  <div class="swiper-wrapper">
+      <!--ColumnOne-->
+      
+      <!--Profile Page-->
+      <div class="swiper-slide startHide" style="overflow-y: scroll;">
+        <div id="profile">
+            <form>
+                <fieldset>
+                    <div>
+                        <label for="name" class="mid">First Name:</label>
+                        <input type="text" name="name" id="name" value="" readonly tabindex="1">
+                            </div>
+                    <div>
+                        <label for="name" class="mid">Last Name:</label>
+                        <input type="text" name="name" id="name" value="" readonly tabindex="1">
+                            </div>
+                    <div>
+                        <label for="name" class="mid">D.O.B:</label>
+                        <input type="text" name="name" id="name" value="" readonly tabindex="1">
+                            </div>
+                    <div id="lastInput">
+                        <label for="name" class="mid">Username:</label>
+                        <input type="text" name="name" id="name" value="" readonly tabindex="1">
+                            </div>
+                </fieldset>
+			</form>
+        </div>
+    
+        <div id="statistics">      
+            <form>
+                <!-- BAR CHART -->
+          		<p class="empty"><a class="fill uno"></a><a>50%</a></p>
+          		<p class="empty"><a class="fill dos"></a><a>25%</a></p>
+                <p class="empty"><a class="fill tres"></a><a>75%</a></p>
+                <p class="empty"><a class="fill quatro"></a><a>95%</a></p>
+                <p class="empty"><a class="fill cinco"></a><a>50%</a></p>
+                <p class="empty"><a class="fill seis"></a><a>25%</a></p>
+                <p class="empty"><a class="fill siete"></a><a>75%</a></p>
+                <p class="empty"><a class="fill ocho"></a><a>95%</a></p>
+                <p style="float: right;">
+                <ol class="legend">
+                    <li class="key one">One</li>
+                    <li class="key two">Two</li>
+                    <li class="key three">Three</li>
+                    <li class="key four">Four</li>
+                    <li class="key five">Five</li>
+                    <li class="key six">Six</li>
+                    <li class="key seven">Seven</li>
+                    <li class="key eight">Eight</li>
+                </ol>
+                </p>
+                
+			</form>
+        </div>
+          
+      </div>
+            
+      <!--My Todos-->
+      <div class="swiper-slide startHide">  
+        <nav class="archive-links">
+            <ol id="TodoList">
+            </ol>
+        </nav>
+        <div style="cursor:pointer;">
+            <img id="addTodoButton" src="assets/images/plus.png" style="margin-left:50%;"></img>
+        </div>
+      </div>
+      
+      <!--Calendar
+      <div class="swiper-slide startHide">
+      </div> -->
+      
+      <!--Messages-->
+      <div class="swiper-slide startHide" id="slideMessages">
+        <div class="cf" id="messages" style="width:100%; height:100% !important; overflow:hidden;">
+          <div id="messageHeader" style="background-color:#ddd; height:10%; overflow: hidden;">
+              <button class="messageHeaderButton" id="inbox">Inbox</button> 
+              <button class="messageHeaderButton" id="sent">Sent</button>
+              <button class="messageHeaderButton" id="compose">Compose</button>
+              <button class="messageHeaderButton" id="delete">Delete</button>
+          </div>
+          <div id="messageList" style="background-color:#ddd;height:90%;width:20%;float:left; overflow-y:scroll">
+              <ul id="messageList">
+              </ul>
+          </div>
+          <div id="messageContent" style="background-color:#EEEEEE;height:90%;width:80%;float:left; overflow-y:scroll">
+              <h1 id="messageSender"></h1><h3 id="messageDate"></h3>
+              <h2 id="messageTitle"></h2>
+              <div id="messageBorder"></div>
+              <div id="messageView">
+                  <p id="messageText">
+                  </p>
+              </div>
+          </div>
+        </div>
+        <div class="send">
+          <form>
+              <input name="name" placeholder="What is your name?" class="name" required />
+              <input name="emailaddress" placeholder="What is your email?" class="email" type="email" required />
+              <textarea rows="4" cols="50" name="subject" placeholder="Please enter your message" class="message" required></textarea>
+              <input name="submit" class="btn" type="submit" value="Send" />
+          </form>
+        </div>
+      </div>
+      
+      <!--Modules-->
+      <div class="swiper-slide startHide" style="height:100%; overflow:scroll">
+      <div id="modulesAccordion" class="accordionStyle">
+      </div>
+      </div>
+      
+      <!--ColumnTwo-->      
+      <!--Settings-->
+      <div class="swiper-slide startHide">
+        <div id="setting1">
+        <form id="form1">
+        <h2>Student Profile</h2>
+        <input id="nameP" type="text" name="name" />
+        <input id="surname" type="text" name="surname" />
+        <input id="dob" type="text" name="dob" />
+        <input id="contactno" type="text" name="contactno" />
+        <textarea id="comments" name="comments">Additional Comments</textarea>
+  
+        <input type="submit" name='Send Message' onClick='Javascript:alert("Your changes have been submitted and will be considered.");'/>
+        </form>
+      </div>
+        <div id="setting2">
+        <form id="form2">
+
+        <h2>Modules Enrolled</h2>
+        <input id="module1" type="text" name="module1" />
+        <input id="module2" type="text" name="module2" />
+        <input id="module3" type="text" name="module3" />
+        <input id="module4" type="text" name="module4" />
+        <textarea name="comments">Additional Comments</textarea>
+  
+        <input type="submit" name='Send Message' onClick='Javascript:alert("Your changes have been submitted and will be considered.");'/>
+        </form>
+      </div>
+      </div>
+      
+      <!--Live Lectures-->
+      <div class="swiper-slide startHide">
+        <img src="images/pic2.jpg" width="100%">
+        LiveLectures
+      </div>
+      
+      <!--Notes-->
+      <div class="swiper-slide startHide" style="overflow: hidden;">
+
+        <section class="notepad">
+
+          <a href="#" id="trigger2" class="trigger right">Notes</a>
+        <div id="panel2" class="panel right" style="overflow: scroll !important; height: 94% !important;">
+            <ul>
+                  <li><a href="#"><h1>Chemistry</h1><h2>Lecture One</h2></a></li>
+                  <li><a href="#"><h1>Mathematics</h1><h2>Calculus</h2></a></li>
+                  <li><a href="#"><h1>English</h1><h2>Historic Literature</h2></a></li>
+                  <li><a href="#"><h1>French</h1><h2>Tenses</h2></a></li>
+                  
+            </ul>
+        </div>
+
+    	<div class="notepad-heading">
+        	<a id="saveNote"></a>
+      		<h1>Notepad</h1>        
+    	</div>
+        <div id="notesAloha"><p id="notesAlohoP" contenteditable="true">Write your note here...</p></div>
+    	<!--<textarea class="note" >Write your note here...</textarea>-->
+  		</section>
+        
+      </div>
+      
+      <!--Resources-->
+      <div class="swiper-slide startHide" style="overflow:scroll;">
+          <div id="resourcesAccordion" class="accordionStyle">
+          <h3>Staff Contacts</h3>
+          <div>
+            <p>Mauris.</p>
+          </div>
+          <h3>Past Exam Papers</h3>
+          <div>
+            <p>Sed non urna.</p>
+          </div>
+          <h3>Departmental Timetables</h3>
+          <div>
+            <p>Nam enim risus, molestie et, porta ac, aliquam ac, risus.</p>
+            <ul>
+              <li>List item one</li>
+              <li>List item two</li>
+              <li>List item three</li>
+            </ul>
+          </div>
+          <h3>Useful Links</h3>
+          <div>
+            <p>Cras dictum.</p>
+          </div>
+          <h3>Forum?</h3>
+          <div>
+            <p>Nam enim risus, molestie et, porta ac, aliquam ac, risus.</p>
+            <ul>
+              <li>List item one</li>
+              <li>List item two</li>
+              <li>List item three</li>
+            </ul>
+          </div>
+          <h3>News?</h3>
+          <div>
+            <p>Cras dictum.</p>
+          </div>
+        </div>
+    </div>
+      
+  </div>
+</div>
+
+<!-- Nav Container -->
+<div class="navContainer clearfix" style="height:100%; padding-bottom:2%;">
+	<!-- Column One -->
+	<div class="col1 clearfix" style="width: 49.6%; margin-left: 0px; height: 100%;">
+    	<div class="big bigFirst organizer-thumb" data-page="random-page">
+            	<span class="icon-font iconWrapper" aria-hidden="true" data-icon="&#xe015;"></span>
+            	<p class="textWrapper" id="UserName"></p>
+        </div>        
+        <div class="big specialHover todos-thumb" data-page="todos">
+          <p class="specialWrapper" data-icon="&#xe018;">My Todos
+            <span id="TodosNumber" class="todos-thumb-span">You have 0 more tasks to do!</span>
+          </p>
+        </div>
+		<div class="small calendar-thumb" data-page="random-page">
+        	<div class="iconWrapper">
+            	<span id="CalendarNumber" class="calendar-thumb-span" aria-hidden="true" > January </br> 1 </span>
+            </div>
+        </div>
+        <div class="small last paint-thumb" data-page="random-page">
+        	<div class="iconWrapper">
+        		<span class="icon-font iconWrapper" aria-hidden="true" data-icon="&#xe00b;"></span>
+            </div>
+        </div>        
+        <div class="big bigLast calculator-thumb" data-page="random-page">
+            	<span class="icon-font iconWrapper" aria-hidden="true" data-icon="&#xe006;"></span>
+            	<p class="textWrapper">Modules</p>
+        </div>
+    </div>
+    <!-- Column Two -->    
+	<div class="col2 clearfix" style="width: 49.6%; margin-right: 0px; float:right; height: 100%">
+    	<div id="logout" class="small bigFirst lock-thumb">
+          <div class="iconWrapper">
+          	<span class="icon-font center iconWrapper" aria-hidden="true" data-icon="&#xe00c;"></span>
+          </div>
+        </div>
+        <div class="small last bigFirst cpanel-thumb" data-page="random-page">
+          <div class="iconWrapper">
+          	<span class="icon-font iconWrapper" aria-hidden="true" data-icon="&#xe016;"></span>
+          </div>
+        </div>
+        <div class="big specialHover live-thumb">
+        	<p class="specialWrapper" data-icon="&#xe00f;">Live Lectures
+        	<span class="live-thumb-span" aria-hidden="true">Join a live lecture now!</span>
+            </p>
+        </div>
+        <div class="big notes-thumb" data-page="notes">
+            	<span class="icon-font iconWrapper" aria-hidden="true" data-icon="&#xe000;"></span>
+        		<p class="textWrapper">Notes</p>
+        </div>
+        <div class="big bigLast weather-thumb" data-page="random-page">
+              	<span class="icon-font iconWrapper" aria-hidden="true" data-icon="&#xe01A;"></span>
+              	<p class="textWrapper">Resources</p>
+        </div>
+     </div>
+</div>
+
+<script src="assets/js/student5.js"></script>
+
+</body>
+
+</html>

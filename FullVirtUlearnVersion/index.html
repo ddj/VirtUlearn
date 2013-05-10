@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='UTF-8'>
+	<title>VirtUlearn</title>
+  <link rel='stylesheet' href='assets/css/animate.css'>
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Fertigo">
+  <link rel='stylesheet' href='assets/css/index.css'>
+  <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js'></script>
+	<script src="assets/js/jquery.lettering.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+	<script src="/assets/js/index.js"></script>
+</head>
+
+<body>
+	<div class="wrap">
+      
+      <div id="bg" class="hide">
+          <img src="assets/images/bg.png" alt="">
+      </div>
+      <div id="bgBlack">
+          <img src="assets/images/bgFade.png" alt="">
+      </div>
+      <div id="poster">
+          <h1 class="hide">VirtUlearn</h1>
+          <p class="hide">First Edition</p>
+      </div>
+      
+      <form id="loginForm" class="hide">
+          <input id="user" class="hide" type="text" placeholder="Username" required>
+          <input id="pass" onKeyDown="loginButton()" class="hide" type="password" placeholder="Password" required>
+          <button id="loginButton" class="depth hideDissolve" type="button">&#10004;</button>
+      </form>
+      
+    </div>
+    
+</body>
+
+</html>
